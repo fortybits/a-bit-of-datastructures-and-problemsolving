@@ -1,6 +1,4 @@
 module a.bit.of.data.structures {
-    requires lombok;
-
     exports edu.bit.datastructures.array;
     exports edu.bit.datastructures.bitops;
     exports edu.bit.datastructures.graph;
