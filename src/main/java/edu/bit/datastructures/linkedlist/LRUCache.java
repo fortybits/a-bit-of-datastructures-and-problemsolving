@@ -1,7 +1,5 @@
 package edu.bit.datastructures.linkedlist;
 
-import lombok.Getter;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +34,6 @@ public class LRUCache {
     // A combination of both the above can help is solving for all, insert, delete and get. But remember,
     // we would be using doubly linked lists for removal of a middle element.
 
-    @Getter
     static class Cache {
         private int maxCacheSize;
         private Map<Integer, LinkedListNode> map = new HashMap<>();

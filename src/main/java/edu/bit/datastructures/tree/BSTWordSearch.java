@@ -1,6 +1,6 @@
 package edu.bit.datastructures.tree;
 
-import lombok.Getter;
+import edu.bit.datastructures.tree.entity.BSTNode;
 
 public class BSTWordSearch<E> {
     // root passed from method call for a node
@@ -15,11 +15,11 @@ public class BSTWordSearch<E> {
     protected boolean contains(E item, BSTNode<E> tree) {
         String lookingFor = "searchTHISword";
         if (tree == null) return false;
-        if (findWord(lookingFor, tree.getInfo())) {
+        if (findWord(lookingFor, tree.info())) {
             System.out.println("Found the entire word here.");
             return true;
         }
-        if (findPrefix(lookingFor, tree.getInfo())) {
+        if (findPrefix(lookingFor, tree.info())) {
             System.out.println("Found the word as a prefix here.");
             return true;
         }
@@ -31,10 +31,4 @@ public class BSTWordSearch<E> {
     }
     // Would return false, it what you are looking for is nowhere in the BST
 
-    @Getter
-    public class BSTNode<E> {
-        private String info;
-        private BSTNode<E> left;
-        private BSTNode<E> right;
-    }
 }

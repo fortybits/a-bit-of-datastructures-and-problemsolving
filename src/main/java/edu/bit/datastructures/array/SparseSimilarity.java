@@ -1,9 +1,5 @@
 package edu.bit.datastructures.array;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -59,21 +55,13 @@ public class SparseSimilarity {
 
     // Can you compare the similarity directly from the pre-computed map?
 
-    @Getter
-    @AllArgsConstructor
-    static class DocPair {
-        int documentOne;
-        int documentTwo;
+
+    record DocPair(int documentOne, int documentTwo) {
     }
 
-    @Getter
-    @AllArgsConstructor
-    static class Document {
-        private Set<Integer> words;
-        private int docId;
-
+    record Document(Set<Integer> words, int docId) {
         public int size() {
-            return words == null ? 0 : words.size();
+            return words() == null ? 0 : words().size();
         }
     }
 
@@ -83,9 +71,9 @@ public class SparseSimilarity {
             for (int j = i + 1; j < documents.size(); j++) {
                 Document doc1 = documents.get(i);
                 Document doc2 = documents.get(j);
-                double sim = similarityScore(doc1.getWords(), doc2.getWords());
+                double sim = similarityScore(doc1.words(), doc2.words());
                 if (sim > 0) {
-                    DocPair pair = new DocPair(doc1.getDocId(), doc2.getDocId());
+                    DocPair pair = new DocPair(doc1.docId(), doc2.docId());
                     similarities.put(pair, sim);
                 }
             }
@@ -108,7 +96,7 @@ public class SparseSimilarity {
     /* Create hash table from each word to where it appears. */
     public static Map<Integer, Set<Integer>> groupWords(Map<Integer, Document> documents) {
         return documents.values().stream()
-                .flatMap(d -> d.getWords().stream().map(w -> new AbstractMap.SimpleEntry<>(w, d.getDocId())))
+                .flatMap(d -> d.words().stream().map(w -> new AbstractMap.SimpleEntry<>(w, d.docId())))
                 .collect(Collectors.groupingBy(AbstractMap.SimpleEntry::getKey, Collectors.mapping(
                         Map.Entry::getValue, Collectors.toSet())));
     }
@@ -142,20 +130,15 @@ public class SparseSimilarity {
         for (Map.Entry<DocPair, Double> entry : similarities.entrySet()) {
             DocPair pair = entry.getKey();
             Double intersection = entry.getValue();
-            Document doc1 = documents.get(pair.getDocumentOne());
-            Document doc2 = documents.get(pair.getDocumentTwo());
+            Document doc1 = documents.get(pair.documentOne());
+            Document doc2 = documents.get(pair.documentTwo());
             double union = (double) doc1.size() + doc2.size() - intersection;
             entry.setValue(intersection / union);
         }
     }
 
 
-    @AllArgsConstructor
-    @EqualsAndHashCode
-    public static class Element implements Comparable<Element> {
-        int word;
-        int document;
-
+    record Element(int word, int document) implements Comparable<Element> {
         public int compareTo(Element e) {
             return word == e.word ? Integer.compare(document, e.document) : Integer.compare(word, e.word);
         }
@@ -164,8 +147,8 @@ public class SparseSimilarity {
     /* Throw all words into one list, sorting by the word then the document. */
     public static List<Element> sortWords(Map<Integer, Document> docs) {
         return docs.values().stream()
-                .flatMap(d -> d.getWords().stream().map(w -> new AbstractMap.SimpleEntry<>(d, w)))
-                .map(e -> new Element(e.getValue(), e.getKey().getDocId()))
+                .flatMap(d -> d.words().stream().map(w -> new AbstractMap.SimpleEntry<>(d, w)))
+                .map(e -> new Element(e.getValue(), e.getKey().docId()))
                 .sorted()
                 .collect(Collectors.toList());
     }

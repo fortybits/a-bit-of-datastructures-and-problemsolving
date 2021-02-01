@@ -1,6 +1,6 @@
 package edu.bit.datastructures.tree;
 
-import lombok.Getter;
+import edu.bit.datastructures.tree.entity.BSTNode;
 
 public class TreePrefix {
 
@@ -9,24 +9,17 @@ public class TreePrefix {
         if (tree == null) return false;
 
         // test if each node starts with the prefix.
-        if (tree.getInfo().startsWith(prefixKey)) {
+        if (tree.info().startsWith(prefixKey)) {
             return true;
         }
         // recursive case.
-        else if (prefixKey.compareTo(tree.getInfo()) < 0)
-            return recContainsPrefix(prefixKey, tree.getLeft());
+        else if (prefixKey.compareTo(tree.info()) < 0)
+            return recContainsPrefix(prefixKey, tree.left());
             // recursive case.
-        else if (prefixKey.compareTo(tree.getInfo()) > 0)
-            return recContainsPrefix(prefixKey, tree.getRight());
+        else if (prefixKey.compareTo(tree.info()) > 0)
+            return recContainsPrefix(prefixKey, tree.right());
         else {
             return true;
         }
-    }
-
-    @Getter
-    public class BSTNode<E> {
-        private String info;
-        private BSTNode<E> left;
-        private BSTNode<E> right;
     }
 }

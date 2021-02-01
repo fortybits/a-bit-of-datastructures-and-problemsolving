@@ -1,6 +1,5 @@
 package edu.bit.datastructures.array;
 
-import lombok.Builder;
 
 /**
  * You are given an array of integers(positive and negative both). Find the contiguous sequence with
@@ -31,13 +30,12 @@ public class ContiguousSequence {
     // they can use a custom object to wrap the information around it.
     ResultBlock contiguousSequence(int[] array) {
         // this would need some time to complete
-        return ResultBlock.builder().numberOfElements(array.length).build();
+        return new ResultBlock(array.length);
     }
 
-    @Builder
-    static class ResultBlock {
-        int startIndex;
-        int sum;
-        int numberOfElements;
+    record ResultBlock(int startIndex, int sum, int numberOfElements) {
+        ResultBlock(int numberOfElements) {
+            this(0, 0, numberOfElements);
+        }
     }
 }

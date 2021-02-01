@@ -2,8 +2,6 @@ package edu.bit.datastructures.array;
 
 import edu.bit.datastructures.annotations.Array;
 import edu.bit.datastructures.annotations.Graph;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.*;
 import java.util.function.Function;
@@ -38,10 +36,17 @@ public class BabyNames {
         // but do not have any synonym
     }
 
-    @Getter
     static class Pair {
         String source;
         String destination;
+
+        public String getSource() {
+            return source;
+        }
+
+        public String getDestination() {
+            return destination;
+        }
 
         // implement equals in such a way that even if any of source or destination matches,
         // one finds the pairs as equal
@@ -138,14 +143,16 @@ public class BabyNames {
         }
     }
 
-
-    @Getter
-    @Setter
     static class GraphNode {
         private List<GraphNode> neighbors;
         private Map<String, GraphNode> map;
         private String name;
         private int frequency;
+
+        public void setVisited(boolean visited) {
+            this.visited = visited;
+        }
+
         private boolean visited = false;
 
         public GraphNode(String nm, int freq) {
@@ -163,13 +170,39 @@ public class BabyNames {
             map.put(node.getName(), node);
             return true;
         }
+
+        public List<GraphNode> getNeighbors() {
+            return neighbors;
+        }
+
+        public Map<String, GraphNode> getMap() {
+            return map;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getFrequency() {
+            return frequency;
+        }
+
+        public boolean isVisited() {
+            return visited;
+        }
     }
 
-
-    @Getter
     static class Graph {
         private List<GraphNode> nodes;
         private Map<String, GraphNode> map;
+
+        public List<GraphNode> getNodes() {
+            return nodes;
+        }
+
+        public Map<String, GraphNode> getMap() {
+            return map;
+        }
 
         public Graph() {
             map = new HashMap<>();

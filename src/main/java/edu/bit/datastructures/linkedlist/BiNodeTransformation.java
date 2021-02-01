@@ -2,8 +2,6 @@ package edu.bit.datastructures.linkedlist;
 
 import edu.bit.datastructures.annotations.LinkedList;
 import edu.bit.datastructures.annotations.Tree;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 /**
  * Consider a simple data structure called BiNode having two other node references.
@@ -16,12 +14,14 @@ import lombok.Getter;
 @LinkedList
 public class BiNodeTransformation {
 
-    @Getter
-    @AllArgsConstructor
     static class BiNode {
         BiNode node1;
         BiNode node2;
         int data;
+
+        public int getData() {
+            return data;
+        }
     }
 
     // The approach could be to perform an In-Order traversal using recursion and updating the references.
@@ -31,10 +31,7 @@ public class BiNodeTransformation {
     // One of these would be to keep a track of the head and the tail while converting the nodes of the tree.
     // This could be done without any additional data structure, but the following reads cleaner.
 
-    @AllArgsConstructor
-    private static class NodePair {
-        BiNode head;
-        BiNode tail;
+    record NodePair(BiNode head, BiNode tail) {
     }
 
     public static NodePair convertNP(BiNode root) {

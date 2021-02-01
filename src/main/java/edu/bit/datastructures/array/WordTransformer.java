@@ -3,8 +3,6 @@ package edu.bit.datastructures.array;
 import edu.bit.datastructures.annotations.Array;
 import edu.bit.datastructures.annotations.Graph;
 import edu.bit.datastructures.annotations.Tree;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 import java.util.*;
 import java.util.function.Function;
@@ -151,11 +149,11 @@ public class WordTransformer {
         for (int i = 0; i < count; i++) {
             /* Pull out first node. */
             PathNode pathNode = primary.toVisit.poll();
-            String word = pathNode.getWord();
+            String word = pathNode.word();
 
             /* Check if it's already been visited. */
             if (secondary.visited.containsKey(word)) {
-                return pathNode.getWord();
+                return pathNode.word();
             }
 
             /* Add friends to queue. */
@@ -201,11 +199,8 @@ public class WordTransformer {
         return transform(visited, source, destination, dictionary);
     }
 
-    @Getter
-    @AllArgsConstructor
-    static class PathNode {
-        private String word;
-        private PathNode previousNode;
+
+    record PathNode(String word, PathNode previousNode) {
 
         /* Traverse path and return linked list of nodes. */
         List<String> collapse(boolean startsWithRoot) {

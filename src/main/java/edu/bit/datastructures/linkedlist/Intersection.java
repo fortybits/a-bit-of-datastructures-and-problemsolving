@@ -1,7 +1,5 @@
 package edu.bit.datastructures.linkedlist;
 
-import lombok.AllArgsConstructor;
-
 /**
  * Given two linked lists, determine if the two lists intersect. Return the intersecting node.
  * Note that the intersection is defined based on the reference and not the value. That is if the kth
@@ -49,9 +47,6 @@ public class Intersection {
         return new Result(current, size);
     }
 
-    @AllArgsConstructor
-    static class Result {
-        LinkedListNode tail;
-        int size;
+    record Result(LinkedListNode tail, int size) {
     }
 }

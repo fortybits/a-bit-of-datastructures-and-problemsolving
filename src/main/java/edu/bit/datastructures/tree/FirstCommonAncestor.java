@@ -1,7 +1,5 @@
 package edu.bit.datastructures.tree;
 
-import lombok.AllArgsConstructor;
-
 /**
  * Design an algorithm and write code to find the first common ancestor of two nodes in a binary tree.
  * Avoid storing additional nodes in a data structure. Note: This is not necessarily a binary search tree.
@@ -75,10 +73,7 @@ public class FirstCommonAncestor {
     // one way is to figure out whether the given nodes are both on different side of a node(this would be the
     // ancestor node) in such a case
 
-    @AllArgsConstructor
-    public static class Result {
-        private TreeNode node;
-        private boolean isAncestor;
+    record Result(TreeNode node, boolean isAncestor) {
     }
 
     public static Result commonAncestorHelper(TreeNode root, TreeNode p, TreeNode q) {

@@ -1,7 +1,5 @@
 package edu.bit.datastructures.graph;
 
-import lombok.Getter;
-
 import java.util.*;
 
 /**
@@ -66,12 +64,24 @@ public class BuildOrder {
         return graph;
     }
 
-    @Getter
     static class Project {
         List<Project> children = new ArrayList<>(); // dependent projects for this node
         Map<String, Project> map = new HashMap<>();
         private String name;
+
+        public List<Project> getChildren() {
+            return children;
+        }
+
+        public String getName() {
+            return name;
+        }
+
         private int dependencies = 0; // count of incoming edges to a node
+
+        public int getDependencies() {
+            return dependencies;
+        }
 
         Project(String name) {
             this.name = name;
@@ -94,10 +104,17 @@ public class BuildOrder {
         }
     }
 
-    @Getter
     static class Graph {
         List<Project> nodes = new ArrayList<>();
         Map<String, Project> map = new HashMap<>();
+
+        public Map<String, Project> getMap() {
+            return map;
+        }
+
+        public List<Project> getNodes() {
+            return nodes;
+        }
 
         Project getOrCreateNode(String name) {
             Project project = new Project(name);

@@ -1,7 +1,6 @@
 package edu.bit.datastructures.array;
 
 import edu.bit.datastructures.annotations.Array;
-import lombok.AllArgsConstructor;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -116,11 +115,7 @@ public class ReSpace {
         System.out.println(bestSplit(dictionary, sentence));
     }
 
-    @AllArgsConstructor
-    static class ParseResult {
-        int invalid;
-        String parsed;
-
+    record ParseResult(int invalid, String parsed) {
         public static ParseResult min(ParseResult r1, ParseResult r2) {
             if (r1 == null) {
                 return r2;
