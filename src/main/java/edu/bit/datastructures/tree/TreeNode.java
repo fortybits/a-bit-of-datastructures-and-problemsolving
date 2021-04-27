@@ -4,11 +4,11 @@ public class TreeNode {
     TreeNode left;
     TreeNode right;
     TreeNode parent;
-    int data;
+    int val;
     private int size = 0;
 
-    public TreeNode(int data) {
-        this.data = data;
+    public TreeNode(int val) {
+        this.val = val;
         left = right = null;
     }
 
@@ -31,7 +31,7 @@ public class TreeNode {
     }
 
     public void insertInOrder(int d) {
-        if (d <= data) {
+        if (d <= val) {
             if (left == null) {
                 setLeftChild(new TreeNode(d));
             } else {

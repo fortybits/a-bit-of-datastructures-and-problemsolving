@@ -53,7 +53,7 @@ public class BinarySearchTreeSequence {
         }
 
         LinkedList<Integer> prefix = new LinkedList<>();
-        prefix.add(node.data);
+        prefix.add(node.val);
 
         /* Recurse on left and right subtrees. */
         List<LinkedList<Integer>> leftSeq = allSequences(node.left);

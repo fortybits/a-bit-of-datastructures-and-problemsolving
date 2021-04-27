@@ -35,7 +35,7 @@ public class PathsWithSum {
     public static int countPathsWithSumFromNode(TreeNode node, int targetSum, int currentSum) {
         if (node == null) return 0;
 
-        currentSum += node.data;
+        currentSum += node.val;
 
         int totalPaths = 0;
         if (currentSum == targetSum) { // Found a path from the root
@@ -88,7 +88,7 @@ public class PathsWithSum {
     public static int countPathsWithSumOp(TreeNode node, int targetSum, int runningSum, Map<Integer, Integer> pathCount) {
         if (node == null) return 0; // Base case
 
-        runningSum += node.data;
+        runningSum += node.val;
 
         /* Count paths with sum ending at the current node. */
         int sum = runningSum - targetSum;

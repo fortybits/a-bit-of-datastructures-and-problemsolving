@@ -47,7 +47,7 @@ public class LeafOrderTraversal {
             // If both are not null and data is not
             // same return false
             if (temp1 != null && temp2 != null) {
-                if (temp1.data != temp2.data) return false;
+                if (temp1.val != temp2.val) return false;
             }
         }
 

@@ -12,7 +12,7 @@ public class ValidateBST {
     private void copyBST(TreeNode root, int[] array) {
         if (root == null) return;
         copyBST(root.left, array);
-        array[index] = root.data;
+        array[index] = root.val;
         index++;
         copyBST(root.right, array);
     }
@@ -47,10 +47,10 @@ public class ValidateBST {
         if (!checkBSTOptimised(root.left)) {
             return false;
         }
-        if (lastPrinted != null && root.data <= lastPrinted) {
+        if (lastPrinted != null && root.val <= lastPrinted) {
             return false;
         }
-        lastPrinted = root.data;
+        lastPrinted = root.val;
         return checkBSTOptimised(root.right); // final check
     }
 
@@ -66,10 +66,10 @@ public class ValidateBST {
         if (node == null) {
             return true;
         }
-        if ((min != null && node.data <= min) || (max != null && node.data > max)) {
+        if ((min != null && node.val <= min) || (max != null && node.val > max)) {
             return false;
         }
-        return (checkBSTWithMinMax(node.left, min, node.data))
-                && checkBSTWithMinMax(node.right, node.data, max);
+        return (checkBSTWithMinMax(node.left, min, node.val))
+                && checkBSTWithMinMax(node.right, node.val, max);
     }
 }

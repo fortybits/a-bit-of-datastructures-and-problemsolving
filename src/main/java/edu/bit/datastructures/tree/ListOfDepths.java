@@ -1,7 +1,6 @@
 package edu.bit.datastructures.tree;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -40,7 +39,7 @@ public class ListOfDepths {
     public static void printResult(List<LinkedList<TreeNode>> result) {
         for (int depth = 0; depth < result.size(); depth++) {
             System.out.println("Link list at depth " + depth + ":");
-            result.get(depth).forEach(n -> System.out.print(" " + n.data));
+            result.get(depth).forEach(n -> System.out.print(" " + n.val));
         }
     }
 

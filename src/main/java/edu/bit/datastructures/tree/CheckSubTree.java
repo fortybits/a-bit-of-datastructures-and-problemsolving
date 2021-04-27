@@ -25,7 +25,7 @@ public class CheckSubTree {
             sb.append("X");             // Add null indicator
             return;
         }
-        sb.append(node.data);           // Add root
+        sb.append(node.val);           // Add root
         getOrderString(node.left, sb);  // Add left
         getOrderString(node.right, sb); // Add right
     }
@@ -50,7 +50,7 @@ public class CheckSubTree {
     public static boolean subTree(TreeNode r1, TreeNode r2) {
         if (r1 == null) {
             return false; // big tree empty & subtree still not found.
-        } else if (r1.data == r2.data && matchTree(r1, r2)) {
+        } else if (r1.val == r2.val && matchTree(r1, r2)) {
             return true;
         }
         return subTree(r1.left, r2) || subTree(r1.right, r2);
@@ -64,7 +64,7 @@ public class CheckSubTree {
             return true; // nothing left in the subtree
         } else if (r1 == null || r2 == null) {
             return false; // exactly one tree is empty, therefore trees don't match
-        } else if (r1.data != r2.data) {
+        } else if (r1.val != r2.val) {
             return false;  // data doesn't match
         } else {
             return matchTree(r1.left, r2.left) && matchTree(r1.right, r2.right);

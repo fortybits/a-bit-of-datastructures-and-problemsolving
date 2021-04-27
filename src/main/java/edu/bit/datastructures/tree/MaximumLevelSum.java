@@ -70,7 +70,7 @@ public class MaximumLevelSum {
         if (node == null) {
             return;
         }
-        sum[level] = sum[level] + node.data;
+        sum[level] = sum[level] + node.val;
 
         calculateLevelSum(node.left, level + 1, sum);
         calculateLevelSum(node.right, level + 1, sum);
