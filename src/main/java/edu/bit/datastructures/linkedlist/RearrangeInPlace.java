@@ -5,11 +5,11 @@ package edu.bit.datastructures.linkedlist;
  */
 public class RearrangeInPlace {
 
-    public static void rearrange(LinkedListNode head) {
+    public static void rearrange(ListNode head) {
         /*
          * Find the middle point using tortoise and hare method
          */
-        LinkedListNode slow = head, fast = slow.next;
+        ListNode slow = head, fast = slow.next;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
@@ -19,21 +19,21 @@ public class RearrangeInPlace {
          * LinkedListNode1, head of first half    1 -> 2 -> 3
          * LinkedListNode2, head of second half   4 -> 5
          */
-        LinkedListNode linkedListLinkedListNode1 = head;
-        LinkedListNode linkedListLinkedListNode2 = slow.next;
+        ListNode linkedListLinkedListNode1 = head;
+        ListNode linkedListLinkedListNode2 = slow.next;
         slow.next = null;
 
         // Reverse the second half, i.e., 5 -> 4
         linkedListLinkedListNode2 = ReverseLinkedList.reverseLinkedList(linkedListLinkedListNode2);
 
         //  Merge alternate LinkedListNodes
-        head = new LinkedListNode(0); // Assign dummy LinkedListLinkedListNode
+        head = new ListNode(0); // Assign dummy LinkedListLinkedListNode
 
         /*
          * curr is the pointer to this dummy LinkedListLinkedListNode, which will
          * be used to form the new list
          */
-        LinkedListNode current = head;
+        ListNode current = head;
         while (linkedListLinkedListNode1 != null || linkedListLinkedListNode2 != null) {
             // First add the element from first list
             if (linkedListLinkedListNode1 != null) {

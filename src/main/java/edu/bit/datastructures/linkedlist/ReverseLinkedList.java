@@ -6,8 +6,8 @@ package edu.bit.datastructures.linkedlist;
 class ReverseLinkedList {
 
     // reverses without using any extra space
-    static LinkedListNode reverseLinkedList(LinkedListNode head) {
-        LinkedListNode prev = null, curr = head, next;
+    static ListNode reverseLinkedList(ListNode head) {
+        ListNode prev = null, curr = head, next;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
@@ -18,10 +18,10 @@ class ReverseLinkedList {
         return head;
     }
 
-    static LinkedListNode reverseLinkedListAndClone(LinkedListNode node) {
-        LinkedListNode head = null;
+    static ListNode reverseLinkedListAndClone(ListNode node) {
+        ListNode head = null;
         while (node != null) {
-            LinkedListNode next = new LinkedListNode(node.data);
+            ListNode next = new ListNode(node.val);
             next.next = node;
             head = next;
             node = node.next;

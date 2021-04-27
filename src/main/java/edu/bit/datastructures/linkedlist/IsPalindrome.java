@@ -9,14 +9,14 @@ import java.util.Deque;
 public class IsPalindrome {
 
     // one approach is to reverse the linked list and match if all the elements are same in both the list
-    boolean checkPalindrome(LinkedListNode linkedListNode) {
-        LinkedListNode reverse = ReverseLinkedList.reverseLinkedListAndClone(linkedListNode);
+    boolean checkPalindrome(ListNode linkedListNode) {
+        ListNode reverse = ReverseLinkedList.reverseLinkedListAndClone(linkedListNode);
         return isEqual(linkedListNode, reverse);
     }
 
-    private boolean isEqual(LinkedListNode first, LinkedListNode second) {
+    private boolean isEqual(ListNode first, ListNode second) {
         while (first != null && second != null) {
-            if (first.data != second.data) {
+            if (first.val != second.val) {
                 return false;
             }
             first = first.next;
@@ -29,12 +29,12 @@ public class IsPalindrome {
     // so a Stack could be used to push the first half of elements and then pop the elements to
     // compare them with the other half. This would require being aware fof the size or
     // using the runner approach to decide the middle element)
-    boolean isPalindrome(LinkedListNode head) {
-        LinkedListNode fast = head;
-        LinkedListNode slow = head;
+    boolean isPalindrome(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
         Deque<Integer> stack = new ArrayDeque<>(); // Java implementation for synchronised stack
         while (fast != null && fast.next != null) {
-            stack.push(slow.data);
+            stack.push(slow.val);
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -47,7 +47,7 @@ public class IsPalindrome {
         // continue with the slow pointer for the rest of the half while cross checking the stack
         while (slow != null) {
             int top = stack.pop();
-            if (top != slow.data) {
+            if (top != slow.val) {
                 return false;
             }
             slow = slow.next;

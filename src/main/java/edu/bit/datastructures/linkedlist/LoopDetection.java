@@ -10,9 +10,9 @@ public class LoopDetection {
     // if they coincide after a certain time, there is a loop detected
     // the position at which they coincide would be at the equal distance from the loop start
     // as much as the loop start would be from the beginning
-    LinkedListNode findBeginning(LinkedListNode head) {
-        LinkedListNode slow = head;
-        LinkedListNode fast = head;
+    ListNode findBeginning(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
 
         // to power just the flag this would be sufficient
         while (fast != null && fast.next != null) {

@@ -10,17 +10,17 @@ public class PartitionLinkedList {
 
     // one way is to keep a track of before and after partition values with start and end pointers
     // this would require keeping 4 pointers as beforeStart, beforeEnd, afterStart and afterEnd
-    LinkedListNode partitionLinkedListByValue(LinkedListNode head, int x) {
-        LinkedListNode beforeStart = null;
-        LinkedListNode beforeEnd = null;
-        LinkedListNode afterStart = null;
-        LinkedListNode afterEnd = null;
+    ListNode partitionLinkedListByValue(ListNode head, int x) {
+        ListNode beforeStart = null;
+        ListNode beforeEnd = null;
+        ListNode afterStart = null;
+        ListNode afterEnd = null;
 
         while (head != null) {
-            LinkedListNode next = head.next;
+            ListNode next = head.next;
             head.next = null;
             // part for smaller values
-            if (head.data < x) {
+            if (head.val < x) {
                 // decide where to insert the node now
                 if (beforeStart == null) {
                     beforeStart = head;
@@ -53,12 +53,12 @@ public class PartitionLinkedList {
     // you can still optimise the use of variables for tracking the lists
     // if the elements of this list are supposedly not required to be stable
     // we can grow the head and the tail of the list
-    LinkedListNode partitionLinkedListByValueOptimised(LinkedListNode node, int x) {
-        LinkedListNode head = node;
-        LinkedListNode tail = node;
+    ListNode partitionLinkedListByValueOptimised(ListNode node, int x) {
+        ListNode head = node;
+        ListNode tail = node;
         while (node != null) {
-            LinkedListNode next = node.next;
-            if (node.data < x) {
+            ListNode next = node.next;
+            if (node.val < x) {
                 // insert the node at head
                 node.next = head;
                 head = node;

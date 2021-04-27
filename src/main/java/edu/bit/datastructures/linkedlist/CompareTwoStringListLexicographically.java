@@ -33,21 +33,21 @@ public class CompareTwoStringListLexicographically {
         }
     }
 
-    int compare(LinkedListNode linkedListNode1, LinkedListNode linkedListNode2) {
+    int compare(ListNode linkedListNode1, ListNode linkedListNode2) {
 
         if (linkedListNode1 == null && linkedListNode2 == null) {
             return 0;
         }
         while (linkedListNode1 != null
                 && linkedListNode2 != null
-                && linkedListNode1.data == linkedListNode2.data) {
+                && linkedListNode1.val == linkedListNode2.val) {
             linkedListNode1 = linkedListNode1.next;
             linkedListNode2 = linkedListNode2.next;
         }
 
         // if the list are diffrent in size
         if (linkedListNode1 != null && linkedListNode2 != null) {
-            return (linkedListNode1.data > linkedListNode2.data ? 1 : -1);
+            return (linkedListNode1.val > linkedListNode2.val ? 1 : -1);
         }
 
         // if either of the list has reached end

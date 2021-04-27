@@ -8,7 +8,7 @@ package edu.bit.datastructures.linkedlist;
 public class Intersection {
 
     // to return the node of intersection, one would have to traverse both the lists
-    LinkedListNode intersectingLinkedLists(LinkedListNode first, LinkedListNode second) {
+    ListNode intersectingLinkedLists(ListNode first, ListNode second) {
         if (first == null || second == null) {
             return null;
         }
@@ -20,8 +20,8 @@ public class Intersection {
             return null;
         }
 
-        LinkedListNode shorter = result1.size < result2.size ? first : second;
-        LinkedListNode longer = result1.size < result2.size ? second : first;
+        ListNode shorter = result1.size < result2.size ? first : second;
+        ListNode longer = result1.size < result2.size ? second : first;
 
         // advance the pointer for longer list by the difference in size starting from the tail
         longer = KthFromLastNode.getKthNode(longer, Math.abs(result1.size - result2.size));
@@ -36,10 +36,10 @@ public class Intersection {
         return longer;
     }
 
-    private Result getTailAndSize(LinkedListNode list) {
+    private Result getTailAndSize(ListNode list) {
         if (list == null) return null;
         int size = 1;
-        LinkedListNode current = list;
+        ListNode current = list;
         while (current.next != null) {
             size++;
             current = current.next;
@@ -47,6 +47,6 @@ public class Intersection {
         return new Result(current, size);
     }
 
-    record Result(LinkedListNode tail, int size) {
+    record Result(ListNode tail, int size) {
     }
 }

@@ -1,9 +1,9 @@
 package edu.bit.datastructures.linkedlist;
 
 public class CustomLinkedList {
-    LinkedListNode head;
+    ListNode head;
 
-    public static int sizeOfList(LinkedListNode head) {
+    public static int sizeOfList(ListNode head) {
         int count = 0;
         while (head != null) {
             count++;
@@ -12,21 +12,21 @@ public class CustomLinkedList {
         return count;
     }
 
-    public static void printList(LinkedListNode listHead) {
+    public static void printList(ListNode listHead) {
         if (listHead == null) {
             return;
         }
         System.out.print("LinkedList : ");
         while (listHead.next != null) {
-            System.out.print(listHead.data + " -> ");
+            System.out.print(listHead.val + " -> ");
             listHead = listHead.next;
         }
-        System.out.println(listHead.data);
+        System.out.println(listHead.val);
     }
 
     public CustomLinkedList insert(CustomLinkedList list, int data) {
         // Create a new node with given data
-        LinkedListNode new_node = new LinkedListNode(data);
+        ListNode new_node = new ListNode(data);
         new_node.next = null;
 
         // If the Linked List is empty, then make the new node as head
@@ -34,7 +34,7 @@ public class CustomLinkedList {
             list.head = new_node;
         } else {
             // Else traverse till the last node  and insert the new_node there
-            LinkedListNode last = list.head;
+            ListNode last = list.head;
             while (last.next != null) {
                 last = last.next;
             }

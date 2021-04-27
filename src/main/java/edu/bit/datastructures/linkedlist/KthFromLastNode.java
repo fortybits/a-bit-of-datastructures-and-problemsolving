@@ -7,8 +7,8 @@ public class KthFromLastNode {
 
     // can ask if the list size is known, recursive vs iterative solution
     // this is just a util to get the Kth element in the list
-    static LinkedListNode getKthNode(LinkedListNode head, int k) {
-        LinkedListNode current = head;
+    static ListNode getKthNode(ListNode head, int k) {
+        ListNode current = head;
         while (k > 0 && current != null) {
             current = current.next;
             k--;
@@ -20,8 +20,8 @@ public class KthFromLastNode {
     // this would be O(2n -k) but precisely O(n)
     // another approach is to keep a runner at k difference from head, when this pointer reaches the end,
     // slow pointer would be at the desired node
-    LinkedListNode kthFromLastNodeRunner(LinkedListNode head, int k) {
-        LinkedListNode fast = head;
+    ListNode kthFromLastNodeRunner(ListNode head, int k) {
+        ListNode fast = head;
 
         for (int i = 0; i < k; i++) {
             if (fast == null) {
@@ -38,13 +38,13 @@ public class KthFromLastNode {
 
     // recursive approach (just to print the element, not return it)
     // one can return element from within the recursion as well, but the complexity of code increases
-    int kthFromLastNodeRecursive(LinkedListNode head, int k) {
+    int kthFromLastNodeRecursive(ListNode head, int k) {
         if (head == null) {
             return 0;
         }
         int index = kthFromLastNodeRecursive(head.next, k) + 1;
         if (index == k) {
-            System.out.println(k + " to the last node is " + head.data);
+            System.out.println(k + " to the last node is " + head.val);
         }
         return index;
     }
