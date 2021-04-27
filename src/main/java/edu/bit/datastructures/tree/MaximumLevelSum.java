@@ -6,26 +6,6 @@ package edu.bit.datastructures.tree;
  */
 public class MaximumLevelSum {
 
-    public static void main(String[] args) {
-        MaximumLevelSum maximumLevelSum = new MaximumLevelSum();
-        // [1,7,0,7,-8,null,null]
-        TreeNode treeNode = new TreeNode(1);
-        treeNode.left = new TreeNode(7);
-        treeNode.right = new TreeNode(0);
-        treeNode.left.left = new TreeNode(7);
-        treeNode.left.right = new TreeNode(-8);
-        System.out.println(maximumLevelSum.maxLevelSum(treeNode));
-
-        // [-100,-200,-300,-20,-5,-10,null]
-        TreeNode treeNode1 = new TreeNode(-100);
-        treeNode1.left = new TreeNode(-200);
-        treeNode1.right = new TreeNode(-300);
-        treeNode1.left.left = new TreeNode(-20);
-        treeNode1.left.right = new TreeNode(-5);
-        treeNode1.right.left = new TreeNode(-10);
-        System.out.println(maximumLevelSum.maxLevelSum(treeNode1));
-    }
-
     public int maxLevelSum(TreeNode root) {
         int ht = getHeight(root); // O(N)
         long[] perLevelSum = new long[ht];
