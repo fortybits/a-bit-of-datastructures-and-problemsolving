@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
  */
 public class MajorityElement {
 
-    public int majorityElement(final int[] input) {
+    public int majorityElement(final int[] input) throws IllegalAccessException {
         return Arrays.stream(input).boxed()
                 .collect(Collectors.groupingBy(
                         Function.identity(), Collectors.counting()))
@@ -21,6 +21,6 @@ public class MajorityElement {
                 .filter(e -> e.getValue() > (input.length / 2))
                 .findFirst()
                 .map(Map.Entry::getKey)
-                .get(); // orElseThrow(IllegalAccessException::new); if assumption doesn't hold true
+                .orElseThrow(IllegalAccessException::new); // if assumption holds true, preform a get
     }
 }
