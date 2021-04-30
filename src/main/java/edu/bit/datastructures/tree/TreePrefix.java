@@ -1,7 +1,5 @@
 package edu.bit.datastructures.tree;
 
-import edu.bit.datastructures.tree.entity.BSTNode;
-
 public class TreePrefix {
 
     private boolean recContainsPrefix(String prefixKey, BSTNode<String> tree) {

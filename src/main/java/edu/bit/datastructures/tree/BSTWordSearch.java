@@ -1,7 +1,5 @@
 package edu.bit.datastructures.tree;
 
-import edu.bit.datastructures.tree.entity.BSTNode;
-
 public class BSTWordSearch<E> {
     // root passed from method call for a node
     public boolean findWord(String word, String root) {

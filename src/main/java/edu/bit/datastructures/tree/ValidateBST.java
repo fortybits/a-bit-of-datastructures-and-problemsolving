@@ -1,7 +1,5 @@
 package edu.bit.datastructures.tree;
 
-import java.util.stream.IntStream;
-
 /**
  * Implement a function to check if a given binary tree is a binary search tree
  */
@@ -10,7 +8,9 @@ public class ValidateBST {
     private int index = 0;
 
     private void copyBST(TreeNode root, int[] array) {
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
         copyBST(root.left, array);
         array[index] = root.val;
         index++;
@@ -25,15 +25,11 @@ public class ValidateBST {
         int[] values = new int[100]; // use 'root.size' implementation
         copyBST(root, values);
         for (int i = 1; i < values.length; i++) {
-            if (values[i - 1] > values[i]) return false;
+            if (values[i - 1] > values[i]) {
+                return false;
+            }
         }
         return true;
-    }
-
-    boolean checkBSTStream(TreeNode root) {
-        int[] values = new int[100]; // use 'root.size' implementation
-        copyBST(root, values);
-        return IntStream.range(1, values.length).noneMatch(i -> values[i - 1] > values[i]);
     }
 
     // as noticeable, the primary check here is to compare an element with the element added previous

@@ -4,8 +4,7 @@ import java.util.Stack;
 
 
 public class LeafOrderTraversal {
-    // Returns true of leaf traversal of two trees is
-    // same, else false
+    // Returns true of leaf traversal of two trees is same, else false
     public static boolean isSame(TreeNode root1, TreeNode root2) {
         // Create empty stacks.  These stacks are going
         // to be used for iterative traversals.
