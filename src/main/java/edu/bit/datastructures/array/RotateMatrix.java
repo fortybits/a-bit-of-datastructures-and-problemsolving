@@ -10,9 +10,9 @@ public class RotateMatrix {
     // But this requires O(N) extra space
     // Another way is to swap index by index
     // Both the solutions are O(n^2) and can't get better.
-    void rotateMatrix(int[][] matrix) {
+    boolean rotateMatrix(int[][] matrix) {
         // has to be a square matrix
-        if (matrix.length <= 1 || matrix.length != matrix[0].length) return;
+        if (matrix.length <= 1 || matrix.length != matrix[0].length) return false;
         int n = matrix.length;
         for (int layer = 0; layer < n / 2; layer++) {
             int last = n - 1 - layer;
@@ -32,5 +32,6 @@ public class RotateMatrix {
                 matrix[i][last] = top;
             }
         }
+        return true;
     }
 }
