@@ -23,17 +23,17 @@ public class OneEditAway {
     // for the cursor on the character array, if there are mismatch twice then return false
     // otherwise keep on traversing the characters with indexes for short and long strings
     private boolean oneEditInsert(String first, String second) {
-        int index1 = 0; // to maintain the pointer for shorter string after mismatch
-        int index2 = 0; // to maintain the pointer for longer string after mismatch
-        while (index1 < first.length() && index2 < second.length()) {
-            if (first.charAt(index1) != second.charAt(index2)) {
-                if (index1 != index2) {
+        int firstIndex = 0; // to maintain the pointer for shorter string after mismatch
+        int secondIndex = 0; // to maintain the pointer for longer string after mismatch
+        while (firstIndex < first.length() && secondIndex < second.length()) {
+            if (first.charAt(firstIndex) != second.charAt(secondIndex)) {
+                if (firstIndex != secondIndex) {
                     return false;
                 }
-                index2++; // create first mismatch for both the indexes
+                secondIndex++; // create first mismatch for both the indexes
             } else {
-                index1++;
-                index2++;
+                firstIndex++;
+                secondIndex++;
             }
         }
         return true;
@@ -51,6 +51,6 @@ public class OneEditAway {
                 oneReplaceAway = true;
             }
         }
-        return true; // handles the equal strings as well
+        return oneReplaceAway; // handles the equal strings as well
     }
 }

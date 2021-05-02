@@ -29,13 +29,13 @@ public class Compression {
 
     // Using the StringBuilder for such creation of a string is intuitive and
     // optimises the concatenation overhead of strings
-    String compressOptimised(String str) {
+    public String compressOptimised(String str) {
         String compressedString;
         int consecutive = 0;
         StringBuilder compressedStringBuilder = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
             consecutive++;
-            if (i + 1 > str.length() || str.charAt(i) != str.charAt(i + 1)) {
+            if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
                 compressedStringBuilder
                         .append(str.charAt(i))
                         .append(consecutive); // reduces the concatenation overhead
