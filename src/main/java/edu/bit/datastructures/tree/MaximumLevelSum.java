@@ -7,7 +7,8 @@ package edu.bit.datastructures.tree;
 public class MaximumLevelSum {
 
     public int maxLevelSum(TreeNode root) {
-        int ht = getHeight(root); // O(N)
+        HeightOfTree heightOfTree = new HeightOfTree();
+        int ht = heightOfTree.getHeight(root); // O(N)
         long[] perLevelSum = new long[ht];
         calculateLevelSum(root, 0, perLevelSum); // O(N)
         return maxLevelSum(perLevelSum) + 1; // O(K)
@@ -26,24 +27,7 @@ public class MaximumLevelSum {
         return level;
     }
 
-    // for N nodes, we visited each of them to find their individual depth, hence this is O(N)
-    int getHeight(TreeNode root) {
-        if (root.left == null && root.right == null) {
-            return 1;
-        }
 
-        int left = 0;
-        if (root.left != null) {
-            left = getHeight(root.left);
-        }
-
-        int right = 0;
-        if (root.right != null) {
-            right = getHeight(root.right);
-        }
-
-        return (Math.max(left, right) + 1);
-    }
 
     // this is also visited per each TreeNode to fill in the sum, hence O(N)
     void calculateLevelSum(TreeNode node, int level, long sum[]) {
