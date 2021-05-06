@@ -21,4 +21,16 @@ class RotateLinkedListTest {
         Assertions.assertEquals(5, result.val);
         Assertions.assertEquals(6, result.next.val);
     }
+
+    @Test
+    void testNonSequentialListRotation() {
+        ListNode listNode = new ListNode(2);
+        listNode.next = new ListNode(4);
+        listNode.next.next = new ListNode(7);
+        listNode.next.next.next = new ListNode(8);
+        listNode.next.next.next.next = new ListNode(9);
+        ListNode result = rotateLinkedList.rotate(listNode, 3);
+        Assertions.assertEquals(8, result.val);
+        Assertions.assertEquals(9, result.next.val);
+    }
 }

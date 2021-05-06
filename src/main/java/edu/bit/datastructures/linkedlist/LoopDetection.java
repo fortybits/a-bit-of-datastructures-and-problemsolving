@@ -4,7 +4,7 @@ package edu.bit.datastructures.linkedlist;
  * Given a circular linked list, implement and algorithm that returns the node at the beginning of the loop.
  * (follow up with removing the loop)
  */
-public class LoopDetection {
+public class wLoopDetection {
 
     // approach of runner and slower pointers works here
     // if they coincide after a certain time, there is a loop detected
