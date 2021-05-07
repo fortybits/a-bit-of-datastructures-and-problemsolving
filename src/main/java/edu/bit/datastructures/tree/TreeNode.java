@@ -46,4 +46,19 @@ public class TreeNode {
         }
         size++;
     }
+
+    // todo
+    public TreeNode insertLevelOrder(Integer[] arr, TreeNode root, int i) {
+        // Base case for recursion
+        if (i < arr.length) {
+            root = new TreeNode(arr[i]);
+
+            // insert left child
+            root.left = insertLevelOrder(arr, root.left, (2 * i) + 1);
+
+            // insert right child
+            root.right = insertLevelOrder(arr, root.right, (2 * i) + 2);
+        }
+        return root;
+    }
 }
