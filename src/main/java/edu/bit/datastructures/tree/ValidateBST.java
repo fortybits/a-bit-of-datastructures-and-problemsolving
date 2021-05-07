@@ -54,18 +54,16 @@ public class ValidateBST {
     // another way to approach the problem is to simply compare the data based on the condition
     // left <= data < right
     // the challenge with this is that the condition should hold true for the entire subtree within a node
-    boolean checkBSTWithMinMax(TreeNode node) {
-        return checkBSTWithMinMax(node, null, null);
+    public boolean checkBSTWithMinMax(TreeNode node) {
+        return checkBSTWithMinMax(node, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
     private boolean checkBSTWithMinMax(TreeNode node, Integer min, Integer max) {
         if (node == null) {
             return true;
         }
-        if ((min != null && node.val <= min) || (max != null && node.val > max)) {
-            return false;
-        }
-        return (checkBSTWithMinMax(node.left, min, node.val))
-                && checkBSTWithMinMax(node.right, node.val, max);
+        return (node.val >= min) && (node.val < max) &&
+                checkBSTWithMinMax(node.left, min, node.val) &&
+                checkBSTWithMinMax(node.right, node.val, max);
     }
 }
