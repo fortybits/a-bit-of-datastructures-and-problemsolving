@@ -13,22 +13,18 @@ public class FindSwappedPair {
     // keeping a pointer of whether the first value is found or not
     // and what index is it found in the increasing order array
     public int[] findSwappedValues(List<Integer> values) {
-        int[] swapped = new int[2];
-        boolean first = false;
-        for (int i = 1; i < values.size(); i++) {
+        // Traverse the given array from rightmost side
+        for (int i = values.size() - 1; i > 0; i--) {
+            // Check if arr[i] is not in order
             if (values.get(i) < values.get(i - 1)) {
-                swapped[0] = values.get(i - 1);
-                first = true;
-            }
-            if (values.get(i) < values.get(i - 1) && first) {
-                swapped[1] = values.get(i - 1);
-                first = false;
+                // Find the other element to be swapped with arr[i]
+                int j = i - 1;
+                while (j >= 0 && values.get(i) < values.get(j)) j--;
+
+                return new int[]{values.get(i), values.get(j + 1)};
             }
         }
-        if (first) {
-            swapped[1] = swapped[0] + 1;
-        }
-        return swapped;
+        return new int[]{};
     }
 
     // the approach here takes some extra runtime O(NlogN) and space O(N) here
