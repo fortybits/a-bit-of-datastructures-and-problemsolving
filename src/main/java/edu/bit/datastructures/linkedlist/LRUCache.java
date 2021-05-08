@@ -36,9 +36,9 @@ public class LRUCache {
 
     static class Cache {
         private int maxCacheSize;
-        private Map<Integer, LinkedListNode> map = new HashMap<>();
-        private LinkedListNode listHead = null;
-        private LinkedListNode listTail = null;
+        private Map<Integer, CacheNode> map = new HashMap<>();
+        private CacheNode listHead = null;
+        private CacheNode listTail = null;
 
         public Cache(int maxCacheSize) {
             this.maxCacheSize = maxCacheSize;
@@ -46,7 +46,7 @@ public class LRUCache {
 
         // Get value for key and mark as most recently used.
         public String getValue(int key) {
-            LinkedListNode item = map.get(key);
+            CacheNode item = map.get(key);
             if (item == null) {
                 return null;
             }
@@ -60,7 +60,7 @@ public class LRUCache {
         }
 
         // Remove node from linked list.
-        private void removeFromLinkedList(LinkedListNode node) {
+        private void removeFromLinkedList(CacheNode node) {
             if (node == null) {
                 return;
             }
@@ -79,7 +79,7 @@ public class LRUCache {
         }
 
         // Insert node at front of linked list.
-        private void insertAtFrontOfLinkedList(LinkedListNode node) {
+        private void insertAtFrontOfLinkedList(CacheNode node) {
             if (listHead == null) {
                 listHead = node;
                 listTail = node;
@@ -108,23 +108,25 @@ public class LRUCache {
             }
 
             // Insert new node.
-            LinkedListNode node = new LinkedListNode(key, value);
+            CacheNode node = new CacheNode(key, value);
             insertAtFrontOfLinkedList(node);
             map.put(key, node);
         }
 
         public String getCacheAsString() {
-            if (listHead == null) return "";
+            if (listHead == null) {
+                return "";
+            }
             return listHead.printForward();
         }
 
-        private static class LinkedListNode {
-            LinkedListNode next;
-            LinkedListNode prev;
+        class CacheNode {
+            CacheNode next;
+            CacheNode prev;
             int key;
             String value;
 
-            public LinkedListNode(int k, String v) {
+            public CacheNode(int k, String v) {
                 key = k;
                 value = v;
             }

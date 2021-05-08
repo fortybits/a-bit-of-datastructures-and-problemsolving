@@ -1,10 +1,10 @@
 package edu.bit.datastructures.linkedlist;
 
 /**
- * Write code tto partition a linked list around a value x, such that all nodes less than x comes
+ * Write code to partition a linked list around a value x, such that all nodes less than x comes
  * before all the nodes greater than or equal to x. If x is contained within the list,
  * the values of x only need to be after the elements less than x. The partition element x,
- * is a part of list it can appear in the right partition anywhere)
+ * is a part of list it can appear in the right partition anywhere.
  */
 public class PartitionLinkedList {
 
