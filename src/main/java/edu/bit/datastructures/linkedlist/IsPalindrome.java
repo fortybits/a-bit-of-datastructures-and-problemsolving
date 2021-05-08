@@ -8,9 +8,11 @@ import java.util.Deque;
  */
 public class IsPalindrome {
 
+    private final ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
+
     // one approach is to reverse the linked list and match if all the elements are same in both the list
-    boolean checkPalindrome(ListNode linkedListNode) {
-        ListNode reverse = ReverseLinkedList.reverseLinkedListAndClone(linkedListNode);
+    public boolean checkPalindrome(ListNode linkedListNode) {
+        ListNode reverse = reverseLinkedList.reverseLinkedListAndClone(linkedListNode);
         return isEqual(linkedListNode, reverse);
     }
 

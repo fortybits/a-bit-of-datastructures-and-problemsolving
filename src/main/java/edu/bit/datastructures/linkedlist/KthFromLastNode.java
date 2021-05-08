@@ -7,7 +7,7 @@ public class KthFromLastNode {
 
     // can ask if the list size is known, recursive vs iterative solution
     // this is just a util to get the Kth element in the list
-    static ListNode getKthNode(ListNode head, int k) {
+    public ListNode getKthNode(ListNode head, int k) {
         ListNode current = head;
         while (k > 0 && current != null) {
             current = current.next;

@@ -1,8 +1,5 @@
 package edu.bit.datastructures.array;
 
-/**
- * Created by naman.nigam on 09/02/16.
- */
 public class QuickSort {
 
     private int[] numbers;

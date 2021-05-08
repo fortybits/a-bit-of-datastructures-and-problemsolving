@@ -2,9 +2,6 @@ package edu.bit.datastructures.array;
 
 import java.util.Arrays;
 
-/**
- * Created by naman.nigam on 09/02/16.
- */
 public class TripletSumOrSmaller {
 
     private static void printTriplets(int[] arr, int n, int sum) {

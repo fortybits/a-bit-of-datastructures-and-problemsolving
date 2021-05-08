@@ -1,8 +1,5 @@
 package edu.bit.datastructures.string;
 
-/**
- * Created by naman.nigam on 03/02/17.
- */
 public class SplitAlphabetNumeric {
 
     /**

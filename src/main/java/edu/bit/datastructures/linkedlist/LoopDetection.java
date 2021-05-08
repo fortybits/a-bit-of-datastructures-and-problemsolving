@@ -10,7 +10,7 @@ public class LoopDetection {
     // if they coincide after a certain time, there is a loop detected
     // the position at which they coincide would be at the equal distance from the loop start
     // as much as the loop start would be from the beginning
-    ListNode findBeginning(ListNode head) {
+    public ListNode findBeginningOfLoop(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
 

@@ -3,9 +3,6 @@ package edu.bit.datastructures.array;
 import java.util.Comparator;
 import java.util.stream.Stream;
 
-/**
- * Created by naman.nigam on 16/01/17.
- */
 public class ReverseSortNumberArray {
 
     /**

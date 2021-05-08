@@ -8,8 +8,10 @@ package edu.bit.datastructures.linkedlist;
  */
 public class SumLists {
 
+    private final ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        return sumOfNumbers(l1,l2,0);
+        return sumOfNumbers(l1, l2, 0);
     }
 
     // if the numbers are represented in the reverse order,
@@ -39,10 +41,9 @@ public class SumLists {
 
     // if the input is revered to represent the forward order of digits
     // one way is to reverse the linked lists and then sum them as in previous approach
-    private ListNode sumOfNumbersInForwardOrder(
-            ListNode first, ListNode second, int carry) {
-        ListNode l1 = ReverseLinkedList.reverseLinkedList(first);
-        ListNode l2 = ReverseLinkedList.reverseLinkedList(second);
+    private ListNode sumOfNumbersInForwardOrder(ListNode first, ListNode second, int carry) {
+        ListNode l1 = reverseLinkedList.reverseLinkedList(first);
+        ListNode l2 = reverseLinkedList.reverseLinkedList(second);
         return sumOfNumbers(l1, l2, carry);
     }
 

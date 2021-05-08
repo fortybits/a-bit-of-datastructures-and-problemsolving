@@ -3,9 +3,6 @@ package edu.bit.datastructures.stack;
 import java.util.Scanner;
 import java.util.Stack;
 
-/**
- * Created by naman.nigam on 03/10/16.
- */
 public class StackOperations {
 
     public static void main(String args[]) {

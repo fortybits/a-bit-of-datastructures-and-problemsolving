@@ -1,9 +1,7 @@
 package edu.bit.datastructures.array;
 
-/**
- * Created by naman.nigam on 09/02/16.
- *
- * @link <href>https://www.geeksforgeeks.org/to-find-smallest-and-second-smallest-element-in-an-array/</href>
+/***
+ * https://www.geeksforgeeks.org/to-find-smallest-and-second-smallest-element-in-an-array
  */
 public class TwoSmallestNumber {
 

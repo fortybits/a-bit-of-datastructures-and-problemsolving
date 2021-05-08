@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-/**
- * Created by naman.nigam on 03/10/16.
- */
 public class StringFromCountedCharacter {
 
     public static void main(String[] args) {
