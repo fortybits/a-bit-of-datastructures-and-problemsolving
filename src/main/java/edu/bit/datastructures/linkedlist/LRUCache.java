@@ -120,7 +120,7 @@ public class LRUCache {
             return listHead.printForward();
         }
 
-        class CacheNode {
+        static class CacheNode {
             CacheNode next;
             CacheNode prev;
             int key;
