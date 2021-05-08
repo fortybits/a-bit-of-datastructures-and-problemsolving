@@ -29,9 +29,9 @@ public class IsPalindrome {
 
     // One needs to traverse only until the middle element and comparing the fold with the existing elements
     // so a Stack could be used to push the first half of elements and then pop the elements to
-    // compare them with the other half. This would require being aware fof the size or
+    // compare them with the other half. This would require being aware of the size or
     // using the runner approach to decide the middle element)
-    boolean isPalindrome(ListNode head) {
+    public boolean isPalindrome(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
         Deque<Integer> stack = new ArrayDeque<>(); // Java implementation for synchronised stack

@@ -4,7 +4,9 @@ public class ReverseLinkedList {
 
     // reverses without using any extra space
     public ListNode reverseLinkedList(ListNode head) {
-        ListNode prev = null, curr = head, next;
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next;
         while (curr != null) {
             next = curr.next;
             curr.next = prev;
