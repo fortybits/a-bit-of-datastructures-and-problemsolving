@@ -12,7 +12,7 @@ package edu.bit.datastructures.array;
  * Given nums1 and nums2, return the minimum number of swaps to make both sequences strictly increasing.
  * It is guaranteed that the given input always makes it possible.
  */
-public class MinimumSwapForIncreasingNumbers {
+public class MinimumSwapForIncreasingNumbersInTwoArrays {
 
     /**
      * A[i - 1] < A[i] && B[i - 1] < B[i].
@@ -36,11 +36,11 @@ public class MinimumSwapForIncreasingNumbers {
         swap[0] = 1;
         for (int i = 1; i < N; ++i) {
             withoutSwap[i] = swap[i] = N;
-            if (A[i - 1] < A[i] && B[i - 1] < B[i]) {
+            if (A[i - 1] <= A[i] && B[i - 1] <= B[i]) {
                 swap[i] = swap[i - 1] + 1;
                 withoutSwap[i] = withoutSwap[i - 1];
             }
-            if (A[i - 1] < B[i] && B[i - 1] < A[i]) {
+            if (A[i - 1] <= B[i] && B[i - 1] <= A[i]) {
                 swap[i] = Math.min(swap[i], withoutSwap[i - 1] + 1);
                 withoutSwap[i] = Math.min(withoutSwap[i], swap[i - 1]);
             }
@@ -55,11 +55,11 @@ public class MinimumSwapForIncreasingNumbers {
         for (int i = 1; i < A.length; ++i) {
             int tempWithoutSwap = A.length;
             int tempWithSwap = A.length;
-            if (A[i - 1] < A[i] && B[i - 1] < B[i]) {
+            if (A[i - 1] <= A[i] && B[i - 1] <= B[i]) {
                 tempWithSwap = withSwap + 1;
                 tempWithoutSwap = withoutSwap;
             }
-            if (A[i - 1] < B[i] && B[i - 1] < A[i]) {
+            if (A[i - 1] <= B[i] && B[i - 1] <= A[i]) {
                 tempWithSwap = Math.min(tempWithSwap, withoutSwap + 1);
                 tempWithoutSwap = Math.min(tempWithoutSwap, withSwap);
             }
