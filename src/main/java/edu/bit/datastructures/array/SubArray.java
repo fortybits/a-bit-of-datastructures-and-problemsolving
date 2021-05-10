@@ -1,7 +1,5 @@
 package edu.bit.datastructures.array;
 
-import java.util.Arrays;
-
 public class SubArray {
 
     private static int findSubArray(int[] a, int k) {
@@ -18,10 +16,6 @@ public class SubArray {
             }
         }
         return 0;
-    }
-
-    static int maxSum(int[] a) {
-        return Arrays.stream(a).sum();
     }
 
     public static void main(String[] args) {
