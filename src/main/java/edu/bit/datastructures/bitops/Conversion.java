@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 import java.util.stream.IntStream;
 

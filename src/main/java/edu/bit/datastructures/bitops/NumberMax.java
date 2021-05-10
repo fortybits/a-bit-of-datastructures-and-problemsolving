@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 /**
  * Write a method that finds the maximum of two numbers. You should not use if-else orr any other comparison operator.

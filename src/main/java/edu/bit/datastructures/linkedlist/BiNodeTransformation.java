@@ -1,7 +1,7 @@
 package edu.bit.datastructures.linkedlist;
 
-import edu.bit.datastructures.annotations.LinkedList;
-import edu.bit.datastructures.annotations.Tree;
+import edu.bit.annotations.LinkedList;
+import edu.bit.annotations.Tree;
 
 /**
  * Consider a simple data structure called BiNode having two other node references.

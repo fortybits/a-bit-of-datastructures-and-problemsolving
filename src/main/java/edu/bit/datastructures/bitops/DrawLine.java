@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 /**
  * A monochrome screen is stored as a single array of bytes, allowing eight consecutive pixels to be stored in one byte.

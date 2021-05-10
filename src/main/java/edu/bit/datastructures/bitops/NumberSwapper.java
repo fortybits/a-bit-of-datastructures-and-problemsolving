@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 /**
  * Write a function to swap a number in place(that is without a temporary variables)

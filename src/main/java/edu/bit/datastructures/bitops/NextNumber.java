@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 /**
  * Given a positive integer, print the next smallest and the next largest number that have the same number of 1s

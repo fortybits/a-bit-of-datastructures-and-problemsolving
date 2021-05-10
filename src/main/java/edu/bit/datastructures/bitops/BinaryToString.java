@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 /**
  * Given a real number between 0 and 1 (e.g. 0.72) that is passed in as a double, print the binary representation.

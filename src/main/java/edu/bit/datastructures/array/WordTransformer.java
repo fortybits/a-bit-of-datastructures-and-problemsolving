@@ -1,8 +1,8 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.datastructures.annotations.Array;
-import edu.bit.datastructures.annotations.Graph;
-import edu.bit.datastructures.annotations.Tree;
+import edu.bit.annotations.Array;
+import edu.bit.annotations.Graph;
+import edu.bit.annotations.Tree;
 
 import java.util.*;
 import java.util.function.Function;

@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.datastructures.annotations.BitOps;
+import edu.bit.annotations.BitOps;
 
 /**
  * Write a program to swap odd and even bits in a integer with as few instructions as possible (e.g. bit 8 and bit 1

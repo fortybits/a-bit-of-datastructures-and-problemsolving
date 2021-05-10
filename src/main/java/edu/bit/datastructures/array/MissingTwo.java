@@ -1,6 +1,6 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.datastructures.annotations.Array;
+import edu.bit.annotations.Array;
 
 /**
  * You are given an array with all numbers from 1 to N appearing exactly once, except for one number that is missing.
