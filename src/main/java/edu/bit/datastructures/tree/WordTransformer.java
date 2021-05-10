@@ -1,4 +1,4 @@
-package edu.bit.datastructures.array;
+package edu.bit.datastructures.tree;
 
 import edu.bit.annotations.Array;
 import edu.bit.annotations.Graph;
