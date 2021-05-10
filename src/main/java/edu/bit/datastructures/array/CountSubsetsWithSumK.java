@@ -36,15 +36,15 @@ public class CountSubsetsWithSumK {
     }
 
 
-    int findSubArraySumToKCounts(int[] arr, int sum) {
+    int findSubArraySumToKCounts(int[] nums, int sum) {
         // HashMap to store number of sub-arrays starting from index zero having particular value of sum.
         Map<Integer, Integer> prevSum = new HashMap<>();
         int res = 0;
         int currentSum = 0;      // Sum of elements so far.
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int val : nums) {
             // Add current element to sum so far.
-            currentSum += arr[i];
+            currentSum += val;
 
             // If currentSum is equal to desired sum, then a new sub-array is found.
             // So increase count of sub-arrays.
