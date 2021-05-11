@@ -1,9 +1,16 @@
 package edu.bit.datastructures.array;
 
+import edu.bit.annotations.difficulty.Medium;
+import edu.bit.annotations.topics.Array;
+import edu.bit.annotations.topics.DynamicProgramming;
+
 /**
  * Given a non-empty array nums containing only positive integers,
  * find if the array can be partitioned into two subsets such that the sum of elements in both subsets is equal.
  */
+@Medium
+@Array
+@DynamicProgramming
 public class CanPartition {
 
     SubSetSum subSetSum = new SubSetSum();
