@@ -23,8 +23,8 @@ public class MergeArrays {
             i--;
             j++;
         }
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
+        Arrays.sort(arr1); // nlogn
+        Arrays.sort(arr2); // mlogm
     }
 
     // the method works with an extra space O(M+N) and has runtime complexity of O(M+N) as well

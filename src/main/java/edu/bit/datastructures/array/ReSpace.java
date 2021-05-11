@@ -1,6 +1,6 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.annotations.Array;
+import edu.bit.annotations.topics.Array;
 
 import java.util.Arrays;
 import java.util.HashSet;

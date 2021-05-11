@@ -57,10 +57,14 @@ public class BuildOrder {
 
     private Graph buildGraph(String[] projects, String[][] dependencies) {
         Graph graph = new Graph();
-        Arrays.stream(projects).forEach(graph::getOrCreateNode); // create all nodes
-        Arrays.stream(dependencies)
-                .forEach(dependency ->
-                        graph.addEdge(dependency[0], dependency[1])); // create the dependencies and map
+        // create all nodes
+        for (String project : projects) {
+            graph.getOrCreateNode(project);
+        }
+        // create the dependencies and map
+        for (String[] dependency : dependencies) {
+            graph.addEdge(dependency[0], dependency[1]);
+        }
         return graph;
     }
 

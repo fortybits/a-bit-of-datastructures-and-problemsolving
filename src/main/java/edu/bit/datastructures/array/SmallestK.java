@@ -1,8 +1,8 @@
 package edu.bit.datastructures.array;
 
 
-import edu.bit.annotations.Array;
-import edu.bit.annotations.Tree;
+import edu.bit.annotations.topics.Array;
+import edu.bit.annotations.topics.Tree;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.BitOps;
+import edu.bit.annotations.topics.BitOps;
 
 /**
  * You are given two 32-bit numbers, N and M, and two bit positions, i and j. Write a method to insert M into N

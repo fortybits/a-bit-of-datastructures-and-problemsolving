@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.BitOps;
+import edu.bit.annotations.topics.BitOps;
 
 import java.util.ArrayList;
 import java.util.List;

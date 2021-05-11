@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.BitOps;
+import edu.bit.annotations.topics.BitOps;
 
 /**
  * Write a function that adds two numbers. You should not use a + or any arithmetic operator.

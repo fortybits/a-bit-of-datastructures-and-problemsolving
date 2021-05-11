@@ -1,4 +1,4 @@
-module a.bit.of.data.structures {
+module a.bit.of.data.structures.and.problem.solving {
     exports edu.bit.datastructures.array;
     exports edu.bit.datastructures.bitops;
     exports edu.bit.datastructures.graph;

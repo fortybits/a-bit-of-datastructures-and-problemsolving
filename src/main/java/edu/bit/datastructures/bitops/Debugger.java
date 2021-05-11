@@ -1,6 +1,6 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.BitOps;
+import edu.bit.annotations.topics.BitOps;
 
 /**
  * Explain what the following code does ((n & (n-1)) ==0)
