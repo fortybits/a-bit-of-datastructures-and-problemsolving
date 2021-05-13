@@ -10,13 +10,13 @@ import java.util.Random;
 
 /**
  * Design an algorithm to find the smallest K numbers in an array.
+ * https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
  */
 @Array
 @Tree
 public class SmallestK {
     // Approach1: a straight forward way is to sort the array in O(N log(N)) and
     // then find and store the first K numbers in O(K) time
-
     public static int[] smallestK(int[] array, int k) {
         if (k <= 0 || k > array.length) {
             throw new IllegalArgumentException();
