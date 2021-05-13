@@ -5,9 +5,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Given an array of distinct integers and a sum value.
+ * Find count of triplets with sum smaller than given sum value.
+ * https://www.geeksforgeeks.org/count-triplets-with-sum-smaller-that-a-given-value/
+ * Expected Time Complexity is O(n2).
+ */
 public class TripletSumOrSmaller {
 
-    public  Set<List<Integer>> findTriplets(int[] arr, int sum) {
+    public Set<List<Integer>> findTriplets(int[] arr, int sum) {
         // Sort input array
         Arrays.sort(arr);
         int n = arr.length;
