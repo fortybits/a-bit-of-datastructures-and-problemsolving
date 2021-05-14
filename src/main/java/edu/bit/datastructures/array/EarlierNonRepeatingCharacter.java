@@ -1,5 +1,10 @@
 package edu.bit.datastructures.array;
 
+import edu.bit.annotations.difficulty.Medium;
+import edu.bit.annotations.organisation.Amazon;
+import edu.bit.annotations.topics.Array;
+import edu.bit.annotations.topics.LinkedList;
+
 import java.util.*;
 
 /**
@@ -10,6 +15,10 @@ import java.util.*;
  * 0  1  2  3  4  5  6  7  8
  * a  a  b  b  b  b  b  d  d
  */
+@Amazon
+@Medium
+@Array
+@LinkedList
 public class EarlierNonRepeatingCharacter {
 
     // The approach is to maintain a hashset for the characters visited and a queue for first in first out lookup.
@@ -42,6 +51,7 @@ public class EarlierNonRepeatingCharacter {
         }
     }
 
+    // lookups here are optimised to perform at O(1) while processing takes a hit at O(N^2) with queue.remove
     private void processStreamOfCharacterForNoRepeatingCharacter(List<Character> characters) {
         Set<Character> visited = new HashSet<>();
         Queue<Character> queue = new ArrayDeque<>();
@@ -55,5 +65,25 @@ public class EarlierNonRepeatingCharacter {
                 queue.add(ch);
             }
         }
+    }
+
+    // lookups here are not optimised to perform at O(1) while the processing is O(N)
+    public Character getFirstNonRepeatingCharacter(List<Character> characters) {
+        // LinkedHashMap maintains insertion order
+        Map<Character, Integer> map = new LinkedHashMap<>();
+        for (Character ch : characters) {
+            if (map.containsKey(ch)) {
+                map.put(ch, map.get(ch) + 1);
+            } else {
+                map.put(ch, 1);
+            }
+        }
+
+        for (Character c : map.keySet()) {
+            if (map.get(c) == 1) {
+                return c;
+            }
+        }
+        return null;
     }
 }
