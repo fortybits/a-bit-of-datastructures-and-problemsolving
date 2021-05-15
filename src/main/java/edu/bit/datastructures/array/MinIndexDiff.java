@@ -1,37 +1,24 @@
 package edu.bit.datastructures.array;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MinIndexDiff {
 
-    public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-        Scanner scan = new Scanner(System.in);
-        int n = scan.nextInt();
-        int diff = n;
-        List<Integer> A = new ArrayList<>();
-        for (int j = 0; j < n; j++) {
-            A.add(j, scan.nextInt());
-        }
-        List<Integer> B = new ArrayList<>();
-        for (int k = 0; k < n; k++) {
-            B.add(k, scan.nextInt());
-        }
-        int result = B.get(0);
-        for (int i = 0; i < n; i++) {
-            int indexDiff = Math.abs(i - (A.indexOf(B.get(i))));
+    public Integer findMinimumIndexDiff(List<Integer> values, List<Integer> indexes) {
+        int diff = values.size();
+        int result = indexes.get(0);
+        for (int i = 0; i < values.size(); i++) {
+            int indexDiff = Math.abs(i - (values.indexOf(indexes.get(i))));
             if (diff > indexDiff) {
                 diff = indexDiff;
-                result = B.get(i);
+                result = indexes.get(i);
             }
             if (diff == indexDiff) {
-                if (result > B.get(i)) {
-                    result = B.get(i);
+                if (result > indexes.get(i)) {
+                    result = indexes.get(i);
                 }
             }
         }
-        System.out.print(result);
+        return result;
     }
 }
