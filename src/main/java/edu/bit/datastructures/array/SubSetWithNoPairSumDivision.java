@@ -26,8 +26,8 @@ public class SubSetWithNoPairSumDivision {
         Arrays.fill(f, 0);
 
         // Fill frequency array with values modulo K
-        for (int i = 0; i < arr.length; i++) {
-            f[arr[i] % K]++;
+        for (int j : arr) {
+            f[j % K]++;
         }
 
         // if K is even, then update f[K/2]
