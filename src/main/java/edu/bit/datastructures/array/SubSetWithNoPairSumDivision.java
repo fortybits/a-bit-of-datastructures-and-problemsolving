@@ -16,6 +16,10 @@ public class SubSetWithNoPairSumDivision {
     //    [7,12,24,27,32,35,41,10,33]
     //    [-,5,22,25,30,33,39,8,31]
     //    [-,22,17,25,32,35,41,10,33]
+
+    // Instead we end up creating ann array of modulo with K for all the values.
+    // This provides us with ann option of choosing either f[i] and f[K-i] in the subset.
+    // we can find out the maximal size considering both the choices such as max(f[i], f[K – i])
     int maximalSubsetPairNotDivisibleByK(int[] arr, int K) {
         // Array for storing frequency of modulo values
         int[] f = new int[K];
