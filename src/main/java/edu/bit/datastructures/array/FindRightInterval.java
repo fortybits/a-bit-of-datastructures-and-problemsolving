@@ -1,6 +1,8 @@
 package edu.bit.datastructures.array;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * You are given an array of intervals, where intervals[i] = [starti, endi] and each starti is unique.
@@ -14,22 +16,31 @@ public class FindRightInterval {
 
     public int[] findRightInterval(int[][] intervals) {
         Map<Integer, Integer> map = new HashMap<>();
-        List<Integer> starts = new ArrayList<>();
+        int[] starts = new int[intervals.length];
         for (int i = 0; i < intervals.length; i++) {
             map.put(intervals[i][0], i);
-            starts.add(intervals[i][0]);
+            starts[i] = intervals[i][0];
         }
+        Arrays.sort(starts); // O(n logn)
 
-        Collections.sort(starts); // n logn
         int[] res = new int[intervals.length];
-        for (int i = 0; i < intervals.length; i++) {
-            int end = intervals[i][1];
-            int start = Collections.binarySearch(starts, end);
-            if (start < end) {
-                res[i] = -1;
-            } else {
-                res[i] = map.get(start);
+        for (int i = 0; i < intervals.length; i++) { //  O(n)
+            int l = 0;
+            int r = intervals.length - 1;
+            boolean found = false;              //to see if result was found
+            int min = -1;
+            int ep = intervals[i][1];           //ep = endpoint
+            while (l <= r) {                     //binarySearch on arr of start points
+                int mid = (l + ((r - l) / 2));
+                if (starts[mid] >= ep) {
+                    min = starts[mid];
+                    found = true;
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
             }
+            res[i] = found ? map.get(min) : -1;
         }
         return res;
     }
