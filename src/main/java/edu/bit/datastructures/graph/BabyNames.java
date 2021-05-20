@@ -1,4 +1,4 @@
-package edu.bit.datastructures.array;
+package edu.bit.datastructures.graph;
 
 import edu.bit.annotations.topics.Array;
 import edu.bit.annotations.topics.Graph;
@@ -36,7 +36,7 @@ public class BabyNames {
         // but do not have any synonym
     }
 
-    static class Pair {
+    class Pair {
         String source;
         String destination;
 

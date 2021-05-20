@@ -43,11 +43,10 @@ public class SubSetSum {
             for (int j = 1; j < sum + 1; j++) {
                 dp[i][j] = dp[i - 1][j];
                 if (j >= nums[i - 1]) {
-                    dp[i][j] = (dp[i][j] || dp[i - 1][j - nums[i - 1]]);
+                    dp[i][j] = dp[i][j] || dp[i - 1][j - nums[i - 1]];
                 }
             }
         }
-
         return dp[n][sum];
     }
 
