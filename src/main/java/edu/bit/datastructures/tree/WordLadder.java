@@ -52,6 +52,9 @@ public class WordLadder {
                     }
                 }
             }
+            if (temp.isEmpty()) {
+                return 0;
+            }
             beginSet = temp;
             len++;
         }

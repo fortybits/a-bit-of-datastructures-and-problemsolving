@@ -13,7 +13,7 @@ public class CountSubsetsWithSumK {
     // then we can formulate it into a dp problem as
     // dp[i][K] = dp[i – 1][K – arr[i]] + dp[i – 1][K]
     // ^^ count with the value and count without the value
-    int findSubsetCounts(int[] arr, int i, int K, int n) {
+    public int findSubsetCounts(int[] arr, int i, int K, int n) {
         if (i == n) {
             return K == 0 ? 1 : 0;
         }
@@ -30,11 +30,9 @@ public class CountSubsetsWithSumK {
         visited[i][K] = true;
 
         // Recurrence relation
-        countData[i][K] = findSubsetCounts(arr, i + 1, K, n) +
-                findSubsetCounts(arr, i + 1, K - arr[i], n);
+        countData[i][K] = findSubsetCounts(arr, i + 1, K, n) + findSubsetCounts(arr, i + 1, K - arr[i], n);
         return countData[i][K];
     }
-
 
     int findSubArraySumToKCounts(int[] nums, int sum) {
         // HashMap to store number of sub-arrays starting from index zero having particular value of sum.

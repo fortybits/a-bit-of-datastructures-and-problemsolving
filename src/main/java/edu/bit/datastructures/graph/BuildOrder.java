@@ -1,6 +1,9 @@
 package edu.bit.datastructures.graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * You are given a list of projects and a list of pair of dependencies
@@ -72,6 +75,7 @@ public class BuildOrder {
         List<Project> children = new ArrayList<>(); // dependent projects for this node
         Map<String, Project> map = new HashMap<>();
         private String name;
+        private int dependencies = 0; // count of incoming edges to a node
 
         public List<Project> getChildren() {
             return children;
@@ -80,8 +84,6 @@ public class BuildOrder {
         public String getName() {
             return name;
         }
-
-        private int dependencies = 0; // count of incoming edges to a node
 
         public int getDependencies() {
             return dependencies;
