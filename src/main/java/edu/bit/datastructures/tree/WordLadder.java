@@ -52,7 +52,7 @@ public class WordLadder {
                     }
                 }
             }
-            if (temp.isEmpty()) {
+            if (temp.isEmpty()) { // no path
                 return 0;
             }
             beginSet = temp;
