@@ -14,6 +14,5 @@ class RunningMedianTest {
 
         Assertions.assertArrayEquals(new double[]{5.0, 2.5, 0.0, 2.5, 5.0, 9.0},
                 runningMedian.medianTracker(new int[]{5, 0, -7, 13, 45, 60}));
-
     }
 }

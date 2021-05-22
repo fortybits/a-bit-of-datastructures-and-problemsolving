@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.release>16</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -28,7 +28,6 @@
                 <version>3.8.1</version>
                 <configuration>
                     <fork>true</fork>
-                    <release>16</release>
                     <compilerArgs>
                         <arg>--enable-preview</arg>
                         <arg>-Xlint:all</arg>
@@ -62,7 +61,33 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <argLine>--enable-preview</argLine>
+                    <argLine>
+                        --enable-preview
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.array=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.backtrack=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.bitops=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.graph=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.linkedlist=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.queue=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.sorting=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.stack=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.string=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.tree=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.competitive.leet.weekly.mayone=ALL-UNNAMED
+                        --add-opens
+                        a.bit.of.data.structures.and.problem.solving/edu.bit.competitive.microsoft=ALL-UNNAMED
+                    </argLine>
                 </configuration>
             </plugin>
         </plugins>

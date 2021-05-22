@@ -24,25 +24,25 @@ import java.util.PriorityQueue;
 @Heap
 public class RunningMedian {
 
-    private static final PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-    private static final PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-
     // the approach of splitting the values into two halves such as maintaining
     // the smallest at one and largest of another should help derive the median
     // this can be achieved using two different heaps such as the following
     // ________ (maxHeap)______ (median) _______(minHeap) _________
     public double[] medianTracker(int[] array) {
+        // these could be global instead of passing th reference to each method
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         double[] medians = new double[array.length];
         for (int i = 0; i < array.length; i++) {
-            addNumber(array[i]);
-            medians[i] = getMedian();
+            addNumber(array[i], maxHeap, minHeap);
+            medians[i] = getMedian(maxHeap, minHeap);
         }
         return medians;
     }
 
     // the addition is build on the assumption that maxHeap will never have fewer elements than minHeap
     // notice, that like a balanced tree, the size of the heaps shouldn't differ by more than oe at any point
-    private void addNumber(int n) {
+    private void addNumber(int n, PriorityQueue<Integer> maxHeap, PriorityQueue<Integer> minHeap) {
         if (maxHeap.isEmpty()) {
             maxHeap.add(n);
         } else if (maxHeap.size() == minHeap.size()) {
@@ -62,7 +62,7 @@ public class RunningMedian {
         }
     }
 
-    private double getMedian() {
+    private double getMedian(PriorityQueue<Integer> maxHeap, PriorityQueue<Integer> minHeap) {
         if (maxHeap.isEmpty()) {
             return 0;
         } else if (maxHeap.size() == minHeap.size()) {
