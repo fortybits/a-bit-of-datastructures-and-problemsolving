@@ -59,12 +59,13 @@ public class MaxPerformantTeam {
                 Comparator.comparingInt(Engineer::getSpeed));
 
         int totalSpeed = 0;
+        long res = 0;
         for (int i = 0; i < k; i++) {
             Engineer currentEngineer = engineers.get(i);
             pq.add(currentEngineer);
             totalSpeed = totalSpeed + currentEngineer.getSpeed();
+            res = Math.max(res, (totalSpeed * currentEngineer.getEfficiency()));
         }
-        long res = Math.max(Integer.MIN_VALUE, (totalSpeed * engineers.get(k - 1).getEfficiency()));
 
         for (int i = k; i < engineers.size(); i++) {
             pq.add(engineers.get(i));
@@ -77,6 +78,7 @@ public class MaxPerformantTeam {
     }
 
     // apparently https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/3752
+    // and then realised, the question reads "at most K"
     public int maxPerformanceSpaceOpt(int n, int[] speed, int[] efficiency, int k) {
         int[][] engineers = IntStream.range(0, n)
                 .mapToObj(i -> new int[]{efficiency[i], speed[i]})
@@ -84,24 +86,16 @@ public class MaxPerformantTeam {
         Arrays.sort(engineers, (a, b) -> Integer.compare(b[0], a[0]));
         PriorityQueue<Integer> minSpeedHeap = new PriorityQueue<>(k, Comparator.naturalOrder());
 
-        int totalSpeed = 0;
-        int index = 0;
-        for (; index < k; index++) {
-            int[] engineer = engineers[index];
+        long totalSpeed = 0;
+        long result = 0;
+        for (int[] engineer : engineers) {
             minSpeedHeap.add(engineer[1]);
-            totalSpeed = (totalSpeed + engineer[1]);
-        }
-        int res = totalSpeed * engineers[index - 1][0];
-
-        for (; index < engineers.length; index++) {
-            int[] engineer = engineers[index];
-            minSpeedHeap.add(engineer[1]);
-            totalSpeed = (totalSpeed + engineer[1]);
+            totalSpeed = totalSpeed + engineer[1];
             if (minSpeedHeap.size() > k) {
                 totalSpeed = totalSpeed - minSpeedHeap.poll();
             }
-            res = Math.max(res, (totalSpeed * engineer[0]));
+            result = Math.max(result, (totalSpeed * engineer[0]));
         }
-        return (int) (res % (long) (1e9 + 7));
+        return (int) (result % (long) (1e9 + 7));
     }
 }
