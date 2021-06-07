@@ -2,8 +2,13 @@ package edu.bit.datastructures.string;
 
 import java.util.Arrays;
 
+/**
+ * Given a number, find the next higher number which has the exact same
+ * set of digits as the original number. For example: given 38276 return 38627
+ */
 public class NextGreaterNumber {
 
+    // https://stackoverflow.com/questions/9368205/given-a-number-find-the-next-higher-number
     public String findNextGreaterNumber(char[] digits) {
         int i;
         int length = digits.length;

@@ -15,5 +15,7 @@ class LongestIncreasingSubsequenceTest {
                 longestIncreasingSubsequence.lengthOfLongestIncreasingSubsequenceOptimised(new int[]{0, 1, 0, 3, 2, 3}));
         Assertions.assertEquals(1,
                 longestIncreasingSubsequence.lengthOfLongestIncreasingSubsequenceOptimised(new int[]{7, 7, 7, 7}));
+        Assertions.assertEquals(5,
+                longestIncreasingSubsequence.lengthOfLongestIncreasingSubsequenceOptimised(new int[]{2, 6, 3, 4, 1, 2, 9, 5, 8}));
     }
 }
