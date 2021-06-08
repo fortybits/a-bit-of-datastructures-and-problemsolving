@@ -2,6 +2,10 @@ package edu.bit.datastructures.tree;
 
 import java.util.Arrays;
 
+/**
+ * Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree
+ * and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+ */
 public class CreateTreeFromPreAndInOrder {
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
