@@ -9,7 +9,6 @@ class GenerateParenthesisTest {
 
     GenerateParenthesis generateParenthesis = new GenerateParenthesis();
 
-
     @Test
     void generateParenthesis() {
         Assertions.assertEquals(List.of("((()))", "(()())", "(())()", "()(())", "()()()"),

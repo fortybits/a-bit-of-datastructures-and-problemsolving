@@ -14,7 +14,8 @@ public class GenerateParenthesis {
         return list;
     }
 
-    void generateParenthesisHelper(String currentPrefix, int max, int open, int close, List<String> matches) {
+    private void generateParenthesisHelper(String currentPrefix, int max, int open, int close, List<String> matches) {
+        System.out.println(currentPrefix);
         if ((max * 2) == currentPrefix.length()) {
             matches.add(currentPrefix);
             return;
@@ -26,5 +27,4 @@ public class GenerateParenthesis {
             generateParenthesisHelper(currentPrefix + ")", max, open, close + 1, matches);
         }
     }
-
 }
