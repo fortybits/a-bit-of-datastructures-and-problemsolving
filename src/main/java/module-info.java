@@ -8,4 +8,5 @@ module a.bit.of.data.structures.and.problem.solving {
     exports edu.bit.datastructures.stack;
     exports edu.bit.datastructures.string;
     exports edu.bit.datastructures.tree;
+    exports edu.bit.datastructures.dp;
 }
