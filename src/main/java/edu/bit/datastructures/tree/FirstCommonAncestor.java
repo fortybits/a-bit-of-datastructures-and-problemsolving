@@ -132,34 +132,33 @@ public class FirstCommonAncestor {
     }
 
 
-    // This function returns pointer to LCA of two given
-    // values n1 and n2. This function assumes that n1 and
-    // n2 are present in Binary Tree
-    TreeNode findLowestCommonAncestor(TreeNode node, int n1, int n2) {
+    // This function returns pointer to LCA of two given values n1 and n2.
+    // This function assumes that n1 and n2 are present in Binary Tree
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         // Base case
-        if (node == null) {
-            return null;
+        if (root == null) {
+            return root;
         }
 
         // If either n1 or n2 matches with root's key, report
         // the presence by returning root (Note that if a key is
         // ancestor of other, then the ancestor key becomes LCA
-        if (node.val == n1 || node.val == n2) {
-            return node;
+        if (root == p || root == q) {
+            return root;
         }
 
         // Look for keys in left and right subtrees
-        TreeNode left_lca = findLowestCommonAncestor(node.left, n1, n2);
-        TreeNode right_lca = findLowestCommonAncestor(node.right, n1, n2);
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
 
         // If both of the above calls return Non-NULL, then one key
         // is present in once subtree and other is present in other,
         // So this node is the LCA
-        if (left_lca != null && right_lca != null) {
-            return node;
+        if (left != null && right != null) {
+            return root;
         }
 
         // Otherwise check if left subtree or right subtree is LCA
-        return (left_lca != null) ? left_lca : right_lca;
+        return left != null ? left : right;
     }
 }
