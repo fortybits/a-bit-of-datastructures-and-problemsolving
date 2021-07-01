@@ -19,6 +19,8 @@ public class MinimalPossibleRabbits {
     public int minimalRabbits(int[] answers) {
         int n = answers.length;
 
+        // this was an extra space that was consumed to save off the computation of +1
+        // while creating frequency map and adding to the total
         int[] updated = new int[n];
         for (int i = 0; i < n; i++) {
             updated[i] = answers[i] + 1;
