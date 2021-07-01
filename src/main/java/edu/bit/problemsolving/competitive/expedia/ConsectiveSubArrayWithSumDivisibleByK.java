@@ -1,5 +1,8 @@
 package edu.bit.problemsolving.competitive.expedia;
 
+import edu.bit.annotations.organisation.Expedia;
+
+@Expedia
 public class ConsectiveSubArrayWithSumDivisibleByK {
 
     static long kSub(int k, int[] nums) {

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+
 public class EvenSubArrays {
 
     public static void main(String[] args) {

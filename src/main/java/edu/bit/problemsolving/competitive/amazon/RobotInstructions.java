@@ -1,5 +1,7 @@
 package edu.bit.problemsolving.competitive.amazon;
 
+import edu.bit.annotations.organisation.Amazon;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +11,7 @@ import java.util.stream.IntStream;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-
+@Amazon
 public class RobotInstructions {
 
     public static List<String> doesCircleExist(List<String> commands) {
