@@ -1,13 +1,28 @@
 package edu.bit.datastructures.array;
 
+import edu.bit.annotations.organisation.Swiggy;
+import edu.bit.annotations.topics.Array;
+import edu.bit.annotations.topics.PrefixSum;
+
 /**
  * Given an Array of Positive and Negative Integers,
  * find out the Maximum sub-array Sum in that Array.
  */
+@Swiggy
+@Array
+@PrefixSum
 public class MaxSubArraySum {
 
-    // Sol:: naive approach here would take a O(N*N) time to execute
+    // -10^5 < arr[i] <= 10^5 and arr.length <= 3 lakh
+    // (during interview) exponential way would be to find out all sub arrays and their sums and max out of it
+    // arr[] = {2, 4, 5, -14 , 9, 1} ..output => 11
+    //          2, 6, 11, -3, 9, 10   (as soon as I find negative number in prefixSumComputation
+    // {2, 6, 11, 4  , 13, 14} => 14
+    // find out maximum
+    // if I get a negative value, everything ahead in prefix sum is start afresh for rest of sub array
+    // {2, 4, -4, 5, -1, 9, 1} {2,6,2,7,6,15,16} => 16
 
+    // Sol:: naive approach here would take a O(N*N) time to execute
     // a possible optimisation could be made to reduce the complexity
     // to O(N) with O(N) space for prefix sum computation
     public int maximumSubArraySum(int[] arr, int n) {
