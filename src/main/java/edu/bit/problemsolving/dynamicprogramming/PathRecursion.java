@@ -1,5 +1,8 @@
 package edu.bit.problemsolving.dynamicprogramming;
 
+import edu.bit.annotations.topics.DynamicProgramming;
+
+@DynamicProgramming
 public class PathRecursion {
 
     public static int numPaths(int east, int south) {
