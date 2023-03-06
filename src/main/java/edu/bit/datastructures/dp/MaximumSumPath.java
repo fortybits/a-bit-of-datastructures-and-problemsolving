@@ -5,31 +5,31 @@ import java.util.List;
 
 /**
  * 1  2  3  4  5
- *         6  7  8  9  10
- *         11 12 13 14 15
- *         16 17 18 19 20
- *     source 0,0
- *     destination m, n
- *  >> direction(right, bottom)
- *  >> eligibility()?
- *
- *             1  2  3  4  5
- *             6  -7  10000  9  10
- *             11 12 -13 14 15
- *             -16 17 -18 19 20
- *
- *             990
- *             10000 9 10
- *             -13 14 15
- *             -18 19 20
- *
- *             25
- *             4 5
- *             9 10
- *             14 15
- *             19 20
- *
- *             1,6,11,12,17,-18,19,20
+ * 6  7  8  9  10
+ * 11 12 13 14 15
+ * 16 17 18 19 20
+ * source 0,0
+ * destination m, n
+ * >> direction(right, bottom)
+ * >> eligibility()?
+ * <p>
+ * 1  2  3  4  5
+ * 6  -7  10000  9  10
+ * 11 12 -13 14 15
+ * -16 17 -18 19 20
+ * <p>
+ * 990
+ * 10000 9 10
+ * -13 14 15
+ * -18 19 20
+ * <p>
+ * 25
+ * 4 5
+ * 9 10
+ * 14 15
+ * 19 20
+ * <p>
+ * 1,6,11,12,17,-18,19,20
  */
 public class MaximumSumPath {
 
@@ -67,13 +67,18 @@ public class MaximumSumPath {
         }
     }
 
-    boolean eligibleCoordinates(int m, int n, int x, int y) {
-
+    boolean eligibleCoordinates(int m, int n) {
+        return false;
     }
 
 
     class Path {
         int sum;
         List<Integer> elements;
+
+        public Path(int sum, List<Integer> elements) {
+            this.sum = sum;
+            this.elements = elements;
+        }
     }
 }
