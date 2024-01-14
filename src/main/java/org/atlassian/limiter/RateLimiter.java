@@ -45,7 +45,7 @@ public class RateLimiter {
         }
     }
 
-    private long groupTheRequest() {
+    private long groupTheRequest() { // testing this is a trial with luck on lower throughput sequential requests
         long currentTimeMillis = System.currentTimeMillis();
         return (currentTimeMillis - convertTimeDurationInMillis());
     }
