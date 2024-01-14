@@ -7,5 +7,5 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface Hackerrank {
+public @interface HackerRank {
 }
