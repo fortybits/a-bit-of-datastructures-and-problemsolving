@@ -26,8 +26,8 @@ public class TopVotedCandidate {
         Map<Integer, Integer> count = new HashMap<>(); // person to vote count
         time = times;
         for (int i = 0; i < n; ++i) { // O(N)
-            count.put(persons[i], count.getOrDefault(persons[i], 0) + 1);
-            if (i == 0 || count.get(persons[i]) >= count.get(leader)) {
+            Integer finalValue = count.merge(persons[i], 1, Integer::sum); // upgraded
+            if (i == 0 || finalValue >= count.get(leader)) {
                 leader = persons[i];
             }
             lookUpMatrix.put(times[i], leader);
