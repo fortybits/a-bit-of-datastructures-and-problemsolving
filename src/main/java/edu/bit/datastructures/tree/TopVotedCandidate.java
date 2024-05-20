@@ -1,4 +1,4 @@
-package edu.bit.problemsolving;
+package edu.bit.datastructures.tree;
 
 import java.util.Arrays;
 import java.util.HashMap;
