@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public class MyHashMap<T> {
 
-    int[] arr = new int[1000001];
+    int[] arr = new int[1000000001];
 
     //MyHashMap() initializes the object with an empty map.
     public MyHashMap() {

@@ -1,4 +1,4 @@
-package edu.bit.datastructures.array;
+package edu.bit.datastructures.hash;
 
 import java.util.HashSet;
 import java.util.Set;

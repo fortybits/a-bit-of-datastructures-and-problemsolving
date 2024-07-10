@@ -1,5 +1,6 @@
 package edu.bit.datastructures.array;
 
+import edu.bit.datastructures.hash.IntersectionUnionOfArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

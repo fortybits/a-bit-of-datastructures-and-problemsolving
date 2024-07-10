@@ -9,7 +9,7 @@ package edu.bit.datastructures.hash;
  * @param <T>
  */
 public class MyHashSet<T> {
-    boolean[] arr = new boolean[1000001];
+    boolean[] arr = new boolean[1000000001];
 
     public MyHashSet() {
 
