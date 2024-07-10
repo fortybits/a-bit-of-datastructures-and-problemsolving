@@ -7,6 +7,24 @@ import java.util.stream.Stream;
 
 public class OrderManagement {
 
+    private BigDecimal findHighestValueOrder(List<Order> customerOrders) {
+        return customerOrders.stream()
+                .flatMap(o -> o.orderLines().stream())
+                .map(OrderLine::product)
+                .map(Product::price)
+                .max(Comparator.comparing(e -> e))
+                .orElse(BigDecimal.ZERO);
+    }
+
+    record Order(String id, Set<OrderLine> orderLines, Customer customer) {
+    }
+
+    record OrderLine(Product product, Integer quantity) {
+    }
+
+    record Product(String name, BigDecimal price) {
+    }
+
     public class OrdersAnalyzer {
         /**
          * Should return at most three most popular products. Most popular product is the product that have the most occurrences
@@ -45,24 +63,6 @@ public class OrderManagement {
         }
     }
 
-    private BigDecimal findHighestValueOrder(List<Order> customerOrders) {
-        return customerOrders.stream()
-                .flatMap(o -> o.orderLines().stream())
-                .map(OrderLine::product)
-                .map(Product::price)
-                .max(Comparator.comparing(e -> e))
-                .orElse(BigDecimal.ZERO);
-    }
-
     class Customer {
-    }
-
-    record Order(String id, Set<OrderLine> orderLines, Customer customer) {
-    }
-
-    record OrderLine(Product product, Integer quantity) {
-    }
-
-    record Product(String name, BigDecimal price) {
     }
 }

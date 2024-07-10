@@ -35,8 +35,8 @@ public class LRUCache {
     // we would be using doubly linked lists for removal of a middle element.
 
     static class Cache {
-        private int maxCacheSize;
-        private Map<Integer, CacheNode> map = new HashMap<>();
+        private final int maxCacheSize;
+        private final Map<Integer, CacheNode> map = new HashMap<>();
         private CacheNode listHead = null;
         private CacheNode listTail = null;
 

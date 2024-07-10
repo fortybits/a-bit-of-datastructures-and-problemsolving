@@ -44,7 +44,7 @@ public class ExperimentBucketSplit {
     }
 
     enum Operation {
-        CREATE, GET;
+        CREATE, GET
     }
 
     record Bucket(String name) {

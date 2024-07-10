@@ -52,11 +52,11 @@ public class MaximumSumPath {
             return sum;
         }
 
-        int rightElement = matrix[x + 0][y + 1];
-        int bottomElement = matrix[x + 1][y + 0];
+        int rightElement = matrix[x][y + 1];
+        int bottomElement = matrix[x + 1][y];
 
-        int rightSum = maximumSumPathOverload(x + 0, y + 1, sum + rightElement, m, n, matrix, eligibleElements);
-        int bottomSum = maximumSumPathOverload(x + 1, y + 0, sum + bottomElement, m, n, matrix, eligibleElements);
+        int rightSum = maximumSumPathOverload(x, y + 1, sum + rightElement, m, n, matrix, eligibleElements);
+        int bottomSum = maximumSumPathOverload(x + 1, y, sum + bottomElement, m, n, matrix, eligibleElements);
 
         if (rightSum > bottomSum) {
             eligibleElements.add(rightElement);

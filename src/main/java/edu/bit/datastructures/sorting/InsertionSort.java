@@ -16,7 +16,7 @@ import java.util.Arrays;
 class InsertionSort {
 
     /* Function to heapSort array using insertion heapSort */
-    static void insertionSort(int arr[]) {
+    static void insertionSort(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
             int key = arr[i];
@@ -38,7 +38,7 @@ class InsertionSort {
      * item at each iteration. In normal insertion, heapSort it takes O(i) (at ith iteration) in worst
      * case. We can reduce it to O(logi) by using binary search.
      */
-    static void binaryInsertionSort(int array[]) {
+    static void binaryInsertionSort(int[] array) {
         for (int i = 1; i < array.length; i++) {
             int x = array[i];
 

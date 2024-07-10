@@ -24,24 +24,6 @@ public class MaxPerformantTeam {
 
     static final int MOD = (int) (1e9 + 7);
 
-    static class Engineer {
-        int speed;
-        int efficiency;
-
-        public int getEfficiency() {
-            return efficiency;
-        }
-
-        public int getSpeed() {
-            return speed;
-        }
-
-        public Engineer(int speed, int efficiency) {
-            this.speed = speed;
-            this.efficiency = efficiency;
-        }
-    }
-
     // keep two heaps
     // one with max speed (size k)
     // another with min efficiency (size k)
@@ -64,14 +46,14 @@ public class MaxPerformantTeam {
             Engineer currentEngineer = engineers.get(i);
             pq.add(currentEngineer);
             totalSpeed = totalSpeed + currentEngineer.getSpeed();
-            res = Math.max(res, (totalSpeed * currentEngineer.getEfficiency()));
+            res = Math.max(res, ((long) totalSpeed * currentEngineer.getEfficiency()));
         }
 
         for (int i = k; i < engineers.size(); i++) {
             pq.add(engineers.get(i));
             totalSpeed = (totalSpeed + engineers.get(i).speed);
             totalSpeed = totalSpeed - pq.poll().getSpeed(); // layoff the one with min speed
-            res = Math.max(res, (totalSpeed * engineers.get(i).getEfficiency()));  // min efficiency is the efficiency of new engineer
+            res = Math.max(res, ((long) totalSpeed * engineers.get(i).getEfficiency()));  // min efficiency is the efficiency of new engineer
         }
 
         return (int) (res % MOD);
@@ -97,5 +79,23 @@ public class MaxPerformantTeam {
             result = Math.max(result, (totalSpeed * engineer[0]));
         }
         return (int) (result % (long) (1e9 + 7));
+    }
+
+    static class Engineer {
+        int speed;
+        int efficiency;
+
+        public Engineer(int speed, int efficiency) {
+            this.speed = speed;
+            this.efficiency = efficiency;
+        }
+
+        public int getEfficiency() {
+            return efficiency;
+        }
+
+        public int getSpeed() {
+            return speed;
+        }
     }
 }

@@ -13,22 +13,32 @@ import java.util.Map;
  * The words need not be chosen consecutively from the list, but all rows must be the same length and
  * all columns must be the same height.
  */
-@edu.bit.annotations.topics.Trie
 public class WordRectangle {
     // Such questions require building up or pre-processing data.
     // To look at building the largest possible rectangle, start from largest to smallest and break immediately
     // One needs to identify that given all valid rows, the substrings of the column are present in the trie
 
 
-    private int maxWordLength;
-    private WordGroup[] groupList;
-    private Trie trieList[];
+    private final int maxWordLength;
+    private final WordGroup[] groupList;
+    private final Trie[] trieList;
 
     public WordRectangle(String[] list) {
         groupList = WordGroup.createWordGroups(list);
         maxWordLength = groupList.length;
         // Initialize trieList to store trie of groupList[i] at ith position.
         trieList = new Trie[maxWordLength];
+    }
+
+    // Test harness.
+    public static void main(String[] args) {
+        WordRectangle dict = new WordRectangle(new String[]{"abc", "def", "ghi"});
+        Rectangle rect = dict.maxRectangle();
+        if (rect != null) {
+            rect.print();
+        } else {
+            System.out.println("No rectangle exists");
+        }
     }
 
     /* This function finds a rectangle of letters of the largest
@@ -78,7 +88,6 @@ public class WordRectangle {
         return makePartialRectangle(length, height, new Rectangle(length));
     }
 
-
     /* This function recursively tries to form a rectangle with words
      * of length l from the dictionary as rows and words of length h
      * from the dictionary as columns. To do so, we start with an empty
@@ -119,18 +128,6 @@ public class WordRectangle {
         }
         return null;
     }
-
-    // Test harness.
-    public static void main(String[] args) {
-        WordRectangle dict = new WordRectangle(new String[]{"abc", "def", "ghi"});
-        Rectangle rect = dict.maxRectangle();
-        if (rect != null) {
-            rect.print();
-        } else {
-            System.out.println("No rectangle exists");
-        }
-    }
-
 
     static class Rectangle {
         // Rectangle data.
@@ -202,11 +199,9 @@ public class WordRectangle {
          */
         public Rectangle append(String s) {
             if (s.length() == length) {
-                char temp[][] = new char[height + 1][length];
+                char[][] temp = new char[height + 1][length];
                 for (int i = 0; i < height; i++) {
-                    for (int j = 0; j < length; j++) {
-                        temp[i][j] = matrix[i][j];
-                    }
+                    System.arraycopy(matrix[i], 0, temp[i], 0, length);
                 }
                 s.getChars(0, length, temp[height], 0);
 
@@ -227,32 +222,11 @@ public class WordRectangle {
     }
 
     static class WordGroup {
-        private Map<String, Boolean> lookup = new HashMap<String, Boolean>();
-        private List<String> group = new ArrayList<String>();
+        private final Map<String, Boolean> lookup = new HashMap<String, Boolean>();
+        private final List<String> group = new ArrayList<String>();
 
         public WordGroup() {
 
-        }
-
-        public boolean containsWord(String s) {
-            return lookup.containsKey(s);
-        }
-
-        public void addWord(String s) {
-            group.add(s);
-            lookup.put(s, true);
-        }
-
-        public int length() {
-            return group.size();
-        }
-
-        public String getWord(int i) {
-            return group.get(i);
-        }
-
-        public List<String> getWords() {
-            return group;
         }
 
         public static WordGroup[] createWordGroups(String[] list) {
@@ -279,6 +253,27 @@ public class WordRectangle {
                 groupList[wordLength].addWord(list[i]);
             }
             return groupList;
+        }
+
+        public boolean containsWord(String s) {
+            return lookup.containsKey(s);
+        }
+
+        public void addWord(String s) {
+            group.add(s);
+            lookup.put(s, true);
+        }
+
+        public int length() {
+            return group.size();
+        }
+
+        public String getWord(int i) {
+            return group.get(i);
+        }
+
+        public List<String> getWords() {
+            return group;
         }
     }
 }

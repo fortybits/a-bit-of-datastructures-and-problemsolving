@@ -51,7 +51,7 @@ public class SumOfDigits {
         }
     }
 
-    public static void firstKElements(int arr[], int size, int k) {
+    public static void firstKElements(int[] arr, int size, int k) {
         // Creating Min Heap for given array with only k elements. Create min heap with priority queue
         PriorityQueue<Integer> minHeap = Arrays.stream(arr, 0, k)
                 .boxed()

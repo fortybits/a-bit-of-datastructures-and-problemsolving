@@ -20,7 +20,7 @@ import java.util.*;
  */
 public class OneValueOpsUsingComparator {
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int M = Integer.parseInt(br.readLine());

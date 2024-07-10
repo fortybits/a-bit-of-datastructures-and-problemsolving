@@ -39,7 +39,6 @@ public class BinaryWatch {
     // we can try and update a list of booleans like boolean hour[] = new boolean[4]; boolean minute[] = new minute[5]
     public void updateBinaryWatches(int turnedOn, List<String> time) {
         if (turnedOn == 0) {
-            return;
         }
     }
 

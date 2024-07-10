@@ -1,8 +1,5 @@
 package edu.bit.datastructures.dp;
 
-import edu.bit.annotations.organisation.Zeta;
-import edu.bit.annotations.topics.DynamicProgramming;
-
 /**
  * // Books = [120,180,240,160,180,140], M = 3
  * // D1 = 120,180; 240,160; 180,140 -> 400
@@ -16,7 +13,5 @@ import edu.bit.annotations.topics.DynamicProgramming;
  * M = 3 {120 + M2 [180,240,160,180,140], 120,180 M2[] ]
  * // Mn = Min(Bi + Mn-1)
  */
-@DynamicProgramming
-@Zeta
 public class BookDistribution {
 }

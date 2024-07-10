@@ -1,12 +1,7 @@
 package edu.bit.datastructures.dp;
 
-import edu.bit.annotations.organisation.Google;
-import edu.bit.annotations.topics.DynamicProgramming;
-
 import java.util.*;
 
-@Google
-@DynamicProgramming
 public class LongestStringChain {
 
     // There is something about dynamic programming, that just doesn't come naturally to me while solving problems.
@@ -96,7 +91,7 @@ public class LongestStringChain {
         HashMap<String, Integer> cache = new HashMap<>();
 
         HashSet<String> wordSet = new HashSet<>();
-        for (String s : words) wordSet.add(s);
+        Collections.addAll(wordSet, words);
 
         int max = 0;
         for (String w : words) {

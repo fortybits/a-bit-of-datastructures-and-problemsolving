@@ -10,7 +10,7 @@ public class MaximumAbsDifferenceSummation {
 
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
-        int arr[] = IntStream.range(0, N).map(i -> scanner.nextInt()).toArray();
+        int[] arr = IntStream.range(0, N).map(i -> scanner.nextInt()).toArray();
         //        Arrays.sort(arr);
         //
         //        int[] finalArr = new int[N];
@@ -33,7 +33,7 @@ public class MaximumAbsDifferenceSummation {
 
     // Return the maximum Sum of difference between
     // consecutive elements.
-    private static int maxSum(int arr[]) {
+    private static int maxSum(int[] arr) {
         int sum = 0;
         Arrays.sort(arr);
 

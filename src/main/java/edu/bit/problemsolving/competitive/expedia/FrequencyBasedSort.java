@@ -1,11 +1,8 @@
 package edu.bit.problemsolving.competitive.expedia;
 
-import edu.bit.annotations.organisation.Expedia;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Expedia
 public class FrequencyBasedSort {
 
     private static void customSort(int[] arr) {

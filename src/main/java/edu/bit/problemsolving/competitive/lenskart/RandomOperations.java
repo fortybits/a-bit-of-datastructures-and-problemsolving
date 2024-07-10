@@ -8,7 +8,7 @@ public class RandomOperations {
     static List<Character> operands = Arrays.asList('0', '1', '2', '3');
     static Set<String> testCases = new HashSet<>();
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         while (testCases.size() < 50) {
             String operand = getRandomOperand(operands);
             String operator = getRandomOperand(operators);

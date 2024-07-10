@@ -1,8 +1,5 @@
 package edu.bit.datastructures.tree;
 
-import edu.bit.annotations.difficulty.Medium;
-import edu.bit.annotations.topics.Heap;
-
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -20,8 +17,6 @@ import java.util.PriorityQueue;
  * Add the ith integer to a running list of integers.
  * Find the median of the updated list (i.e., for the first element through the ith element).
  */
-@Medium
-@Heap
 public class RunningMedian {
 
     // the approach of splitting the values into two halves such as maintaining

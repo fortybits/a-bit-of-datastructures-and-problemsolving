@@ -5,7 +5,7 @@ package edu.bit.datastructures.array;
  */
 public class TwoSmallestNumber {
 
-    public void print2Smallest(int arr[], int arr_size) {
+    public void print2Smallest(int[] arr, int arr_size) {
         int i, first, second;
 
         /* There should be atleast two elements */

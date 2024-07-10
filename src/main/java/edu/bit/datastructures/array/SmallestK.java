@@ -1,9 +1,6 @@
 package edu.bit.datastructures.array;
 
 
-import edu.bit.annotations.topics.Array;
-import edu.bit.annotations.topics.Tree;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.Random;
@@ -12,8 +9,6 @@ import java.util.Random;
  * Design an algorithm to find the smallest K numbers in an array.
  * https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
  */
-@Array
-@Tree
 public class SmallestK {
     // Approach1: a straight forward way is to sort the array in O(N log(N)) and
     // then find and store the first K numbers in O(K) time
@@ -145,6 +140,15 @@ public class SmallestK {
         return max;
     }
 
+    public static void main(String[] args) {
+        int[] array = {1, 5, 2, 9, 1, 11, 6, 13, 15};
+        int[] smallest = smallestK(array, 3);
+        System.out.println(Arrays.toString(smallest));
+        smallest = smallestKMaxHeap(array, 3);
+        System.out.println(Arrays.toString(smallest));
+        smallest = smallestKSelectionRankingAlgorithm(array, 3);
+        System.out.println(Arrays.toString(smallest));
+    }
 
     // Approach 4: Selection ranking algorithm with non unique elements
     public static class PartitionResult {
@@ -155,15 +159,5 @@ public class SmallestK {
             this.leftSize = left;
             this.middleSize = middle;
         }
-    }
-
-    public static void main(String[] args) {
-        int[] array = {1, 5, 2, 9, 1, 11, 6, 13, 15};
-        int[] smallest = smallestK(array, 3);
-        System.out.println(Arrays.toString(smallest));
-        smallest = smallestKMaxHeap(array, 3);
-        System.out.println(Arrays.toString(smallest));
-        smallest = smallestKSelectionRankingAlgorithm(array, 3);
-        System.out.println(Arrays.toString(smallest));
     }
 }

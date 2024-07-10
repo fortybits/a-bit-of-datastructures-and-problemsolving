@@ -16,7 +16,7 @@ public class WaveFromCenter {
                 System.out.print(Math.max(Math.abs(i - ci), Math.abs(j - cj)));
                 System.out.print(" ");
             }
-            System.out.println("");
+            System.out.println();
         }
 
     }

@@ -1,25 +1,17 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.topics.BitOps;
-
 /**
  * Write a method that finds the maximum of two numbers. You should not use if-else orr any other comparison operator.
  */
-@BitOps
 public class NumberMax {
-
-    // Math.max
-    int maxWithoutBranch(int a, int b) {
-        return Math.max(a, b); //uses ternary operator
-    }
-
-    // another way is to compare bits starting form most significant bit (would have to consider the sign bit here)
-    // one would end up using if else fo negative vs positive number behaviour in such a scenario
 
     /* Flips a 1 to a 0 and a 0 to a 1 */
     public static int flip(int bit) {
         return 1 ^ bit;
     }
+
+    // another way is to compare bits starting form most significant bit (would have to consider the sign bit here)
+    // one would end up using if else fo negative vs positive number behaviour in such a scenario
 
     /* Returns 1 if a is positive, and 0 if a is negative */
     public static int sign(int a) {
@@ -63,5 +55,10 @@ public class NumberMax {
 
         System.out.println("max_naive(" + a + ", " + b + ") = " + getMaxNaive(a, b));
         System.out.println("max(" + a + ", " + b + ") = " + getMax(a, b));
+    }
+
+    // Math.max
+    int maxWithoutBranch(int a, int b) {
+        return Math.max(a, b); //uses ternary operator
     }
 }

@@ -30,7 +30,7 @@ public class DifferentialComputation {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
 
-        long arr[] = new long[N];
+        long[] arr = new long[N];
         for (int i = 0; i < N; i++) {
             arr[i] = scanner.nextLong();
         }
@@ -46,7 +46,7 @@ public class DifferentialComputation {
         return acc;
     }
 
-    private static long printResult(long set[]) {
+    private static long printResult(long[] set) {
         int n = set.length;
         long M = 998244353;
         long sum = 0;

@@ -8,6 +8,17 @@ public class File {
     List<String> collections; // collection // could be a list // optional
     int size; //
 
+    public File(String fileName, int size) {
+        this.fileName = fileName;
+        this.size = size;
+        this.collections = new ArrayList<>();
+    }
+
+    public File(String fileName, int size, List<String> collections) {
+        this(fileName, size);
+        this.collections = collections;
+    }
+
     public String getFileName() {
         return fileName;
     }
@@ -18,17 +29,6 @@ public class File {
 
     public int getSize() {
         return size;
-    }
-
-    public File(String fileName, int size) {
-        this.fileName = fileName;
-        this.size = size;
-        this.collections = new ArrayList<>();
-    }
-
-    public File(String fileName, int size, List<String> collections) {
-        this(fileName, size);
-        this.collections = collections;
     }
 
 

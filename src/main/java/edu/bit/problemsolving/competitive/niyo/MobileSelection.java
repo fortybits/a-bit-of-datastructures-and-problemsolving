@@ -92,6 +92,7 @@ public class MobileSelection {
                     Integer rat = matching.get(i).getRating();
                     if (rat >= rating) {
                         rating = rat;
+                        break;
                     }
                 }
                 System.out.println(rating);

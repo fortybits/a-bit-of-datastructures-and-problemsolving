@@ -17,32 +17,6 @@ import java.util.List;
  */
 public class ReplaceWords {
 
-    /**
-     * optimise the dictionary to consist of unique elements based on theire prefixes Set<String>
-     * for (word: sentence) {
-     * int (i = 0;i<word.length;i++){
-     * substring is present in the set, then use he prefix and break
-     * }
-     * }
-     * this would end up being N*M
-     */
-
-
-    // optimisation that is possible here is based on the M characters that we are iterating,
-    // we can match to a trie based lookup (same as we do in a real life dictionary)
-    // trie for dictionary would help in comparison here with word
-    public class TrieNode {
-        char val;
-        TrieNode[] children;
-        boolean isWord;
-
-        public TrieNode(char val) {
-            this.val = val;
-            this.children = new TrieNode[26];
-            this.isWord = false;
-        }
-    }
-
     // N words in a sentence with M being the length of each word
     public String replaceWords(List<String> dictionary, String sentence) {
         String[] tokens = sentence.split(" ");
@@ -89,6 +63,32 @@ public class ReplaceWords {
             temp.isWord = true;
         }
         return root;
+    }
+
+    /**
+     * optimise the dictionary to consist of unique elements based on theire prefixes Set<String>
+     * for (word: sentence) {
+     * int (i = 0;i<word.length;i++){
+     * substring is present in the set, then use he prefix and break
+     * }
+     * }
+     * this would end up being N*M
+     */
+
+
+    // optimisation that is possible here is based on the M characters that we are iterating,
+    // we can match to a trie based lookup (same as we do in a real life dictionary)
+    // trie for dictionary would help in comparison here with word
+    public class TrieNode {
+        char val;
+        TrieNode[] children;
+        boolean isWord;
+
+        public TrieNode(char val) {
+            this.val = val;
+            this.children = new TrieNode[26];
+            this.isWord = false;
+        }
     }
 
 }

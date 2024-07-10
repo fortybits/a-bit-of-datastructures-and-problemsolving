@@ -11,15 +11,6 @@ import java.util.List;
  */
 public class MissingNumber {
 
-    // provided to access
-    private boolean fetchJthBitOfInteger(int index) {
-        return false;
-    }
-
-    public int findMissing(List<BitInteger> array) {
-        return findMissing(array, 0);
-    }
-
     // But we could do better, we could make use of the given operation and
     // count the number of 0s and 1s in the LSB to identify if the missing number's LSB would be either 0 or 1
     // This can further process until there are no more numbers which can be involved in the computation
@@ -47,6 +38,14 @@ public class MissingNumber {
         }
     }
 
+    // provided to access
+    private boolean fetchJthBitOfInteger(int index) {
+        return false;
+    }
+
+    public int findMissing(List<BitInteger> array) {
+        return findMissing(array, 0);
+    }
 
     // Integer representation is 8 bit (total number of bits would be defined by the value of N)
     // to calculate the length(N) in terms of number of bits required to represent N, it would require log(n) time
@@ -54,7 +53,7 @@ public class MissingNumber {
     // the complexity would turn out to be O(n log(n))
     public static class BitInteger {
         static int INTEGER_SIZE;
-        private boolean[] bits;
+        private final boolean[] bits;
 
         public BitInteger() {
             bits = new boolean[INTEGER_SIZE];
@@ -65,8 +64,7 @@ public class MissingNumber {
         BitInteger(int value) {
             bits = new boolean[INTEGER_SIZE];
             for (int j = 0; j < INTEGER_SIZE; j++) {
-                if (((value >> j) & 1) == 1) bits[INTEGER_SIZE - 1 - j] = true;
-                else bits[INTEGER_SIZE - 1 - j] = false;
+                bits[INTEGER_SIZE - 1 - j] = ((value >> j) & 1) == 1;
             }
         }
 
@@ -82,16 +80,14 @@ public class MissingNumber {
          * Sets k-th most-significant bit.
          */
         public void set(int k, int bitValue) {
-            if (bitValue == 0) bits[k] = false;
-            else bits[k] = true;
+            bits[k] = bitValue != 0;
         }
 
         /**
          * Sets k-th most-significant bit.
          */
         public void set(int k, char bitValue) {
-            if (bitValue == '0') bits[k] = false;
-            else bits[k] = true;
+            bits[k] = bitValue != '0';
         }
 
         /**

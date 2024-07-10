@@ -45,7 +45,7 @@ public class GoldTournament {
         int mod = 998244353;
         long[][] P = new long[n + 1][n + 1];
         P[0][n - 1] = 1;
-        long[] il = IntStream.range(0, 1000).mapToLong(i -> invl((i + 2) * (i + 1) / 2, mod)).toArray();
+        long[] il = IntStream.range(0, 1000).mapToLong(i -> invl((long) (i + 2) * (i + 1) / 2, mod)).toArray();
 
         long[] imos = new long[n + 1];
         for (int i = 0; i < K; i++) {

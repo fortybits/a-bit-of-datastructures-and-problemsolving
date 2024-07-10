@@ -7,9 +7,9 @@ import java.util.EmptyStackException;
 // elements
 public class FixedMultiStack {
 
-    private int stackCapacity;
-    private int[] values;
-    private int[] sizes;
+    private final int stackCapacity;
+    private final int[] values;
+    private final int[] sizes;
 
     // in our example the number of stacks is fixed to 3, but it could also be varied for fixed size
     // multi stacks

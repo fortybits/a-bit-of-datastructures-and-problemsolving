@@ -15,16 +15,6 @@ import java.util.stream.Stream;
  */
 public class SparseSimilarity {
 
-    // a brute force approach could be to compare each documents with the remaining documents,
-    // after finding the similarity score for each pair, list only those which are greater than 0
-    // Note: This would be O(D^2) for D number of documents.
-    List<DocPair> sparseSimilarity(Map<String, Set<Integer>> documents) {
-        return new ArrayList<>();
-
-    }
-
-    // Sorting the documents would be O(L log(L)) to then search within
-
     // The union operation on the other hand is O(A+B) for adding all elements of both sets as seen
     // The intersection operation is O(A) for A as length of one of the documents with smaller size.
     // Both the above operation are possible to be combined in one, while iterating over
@@ -41,29 +31,7 @@ public class SparseSimilarity {
         return (double) intersection.size() / union.size();
     }
 
-
-    // Since we are only interested in the similarity score greater than 0, we would need to exclude out
-    // documents that are dissimilar.
-
-
-    // Group documents by the values they include as a pre-compute can help and
-    // then evaluate similarity score for each pair within these grouped list.
-    // The problem further would be to avoid computing the score for a pair of documents already visited.
-
-    // If you iterate through documents now, you need to find the list of documents(from values merged)
-    // from the computed grouping which are similar to current document.
-
-    // Can you compare the similarity directly from the pre-computed map?
-
-
-    record DocPair(int documentOne, int documentTwo) {
-    }
-
-    record Document(Set<Integer> words, int docId) {
-        public int size() {
-            return words() == null ? 0 : words().size();
-        }
-    }
+    // Sorting the documents would be O(L log(L)) to then search within
 
     public static Map<DocPair, Double> computeSimilarities(List<Document> documents) {
         Map<DocPair, Double> similarities = new HashMap<>();
@@ -81,10 +49,23 @@ public class SparseSimilarity {
         return similarities;
     }
 
+
+    // Since we are only interested in the similarity score greater than 0, we would need to exclude out
+    // documents that are dissimilar.
+
+
+    // Group documents by the values they include as a pre-compute can help and
+    // then evaluate similarity score for each pair within these grouped list.
+    // The problem further would be to avoid computing the score for a pair of documents already visited.
+
+    // If you iterate through documents now, you need to find the list of documents(from values merged)
+    // from the computed grouping which are similar to current document.
+
+    // Can you compare the similarity directly from the pre-computed map?
+
     public static List<Integer> removeDupes(int[] array) {
         return Arrays.stream(array).boxed().distinct().collect(Collectors.toList());
     }
-
 
     public static Map<DocPair, Double> computeSimilarities(Map<Integer, Document> documents) {
         Map<Integer, Set<Integer>> wordToDocs = groupWords(documents);
@@ -137,13 +118,6 @@ public class SparseSimilarity {
         }
     }
 
-
-    record Element(int word, int document) implements Comparable<Element> {
-        public int compareTo(Element e) {
-            return word == e.word ? Integer.compare(document, e.document) : Integer.compare(word, e.word);
-        }
-    }
-
     /* Throw all words into one list, sorting by the word then the document. */
     public static List<Element> sortWords(Map<Integer, Document> docs) {
         return docs.values().stream()
@@ -169,5 +143,28 @@ public class SparseSimilarity {
         }
 
         return similarities;
+    }
+
+    // a brute force approach could be to compare each documents with the remaining documents,
+    // after finding the similarity score for each pair, list only those which are greater than 0
+    // Note: This would be O(D^2) for D number of documents.
+    List<DocPair> sparseSimilarity(Map<String, Set<Integer>> documents) {
+        return new ArrayList<>();
+
+    }
+
+    record DocPair(int documentOne, int documentTwo) {
+    }
+
+    record Document(Set<Integer> words, int docId) {
+        public int size() {
+            return words() == null ? 0 : words().size();
+        }
+    }
+
+    record Element(int word, int document) implements Comparable<Element> {
+        public int compareTo(Element e) {
+            return word == e.word ? Integer.compare(document, e.document) : Integer.compare(word, e.word);
+        }
     }
 }

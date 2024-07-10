@@ -12,8 +12,8 @@ import java.util.LinkedList;
  */
 public class AnimalShelter {
 
-    private LinkedList<Dog> dogs = new LinkedList<>();
-    private LinkedList<Cat> cats = new LinkedList<>();
+    private final LinkedList<Dog> dogs = new LinkedList<>();
+    private final LinkedList<Cat> cats = new LinkedList<>();
     private int order = 0; // acts as a timestamp;
 
     // one could follow two approaches here, either use two separate queues for each type and then

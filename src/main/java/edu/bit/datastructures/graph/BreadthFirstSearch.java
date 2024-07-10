@@ -7,6 +7,21 @@ import java.util.List;
 // Print BFS traversal from a given source vertex. BFS(int s) traverses vertices reachable from s.
 public class BreadthFirstSearch {
 
+    public static void main(String[] args) {
+        Graph graph = new Graph(4);
+        graph.addEdge(0, 1);
+        graph.addEdge(0, 2);
+        graph.addEdge(1, 2);
+        graph.addEdge(2, 0);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 3);
+
+        System.out.println("\nFollowing is Breadth First Traversal (starting from vertex 2) : ");
+        graph.breadthFirstSearch(2);
+        System.out.println("\nFollowing is Breadth First Traversal (starting from vertex 1) : ");
+        graph.breadthFirstSearch(1);
+    }
+
     // This class represents a directed graph using adjacency list representation
     static class Graph {
         private final int verticesCount;
@@ -51,20 +66,5 @@ public class BreadthFirstSearch {
                 }
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Graph graph = new Graph(4);
-        graph.addEdge(0, 1);
-        graph.addEdge(0, 2);
-        graph.addEdge(1, 2);
-        graph.addEdge(2, 0);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 3);
-
-        System.out.println("\nFollowing is Breadth First Traversal (starting from vertex 2) : ");
-        graph.breadthFirstSearch(2);
-        System.out.println("\nFollowing is Breadth First Traversal (starting from vertex 1) : ");
-        graph.breadthFirstSearch(1);
     }
 }

@@ -1,14 +1,9 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.annotations.difficulty.Easy;
-import edu.bit.annotations.topics.Array;
-
 /**
  * Write a function to print circular list starting from given index ind.
  * <a href="http://www.geeksforgeeks.org/circular-array/">Circular Array</a>
  */
-@Array
-@Easy
 public class CircularArray {
 
     // this is a simple O(N) approach that takes O(1) space complexity

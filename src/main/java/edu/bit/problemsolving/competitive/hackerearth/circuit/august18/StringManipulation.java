@@ -9,7 +9,7 @@ public class StringManipulation {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt();
         String str = scanner.next();
-        int count[] = new int[26];
+        int[] count = new int[26];
         // Initialize count array index
         IntStream.range(0, N).forEach(i -> count[str.charAt(i) - 'a']++);
         Arrays.sort(count);

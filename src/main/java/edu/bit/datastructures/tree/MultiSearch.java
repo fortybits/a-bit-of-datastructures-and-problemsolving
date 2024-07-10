@@ -108,7 +108,7 @@ public class MultiSearch {
 
     public static void insertIntoHashMap(List<String> strings, Map<String, List<Integer>> map, int index) {
         for (String s : strings) {
-            map.merge(s, Arrays.asList(index), (integers, integers2) -> {
+            map.merge(s, List.of(index), (integers, integers2) -> {
                 integers.addAll(integers2);
                 return integers;
             });

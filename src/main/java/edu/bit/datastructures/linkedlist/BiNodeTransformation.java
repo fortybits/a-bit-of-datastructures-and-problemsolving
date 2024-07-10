@@ -1,8 +1,5 @@
 package edu.bit.datastructures.linkedlist;
 
-import edu.bit.annotations.topics.LinkedList;
-import edu.bit.annotations.topics.Tree;
-
 /**
  * Consider a simple data structure called BiNode having two other node references.
  * The ds could be used to represent both a binary tree(left - node1, right - node2)
@@ -10,29 +7,7 @@ import edu.bit.annotations.topics.Tree;
  * into a doubly linked list. The values should be kept in the order and the operation should be performed
  * in place(on original data structure).
  */
-@Tree
-@LinkedList
 public class BiNodeTransformation {
-
-    static class BiNode {
-        BiNode node1;
-        BiNode node2;
-        int data;
-
-        public int getData() {
-            return data;
-        }
-    }
-
-    // The approach could be to perform an In-Order traversal using recursion and updating the references.
-
-    // Conversion of the above pseudo code is complex for this problem. There are multiple approaches possible for that.
-
-    // One of these would be to keep a track of the head and the tail while converting the nodes of the tree.
-    // This could be done without any additional data structure, but the following reads cleaner.
-
-    record NodePair(BiNode head, BiNode tail) {
-    }
 
     public static NodePair convertNP(BiNode root) {
         if (root == null) {
@@ -52,6 +27,13 @@ public class BiNodeTransformation {
 
         return new NodePair(part1 == null ? root : part1.head, part2 == null ? root : part2.tail);
     }
+
+    // The approach could be to perform an In-Order traversal using recursion and updating the references.
+
+    // Conversion of the above pseudo code is complex for this problem. There are multiple approaches possible for that.
+
+    // One of these would be to keep a track of the head and the tail while converting the nodes of the tree.
+    // This could be done without any additional data structure, but the following reads cleaner.
 
     public static void concat(BiNode x, BiNode y) {
         x.node2 = y;
@@ -89,9 +71,6 @@ public class BiNodeTransformation {
 
         return part1 == null ? root : part1;
     }
-
-    // To ease the tail and head relation, we can use circular linked list representation and
-    // reduce the traversal to only one for each node. That would give us a O(N) order complexity
 
     public static BiNode convertToCircular(BiNode root) {
         if (root == null) {
@@ -135,5 +114,21 @@ public class BiNodeTransformation {
         head.node1.node2 = null;
         head.node1 = null;
         return head;
+    }
+
+    // To ease the tail and head relation, we can use circular linked list representation and
+    // reduce the traversal to only one for each node. That would give us a O(N) order complexity
+
+    static class BiNode {
+        BiNode node1;
+        BiNode node2;
+        int data;
+
+        public int getData() {
+            return data;
+        }
+    }
+
+    record NodePair(BiNode head, BiNode tail) {
     }
 }

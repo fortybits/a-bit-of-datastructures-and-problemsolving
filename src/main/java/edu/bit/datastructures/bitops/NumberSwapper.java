@@ -1,11 +1,8 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.topics.BitOps;
-
 /**
  * Write a function to swap a number in place(that is without a temporary variables)
  */
-@BitOps
 public class NumberSwapper {
 
     // using no third variable, calculate the difference and proceed

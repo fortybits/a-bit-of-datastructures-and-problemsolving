@@ -36,7 +36,7 @@ public class TripletSum {
 
     // Driver program
     public static void main(String[] args) {
-        int arr[] = {0, 5, 1, 3, 4, 7, 8, 9};
+        int[] arr = {0, 5, 1, 3, 4, 7, 8, 9};
         int n = arr.length;
         int sum = 13;
         printTriplets(arr, n, sum);

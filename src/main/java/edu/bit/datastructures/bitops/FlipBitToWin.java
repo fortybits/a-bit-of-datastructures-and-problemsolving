@@ -1,7 +1,5 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.topics.BitOps;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +7,6 @@ import java.util.List;
  * You have an integer and you can flip exactly one bit from 0 to 1. Write code to find the length of longest sequence
  * of 1s you could create.
  */
-@BitOps
 public class FlipBitToWin {
     // Brute force: changing all 0s(eligible only if single occurrence) one at a time and
     // identifying the longest sequence of 1s

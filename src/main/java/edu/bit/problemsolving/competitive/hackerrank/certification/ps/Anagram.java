@@ -25,12 +25,12 @@ public class Anagram {
         int queryCount = Integer.parseInt(bufferedReader.readLine().trim());
 
         List<String> query = IntStream.range(0, queryCount).mapToObj(i -> {
-            try {
-                return bufferedReader.readLine();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        })
+                    try {
+                        return bufferedReader.readLine();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                })
                 .collect(Collectors.toList());
 
         List<Integer> result = Result.stringAnagram(dictionary, query);

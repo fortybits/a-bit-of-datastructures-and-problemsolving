@@ -1,10 +1,5 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.annotations.difficulty.Medium;
-import edu.bit.annotations.organisation.Amazon;
-import edu.bit.annotations.topics.Array;
-import edu.bit.annotations.topics.LinkedList;
-
 import java.util.*;
 
 /**
@@ -15,10 +10,6 @@ import java.util.*;
  * 0  1  2  3  4  5  6  7  8
  * a  a  b  b  b  b  b  d  d
  */
-@Amazon
-@Medium
-@Array
-@LinkedList
 public class EarlierNonRepeatingCharacter {
 
     // The approach is to maintain a hashset for the characters visited and a queue for first in first out lookup.
@@ -57,9 +48,7 @@ public class EarlierNonRepeatingCharacter {
         Queue<Character> queue = new ArrayDeque<>();
         for (Character ch : characters) {
             if (visited.contains(ch)) {
-                if (queue.contains(ch)) {
-                    queue.remove(ch);
-                }
+                queue.remove(ch);
             } else {
                 visited.add(ch);
                 queue.add(ch);

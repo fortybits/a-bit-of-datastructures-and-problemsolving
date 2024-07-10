@@ -18,7 +18,7 @@ public class LargestRectangularArea {
      * Every bar is pushed to stack once. A bar is popped from the stack when a bar of smaller height is seen.
      * When a bar is popped, we calculate the area with the popped bar as the smallest bar.
      */
-    static int getMaxArea(int hist[], int n) {
+    static int getMaxArea(int[] hist, int n) {
 
         // Create an empty stack. The stack holds indexes of hist[] array.
         // The bars stored in stack are always in increasing order of their heights.

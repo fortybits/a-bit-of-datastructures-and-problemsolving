@@ -1,13 +1,10 @@
 package edu.bit.datastructures.dp;
 
-import edu.bit.annotations.topics.DynamicProgramming;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-@DynamicProgramming
 public class LongestStringChainLength {
 
     public int longestStringChainLength(String[] dictionary) {

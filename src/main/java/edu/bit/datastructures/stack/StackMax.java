@@ -18,7 +18,6 @@ import java.util.TreeMap;
 public class StackMax<T extends Comparable<T>> {
 
     List<T> backingStore = new ArrayList<>();
-
     PriorityQueue<Node> priorityQueue = new PriorityQueue<>();
 
     // The standard three Stack methods:
@@ -113,8 +112,8 @@ public class StackMax<T extends Comparable<T>> {
     }
 
     class MaxStack {
-        private DoubleLinkedList stk = new DoubleLinkedList();
-        private TreeMap<Integer, List<Node>> tm = new TreeMap<>();
+        private final DoubleLinkedList stk = new DoubleLinkedList();
+        private final TreeMap<Integer, List<Node>> tm = new TreeMap<>();
 
         public MaxStack() {
         }

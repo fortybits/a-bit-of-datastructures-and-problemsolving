@@ -2,7 +2,7 @@ package edu.bit.problemsolving.competitive.hotstar;
 
 public class LexicoGraphicallyStrongVowelReplacement {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         java.util.Map<Character, Character> initialToFinalCharacter = new java.util.HashMap<>();
         initialToFinalCharacter.put('a', 'b');

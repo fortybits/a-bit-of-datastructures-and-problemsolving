@@ -18,8 +18,8 @@ public class LostNumbers {
 
         // Traverse through all bits
         for (int i = 0; i < 8 * LONG_FIELD_SIZE; i++) {
-            long Xi = (X & (1 << i));
-            long Ai = (A & (1 << i));
+            long Xi = (X & (1L << i));
+            long Ai = (A & (1L << i));
             if (Xi == 0 && Ai == 0) {
                 // Let us leave bits as 0.
             } else if (Xi == 0 && Ai > 0) {

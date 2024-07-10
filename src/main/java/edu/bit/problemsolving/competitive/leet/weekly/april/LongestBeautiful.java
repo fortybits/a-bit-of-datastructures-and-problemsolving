@@ -58,7 +58,6 @@ public class LongestBeautiful {
         if (a == 'a' && b == 'e') return true;
         if (a == 'e' && b == 'i') return true;
         if (a == 'i' && b == 'o') return true;
-        if (a == 'o' && b == 'u') return true;
-        return false;
+        return a == 'o' && b == 'u';
     }
 }

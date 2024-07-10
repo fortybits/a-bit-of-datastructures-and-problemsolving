@@ -11,8 +11,8 @@ public class ThreeInOne {
     // if we need to manage the automatic growth and shrink of the stacks,
     // then need to consider shifting the other stacks as well.
 
-    private StackInfo[] info;
-    private int[] values;
+    private final StackInfo[] info;
+    private final int[] values;
 
     public ThreeInOne(int numberOfStacks, int defaultSize) {
         /* Create metadata for all the stacks. */

@@ -1,7 +1,5 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.annotations.topics.Array;
-
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +12,6 @@ import java.util.Set;
  * (a string), design an algorithm to un-concatenate the document ina way that minimises the number of
  * unrecognised characters.
  */
-@Array
 public class ReSpace {
 
     // The first step would be to find the character in order to place the first space,

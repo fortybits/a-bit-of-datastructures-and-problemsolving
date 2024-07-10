@@ -20,7 +20,7 @@ class QuickSort {
     smaller (smaller than pivot) to left of
     pivot and all greater elements to right
     of pivot */
-    private static int partition(int arr[], int low, int high) {
+    private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
         int i = (low - 1); // index of smaller element
         for (int j = low; j < high; j++) {
@@ -48,7 +48,7 @@ class QuickSort {
     arr[] --> Array to be sorted,
     low  --> Starting index,
     high  --> Ending index */
-    static void quickSort(int arr[], int low, int high) {
+    static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
       /* pi is partitioning index, arr[pi] is
       now at right place */
@@ -62,7 +62,7 @@ class QuickSort {
     }
 
     /* This QuickSort requires O(Log n) auxiliary space in worst case. */
-    static void quickSortWithTailCallOptimisation(int arr[], int low, int high) {
+    static void quickSortWithTailCallOptimisation(int[] arr, int low, int high) {
         while (low < high) {
       /* pi is partitioning index, arr[p] is now
       at right place */

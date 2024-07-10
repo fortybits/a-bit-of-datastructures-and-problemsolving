@@ -1,13 +1,10 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.topics.BitOps;
-
 import java.util.stream.IntStream;
 
 /**
  * Write a function to determine the number of bits you would need to flip to convert integer A to integer B.
  */
-@BitOps
 public class Conversion {
     // perform an XOR of A and B and count total number of set bits
     public static int bitSwapRequired(int a, int b) {

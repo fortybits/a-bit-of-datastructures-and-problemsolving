@@ -34,7 +34,7 @@ public class SpecialShop {
                 A = B;
                 B = temp;
             }
-            long criticalPoint = (long) (Math.round(A * N / ((float) (A + B))) - 1);
+            long criticalPoint = Math.round(A * N / ((float) (A + B))) - 1;
             long minValue = Long.MAX_VALUE;
             int count = 0;
             while (count < 3) {

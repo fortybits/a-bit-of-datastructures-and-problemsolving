@@ -13,7 +13,7 @@ package edu.bit.datastructures.sorting;
  */
 class HeapSort {
 
-    static void heapSort(int arr[]) {
+    static void heapSort(int[] arr) {
         int n = arr.length;
 
         // Build heap (rearrange array)
@@ -35,7 +35,7 @@ class HeapSort {
 
     // To maxHeapify a subtree rooted with node i which is
     // an index in arr[]. n is size of heap
-    private static void maxHeapify(int arr[], int n, int i) {
+    private static void maxHeapify(int[] arr, int n, int i) {
         int largest = i; // Initialize largest as root
         int l = 2 * i + 1; // left = 2*i + 1
         int r = 2 * i + 2; // right = 2*i + 2

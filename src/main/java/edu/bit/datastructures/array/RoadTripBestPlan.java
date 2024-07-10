@@ -1,7 +1,5 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.annotations.organisation.Google;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,6 @@ import java.util.List;
  * <p>
  * cost = (dist - 100)^2
  */
-@Google
 public class RoadTripBestPlan {
 
 

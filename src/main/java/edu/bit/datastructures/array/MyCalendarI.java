@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.TreeSet;
 
 public class MyCalendarI {
-    private List<int[]> books = new ArrayList<>();
+    TreeSet<int[]> sortedBooks = new TreeSet<>(Comparator.comparingInt((int[] a) -> a[0]));
+    private final List<int[]> books = new ArrayList<>();
+
     public boolean book(int start, int end) {
         for (int[] b : books) { // iterate through each book
             if (Math.max(b[0], start) < Math.min(b[1], end)) {
@@ -16,8 +18,6 @@ public class MyCalendarI {
         books.add(new int[]{start, end});
         return true;
     }
-
-    TreeSet<int[]> sortedBooks = new TreeSet<>(Comparator.comparingInt((int[] a) -> a[0]));
 
     public boolean bookOpt(int start, int end) {
         int[] book = new int[]{start, end};

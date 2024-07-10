@@ -3,8 +3,6 @@ package edu.bit.datastructures.linkedlist;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ReverseLinkedListIITest {
 
     ReverseLinkedListII reverseLinkedListII = new ReverseLinkedListII();

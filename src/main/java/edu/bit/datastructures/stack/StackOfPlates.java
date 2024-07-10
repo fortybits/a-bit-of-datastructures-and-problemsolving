@@ -9,9 +9,9 @@ import java.util.List;
 // (follow up implementing popAt(int index) which performs pop operation no a specific sub-stack)
 public class StackOfPlates {
 
-    private int capacity;
+    private final int capacity;
     // custom implementation of stack for this
-    private List<Stack> stacks = new ArrayList<>();
+    private final List<Stack> stacks = new ArrayList<>();
 
     public StackOfPlates(int capacity) {
         this.capacity = capacity;
@@ -79,7 +79,7 @@ public class StackOfPlates {
     class Stack {
         public int size = 0;
         Node top, bottom;
-        private int capacity;
+        private final int capacity;
 
         Stack(int capacity) {
             this.capacity = capacity;

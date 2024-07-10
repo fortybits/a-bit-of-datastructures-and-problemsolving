@@ -1,12 +1,9 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.topics.BitOps;
-
 /**
  * Given a positive integer, print the next smallest and the next largest number that have the same number of 1s
  * in their binary representation.
  */
-@BitOps
 public class NextNumber {
     // Consider the case where 0110, 0101
     // Next smallest number should be constructed by moving the 1 before a 0 to the end

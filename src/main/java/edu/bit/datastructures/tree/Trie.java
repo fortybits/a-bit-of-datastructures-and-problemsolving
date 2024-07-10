@@ -5,14 +5,6 @@ import java.util.*;
 public class Trie {
     private TrieNode root = new TrieNode();
 
-    public List<Integer> search(String s) {
-        return root.search(s);
-    }
-
-    public void insertString(String str, int location) {
-        root.insertString(str, location);
-    }
-
     /* Takes a list of strings as an argument, and constructs a trie that stores these strings. */
     public Trie(List<String> list) {
         root = new TrieNode();
@@ -21,13 +13,20 @@ public class Trie {
         }
     }
 
-
     /* Takes a list of strings as an argument, and constructs a trie that stores these strings. */
     public Trie(String[] list) {
         root = new TrieNode();
         for (String word : list) {
             root.addWord(word);
         }
+    }
+
+    public List<Integer> search(String s) {
+        return root.search(s);
+    }
+
+    public void insertString(String str, int location) {
+        root.insertString(str, location);
     }
 
     /* Checks whether this trie contains a string with the prefix passed
@@ -55,12 +54,12 @@ public class Trie {
 
 
     static class TrieNode {
-        private Map<Character, TrieNode> children;
+        private final Map<Character, TrieNode> children;
         private boolean terminates = false;
 
         // The character stored in this node as data.
         private char character;
-        private List<Integer> indexes;
+        private final List<Integer> indexes;
 
         public TrieNode() {
             children = new HashMap<>();

@@ -6,8 +6,8 @@ import java.util.LinkedList;
  * @link {href>https://www.geeksforgeeks.org/check-given-graph-tree/</href}
  */
 public class CheckGraphIsATreeOrNot {
-    private int V; // No. of vertices
-    private LinkedList<Integer> adj[]; // Adjacency List
+    private final int V; // No. of vertices
+    private final LinkedList<Integer>[] adj; // Adjacency List
 
     // Constructor
     private CheckGraphIsATreeOrNot(int v) {
@@ -17,7 +17,7 @@ public class CheckGraphIsATreeOrNot {
     }
 
     // Driver method
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // Create a graph given in the above diagram
         CheckGraphIsATreeOrNot g1 = new CheckGraphIsATreeOrNot(5);
         g1.addEdge(1, 0);
@@ -46,7 +46,7 @@ public class CheckGraphIsATreeOrNot {
 
     // A recursive function that uses visited[] and parent
     // to detect cycle in subgraph reachable from vertex v.
-    private boolean isCyclicUtil(int v, boolean visited[], int parent) {
+    private boolean isCyclicUtil(int v, boolean[] visited, int parent) {
         // Mark the current node as visited
         visited[v] = true;
         Integer i;
@@ -72,7 +72,7 @@ public class CheckGraphIsATreeOrNot {
     private boolean isTree() {
         // Mark all the vertices as not visited and not part
         // of recursion stack
-        boolean visited[] = new boolean[V];
+        boolean[] visited = new boolean[V];
         for (int i = 0; i < V; i++) {
             visited[i] = false;
         }

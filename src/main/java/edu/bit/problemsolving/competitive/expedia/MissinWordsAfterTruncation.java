@@ -1,13 +1,10 @@
 package edu.bit.problemsolving.competitive.expedia;
 
-import edu.bit.annotations.organisation.Expedia;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Expedia
 public class MissinWordsAfterTruncation {
 
     static String[] missingWords(String s, String t) {

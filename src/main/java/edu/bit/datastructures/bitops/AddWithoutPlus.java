@@ -1,11 +1,8 @@
 package edu.bit.datastructures.bitops;
 
-import edu.bit.annotations.topics.BitOps;
-
 /**
  * Write a function that adds two numbers. You should not use a + or any arithmetic operator.
  */
-@BitOps
 public class AddWithoutPlus {
 
     private static int addWithoutArithmeticOps(int x, int y) {

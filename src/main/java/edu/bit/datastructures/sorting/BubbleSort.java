@@ -13,7 +13,7 @@ import java.util.stream.IntStream;
  */
 class BubbleSort {
 
-    static void bubbleSort(int arr[]) {
+    static void bubbleSort(int[] arr) {
         int n = arr.length;
         // swap temp and arr[i]
         IntStream.range(0, n - 1)
@@ -30,7 +30,7 @@ class BubbleSort {
     }
 
     // An optimized version of Bubble Sort
-    static void optimisedBubbleSort(int arr[]) {
+    static void optimisedBubbleSort(int[] arr) {
         int n = arr.length;
         int i, j, temp;
         boolean swapped;

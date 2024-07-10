@@ -1,7 +1,5 @@
 package edu.bit.problemsolving.competitive.amazon;
 
-import edu.bit.annotations.organisation.Amazon;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +9,6 @@ import java.util.stream.IntStream;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-@Amazon
 public class RobotInstructions {
 
     public static List<String> doesCircleExist(List<String> commands) {
@@ -26,7 +23,7 @@ public class RobotInstructions {
         return commandResult;
     }
 
-    public static boolean circleExists(char instructions[]) {
+    public static boolean circleExists(char[] instructions) {
         int x = 0, y = 0;
         int direction = 0;
         for (char instruction : instructions) {
@@ -56,12 +53,12 @@ public class RobotInstructions {
         int commandsCount = Integer.parseInt(bufferedReader.readLine().trim());
 
         List<String> commands = IntStream.range(0, commandsCount).mapToObj(i -> {
-            try {
-                return bufferedReader.readLine();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        })
+                    try {
+                        return bufferedReader.readLine();
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                })
                 .collect(toList());
 
         List<String> result = RobotInstructions.doesCircleExist(commands);

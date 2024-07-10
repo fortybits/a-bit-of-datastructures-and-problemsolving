@@ -12,8 +12,8 @@ package edu.bit.datastructures.tree;
  */
 public class WordDictionary {
 
-    private WordDictionary[] children;
     boolean isEndOfWord;
+    private final WordDictionary[] children;
 
     public WordDictionary() {
         children = new WordDictionary[26];

@@ -42,13 +42,13 @@ public class ArrayCutting {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int N = scanner.nextInt(); // 1<=N<=10000
-        int A[] = IntStream.range(0, N).map(i -> scanner.nextInt()).toArray(); // 1<=Ai<=1000
+        int[] A = IntStream.range(0, N).map(i -> scanner.nextInt()).toArray(); // 1<=Ai<=1000
         int K = scanner.nextInt(); // 1<=K<=floor(N/2)
         /**
          * if we sum the count of divisors of the each individual partition sum then it should be as
          * minimum as possible.
          */
-        int output[] = new int[K];
+        int[] output = new int[K];
         int minimumSum = Integer.MAX_VALUE;
     }
 

@@ -1,9 +1,5 @@
 package edu.bit.datastructures.tree;
 
-import edu.bit.annotations.topics.Array;
-import edu.bit.annotations.topics.Graph;
-import edu.bit.annotations.topics.Tree;
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -14,9 +10,6 @@ import java.util.stream.IntStream;
  * one word into another word by changing only letter at a time.
  * The new word you get in each step must be in dictionary.
  */
-@Array
-@Tree
-@Graph
 public class WordTransformer {
 
     private static List<String> transform(Set<String> visited, String startWord, String stopWord, Set<String> dictionary) {
@@ -186,7 +179,7 @@ public class WordTransformer {
         if (list == null) {
             System.out.println("No path.");
         } else {
-            System.out.println(list.toString());
+            System.out.println(list);
         }
     }
 

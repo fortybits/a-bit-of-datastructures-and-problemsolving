@@ -32,7 +32,7 @@ import java.util.stream.IntStream;
  * <p>Constraint 1 <= M <= 10
  */
 public class UnitBalancer {
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
         Set<String> overallUnits = new HashSet<>(Arrays.asList(scanner.nextLine().split(",")));

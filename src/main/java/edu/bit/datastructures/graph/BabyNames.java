@@ -1,8 +1,5 @@
 package edu.bit.datastructures.graph;
 
-import edu.bit.annotations.topics.Array;
-import edu.bit.annotations.topics.Graph;
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -15,60 +12,7 @@ import java.util.stream.Collectors;
  * of the true frequency of each name. Note that, the pairs are both transitive and symmetric. In the final
  * list, any name can be used as a real name.
  */
-@Graph
-@Array
 public class BabyNames {
-
-    // todo: time-complexity?
-    private Map<String, Integer> mergeFrequencies(Map<String, Integer> nameFrequencies, List<Pair> pairs) {
-        Map<Pair, Set<String>> collectivePairs = pairs.stream()
-                .collect(Collectors.toMap(Function.identity(),
-                        pair -> new HashSet<>(Arrays.asList(pair.getSource(), pair.getDestination())),
-                        (pair1, pair2) -> {
-                            pair1.addAll(pair2);
-                            return pair1;
-                        }));
-        return collectivePairs.entrySet().stream()
-                .collect(Collectors.toMap(e -> e.getKey().getSource(),
-                        e -> e.getValue().stream()
-                                .mapToInt(nameFrequencies::get).sum()));
-        // the above implementation missed the names, that are a part of the frequency map
-        // but do not have any synonym
-    }
-
-    class Pair {
-        String source;
-        String destination;
-
-        public String getSource() {
-            return source;
-        }
-
-        public String getDestination() {
-            return destination;
-        }
-
-        // implement equals in such a way that even if any of source or destination matches,
-        // one finds the pairs as equal
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Pair pair = (Pair) o;
-            return Objects.equals(source, pair.source) || Objects.equals(source, pair.destination) ||
-                    Objects.equals(destination, pair.destination) || Objects.equals(destination, pair.source);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(source, destination);
-        }
-    }
-
-
-    // Another approach would be creating a graph while iterating the synonym pairs
-    // and traversing each of its node performing a DFS/BFS to get the values from frequency table
-
 
     /* Add all names to graph as nodes. */
     public static Graph constructGraph(Map<String, Integer> names) {
@@ -89,6 +33,10 @@ public class BabyNames {
             graph.addEdge(name1, name2);
         }
     }
+
+
+    // Another approach would be creating a graph while iterating the synonym pairs
+    // and traversing each of its node performing a DFS/BFS to get the values from frequency table
 
     /* Do depth-first search to find the total frequency of this
      * component, and mark each node as visited.*/
@@ -143,16 +91,28 @@ public class BabyNames {
         }
     }
 
+    // todo: time-complexity?
+    private Map<String, Integer> mergeFrequencies(Map<String, Integer> nameFrequencies, List<Pair> pairs) {
+        Map<Pair, Set<String>> collectivePairs = pairs.stream()
+                .collect(Collectors.toMap(Function.identity(),
+                        pair -> new HashSet<>(Arrays.asList(pair.getSource(), pair.getDestination())),
+                        (pair1, pair2) -> {
+                            pair1.addAll(pair2);
+                            return pair1;
+                        }));
+        return collectivePairs.entrySet().stream()
+                .collect(Collectors.toMap(e -> e.getKey().getSource(),
+                        e -> e.getValue().stream()
+                                .mapToInt(nameFrequencies::get).sum()));
+        // the above implementation missed the names, that are a part of the frequency map
+        // but do not have any synonym
+    }
+
     static class GraphNode {
-        private List<GraphNode> neighbors;
-        private Map<String, GraphNode> map;
-        private String name;
-        private int frequency;
-
-        public void setVisited(boolean visited) {
-            this.visited = visited;
-        }
-
+        private final List<GraphNode> neighbors;
+        private final Map<String, GraphNode> map;
+        private final String name;
+        private final int frequency;
         private boolean visited = false;
 
         public GraphNode(String nm, int freq) {
@@ -190,11 +150,20 @@ public class BabyNames {
         public boolean isVisited() {
             return visited;
         }
+
+        public void setVisited(boolean visited) {
+            this.visited = visited;
+        }
     }
 
     static class Graph {
-        private List<GraphNode> nodes;
-        private Map<String, GraphNode> map;
+        private final List<GraphNode> nodes;
+        private final Map<String, GraphNode> map;
+
+        public Graph() {
+            map = new HashMap<>();
+            nodes = new ArrayList<>();
+        }
 
         public List<GraphNode> getNodes() {
             return nodes;
@@ -202,11 +171,6 @@ public class BabyNames {
 
         public Map<String, GraphNode> getMap() {
             return map;
-        }
-
-        public Graph() {
-            map = new HashMap<>();
-            nodes = new ArrayList<>();
         }
 
         public GraphNode createNode(String name, int freq) {
@@ -234,6 +198,35 @@ public class BabyNames {
                 start.addNeighbor(end);
                 end.addNeighbor(start);
             }
+        }
+    }
+
+    class Pair {
+        String source;
+        String destination;
+
+        public String getSource() {
+            return source;
+        }
+
+        public String getDestination() {
+            return destination;
+        }
+
+        // implement equals in such a way that even if any of source or destination matches,
+        // one finds the pairs as equal
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Pair pair = (Pair) o;
+            return Objects.equals(source, pair.source) || Objects.equals(source, pair.destination) ||
+                    Objects.equals(destination, pair.destination) || Objects.equals(destination, pair.source);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(source, destination);
         }
     }
 }

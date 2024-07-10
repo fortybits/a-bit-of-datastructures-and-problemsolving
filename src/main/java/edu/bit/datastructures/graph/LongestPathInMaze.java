@@ -1,9 +1,5 @@
 package edu.bit.datastructures.graph;
 
-import edu.bit.annotations.organisation.Google;
-import edu.bit.annotations.topics.DynamicProgramming;
-import edu.bit.annotations.topics.Graph;
-
 /**
  * Write a program that takes a map of a maze as input and outputs the length of the longest path
  * from the top to the bottom.
@@ -33,9 +29,6 @@ import edu.bit.annotations.topics.Graph;
  * <p>
  * size constraints 1000 x 1000. (minimum: 2x2)
  */
-@Google
-@Graph
-@DynamicProgramming
 public class LongestPathInMaze {
 
     // longest path in a graph, [sources row=1, destinations row = n]

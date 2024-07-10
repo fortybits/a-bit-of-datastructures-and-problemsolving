@@ -22,18 +22,6 @@ public class FrequencyOfMostFrequentIntegerPossible {
         System.out.println(frequency.maxFrequency(new int[]{1, 2, 4}, 1)); // 2
     }
 
-    // todo: complete this
-    public int maxFrequency(int[] nums, int k) {
-        Map<Integer, Long> frequency = Arrays.stream(nums)
-                .boxed()
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-                .entrySet().stream()
-                .sorted(Map.Entry.comparingByValue())
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (a, b) -> a, LinkedHashMap::new));
-        return 0;
-    }
-
     static boolean possible(int[] arr, int N, int mid, int K) {
         int add = 0;
 
@@ -46,7 +34,6 @@ public class FrequencyOfMostFrequentIntegerPossible {
         }
         return add <= K;
     }
-
 
     static int findMaxMedian(int[] arr, int N, int K) {
 
@@ -76,5 +63,17 @@ public class FrequencyOfMostFrequentIntegerPossible {
         }
         // Return the max possible ans
         return low - 1;
+    }
+
+    // todo: complete this
+    public int maxFrequency(int[] nums, int k) {
+        Map<Integer, Long> frequency = Arrays.stream(nums)
+                .boxed()
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                        (a, b) -> a, LinkedHashMap::new));
+        return 0;
     }
 }

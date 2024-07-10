@@ -10,7 +10,7 @@ package edu.bit.datastructures.sorting;
  */
 class SelectionSort {
 
-    static void selectionSort(int arr[]) {
+    static void selectionSort(int[] arr) {
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray

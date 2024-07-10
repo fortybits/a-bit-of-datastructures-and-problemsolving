@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 public class PhysicsProfessor {
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         int T = scanner.nextInt();
         for (int i = 0; i < T; i++) {

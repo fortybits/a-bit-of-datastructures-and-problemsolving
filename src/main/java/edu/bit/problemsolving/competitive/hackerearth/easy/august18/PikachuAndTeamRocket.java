@@ -45,7 +45,7 @@ public class PikachuAndTeamRocket {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int k = scanner.nextInt();
-        long arr[] = LongStream.range(0, n).map(i -> scanner.nextLong()).toArray();
+        long[] arr = LongStream.range(0, n).map(i -> scanner.nextLong()).toArray();
         LongStream.range(0, k)
                 .mapToObj(i -> IntStream.range(1, arr.length))
                 .flatMapToInt(Function.identity())

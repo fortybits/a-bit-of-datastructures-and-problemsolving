@@ -1,16 +1,9 @@
 package edu.bit.datastructures.array;
 
-import edu.bit.annotations.organisation.Swiggy;
-import edu.bit.annotations.topics.Array;
-import edu.bit.annotations.topics.PrefixSum;
-
 /**
  * Given an Array of Positive and Negative Integers,
  * find out the Maximum sub-array Sum in that Array.
  */
-@Swiggy
-@Array
-@PrefixSum
 public class MaxSubArraySum {
 
     // -10^5 < arr[i] <= 10^5 and arr.length <= 3 lakh

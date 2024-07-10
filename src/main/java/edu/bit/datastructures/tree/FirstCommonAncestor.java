@@ -7,6 +7,10 @@ package edu.bit.datastructures.tree;
 public class FirstCommonAncestor {
     // validate - does the node have link to their parents?
 
+    static final int TWO_NODES_FOUND = 2;
+    static final int ONE_NODE_FOUND = 1;
+    static final int NO_NODES_FOUND = 0;
+
     // with the links to the parents once can traverse back and find the common ancestor node
     public static TreeNode commonAncestor(TreeNode p, TreeNode q) {
         if (p == q) {
@@ -29,10 +33,6 @@ public class FirstCommonAncestor {
         }
         return node == ancestor;
     }
-
-    static final int TWO_NODES_FOUND = 2;
-    static final int ONE_NODE_FOUND = 1;
-    static final int NO_NODES_FOUND = 0;
 
     // Checks how many 'special' nodes are located under this root
     public static int covers(TreeNode root, TreeNode p, TreeNode q) {
@@ -89,9 +89,6 @@ public class FirstCommonAncestor {
     // one way is to figure out whether the given nodes are both on different side of a node(this would be the
     // ancestor node) in such a case
 
-    record Result(TreeNode node, boolean isAncestor) {
-    }
-
     public static Result commonAncestorHelper(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return new Result(null, false);
@@ -131,7 +128,6 @@ public class FirstCommonAncestor {
         return null;
     }
 
-
     // This function returns pointer to LCA of two given values n1 and n2.
     // This function assumes that n1 and n2 are present in Binary Tree
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
@@ -160,5 +156,8 @@ public class FirstCommonAncestor {
 
         // Otherwise check if left subtree or right subtree is LCA
         return left != null ? left : right;
+    }
+
+    record Result(TreeNode node, boolean isAncestor) {
     }
 }

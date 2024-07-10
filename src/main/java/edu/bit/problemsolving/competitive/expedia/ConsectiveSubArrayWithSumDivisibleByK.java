@@ -1,12 +1,9 @@
 package edu.bit.problemsolving.competitive.expedia;
 
-import edu.bit.annotations.organisation.Expedia;
-
-@Expedia
 public class ConsectiveSubArrayWithSumDivisibleByK {
 
     static long kSub(int k, int[] nums) {
-        int mod[] = new int[k]; // array to count frequency of remainders
+        int[] mod = new int[k]; // array to count frequency of remainders
         int consecutiveSum = 0; // sum of sequence of values
         for (int num : nums) { // Traverse original array
             consecutiveSum += num; // compute sum of consecutives
@@ -21,7 +18,7 @@ public class ConsectiveSubArrayWithSumDivisibleByK {
         for (int i = 0; i < k; i++) {
             // If there are more than one prefix subarrays with a particular mod value.
             if (mod[i] > 1) {
-                result += (mod[i] * (mod[i] - 1)) / 2;
+                result += ((long) mod[i] * (mod[i] - 1)) / 2;
             }
         }
 

@@ -1,8 +1,5 @@
 package edu.bit.datastructures;
 
-import edu.bit.annotations.organisation.Swiggy;
-import edu.bit.annotations.topics.LookupMap;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +9,6 @@ import java.util.Map;
  * number of other rabbits with same color.
  * We need to find out the minimum numbers of rabbits present in the forest
  */
-@Swiggy
-@LookupMap
 public class MinimalPossibleRabbits {
 
     public int minimalRabbits(int[] answers) {

@@ -1,6 +1,7 @@
 package edu.bit.datastructures.array;
 
 import java.util.Hashtable;
+
 /**
  * Design and implement a hashtable which uses chaining (linked lists) to handle collisions.
  *

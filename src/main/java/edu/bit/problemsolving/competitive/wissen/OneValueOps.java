@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  */
 public class OneValueOps {
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int M = Integer.parseInt(br.readLine());

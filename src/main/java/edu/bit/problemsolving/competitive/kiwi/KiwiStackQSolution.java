@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class KiwiStackQSolution {
-    private static Stack<Integer> integerStack = new Stack<>();
+    private static final Stack<Integer> integerStack = new Stack<>();
 
-    public static void main(String args[]) throws Exception {
+    public static void main(String[] args) throws Exception {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT */
         Scanner scanLines = new Scanner(System.in);
         int lines = scanLines.nextInt();

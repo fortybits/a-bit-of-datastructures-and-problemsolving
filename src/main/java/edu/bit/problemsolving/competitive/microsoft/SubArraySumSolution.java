@@ -35,7 +35,7 @@ public class SubArraySumSolution {
         System.out.println(count(_numbers));
     }
 
-    int subArraySum(int arr[], int n, int sum) {
+    int subArraySum(int[] arr, int n, int sum) {
         int curr_sum = arr[0], start = 0, i;
 
         // Pick a starting point

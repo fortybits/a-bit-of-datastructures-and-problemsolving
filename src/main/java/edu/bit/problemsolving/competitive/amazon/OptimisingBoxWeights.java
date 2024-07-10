@@ -1,7 +1,5 @@
 package edu.bit.problemsolving.competitive.amazon;
 
-import edu.bit.annotations.organisation.Amazon;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,7 +9,6 @@ import java.util.stream.IntStream;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-@Amazon
 public class OptimisingBoxWeights {
 
     public static List<Integer> minimalHeaviestSetA(List<Integer> arr) {
@@ -47,12 +44,12 @@ public class OptimisingBoxWeights {
         int arrCount = Integer.parseInt(bufferedReader.readLine().trim());
 
         List<Integer> arr = IntStream.range(0, arrCount).mapToObj(i -> {
-            try {
-                return bufferedReader.readLine().replaceAll("\\s+$", "");
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        })
+                    try {
+                        return bufferedReader.readLine().replaceAll("\\s+$", "");
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                })
                 .map(String::trim)
                 .map(Integer::parseInt)
                 .collect(toList());

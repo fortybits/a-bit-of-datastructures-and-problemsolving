@@ -9,6 +9,9 @@ package edu.bit.datastructures.tree;
  * Note: A leaf is a node with no children.
  */
 public class MinimalDepthOfBinaryTree {
+    private int minDepth = Integer.MAX_VALUE;
+    private int currentDepth = 0;
+
     public int minDepth(TreeNode root) {
         if (root == null) return 0;
         if (root.left == null) return minDepth(root.right) + 1;
@@ -16,15 +19,11 @@ public class MinimalDepthOfBinaryTree {
         return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
     }
 
-
     public int optimisedMinDepth(TreeNode root) {
         if (root == null) return 0;
         calculateDepth(root);
         return minDepth;
     }
-
-    private int minDepth = Integer.MAX_VALUE;
-    private int currentDepth = 0;
 
     private void calculateDepth(TreeNode node) {
         currentDepth++;

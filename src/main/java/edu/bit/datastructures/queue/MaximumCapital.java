@@ -18,24 +18,6 @@ public class MaximumCapital {
         System.out.println(result);
     }
 
-    class Project {
-        int cost;
-        int profit;
-
-        int getCost() {
-            return cost;
-        }
-
-        int getProfit() {
-            return profit;
-        }
-
-        public Project(int cost, int profit) {
-            this.cost = cost;
-            this.profit = profit;
-        }
-    }
-
     /**
      * Approach : 1
      * (nlogn) pre-compute : sort the list of projects based on the cost
@@ -96,5 +78,23 @@ public class MaximumCapital {
         }
         projects.remove(profitIndex);
         return maxProfit;
+    }
+
+    class Project {
+        int cost;
+        int profit;
+
+        public Project(int cost, int profit) {
+            this.cost = cost;
+            this.profit = profit;
+        }
+
+        int getCost() {
+            return cost;
+        }
+
+        int getProfit() {
+            return profit;
+        }
     }
 }

@@ -24,7 +24,7 @@ public class MedianOfSortedArrays {
         }
     }
 
-    double findMedianSortedArrays(int nums1[], int nums2[]) {
+    double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int index1 = 0;
         int index2 = 0;
         int firstMedian = 0;

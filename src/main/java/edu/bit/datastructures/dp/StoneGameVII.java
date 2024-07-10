@@ -16,6 +16,9 @@ package edu.bit.datastructures.dp;
  */
 public class StoneGameVII {
 
+    Integer[][] memo;
+    int[] preSum;
+
     public int stoneGameVII(int[] stones) {
 //        result(stones[0 .. n]) = max(
 //                sum(stones[1 .. n]) - result(stones[1 .. n]),
@@ -44,9 +47,6 @@ public class StoneGameVII {
         }
         return dp[0];
     }
-
-    Integer[][] memo;
-    int[] preSum;
 
     public int stoneGameVIII(int[] stones) {
         int n = stones.length;

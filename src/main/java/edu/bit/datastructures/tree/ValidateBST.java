@@ -6,6 +6,9 @@ package edu.bit.datastructures.tree;
 public class ValidateBST {
 
     private int index = 0;
+    // as noticeable, the primary check here is to compare an element with the element added previous
+    // to it in array so we could modify the existing solution to reduce the space consumed as
+    private Integer lastPrinted = null;
 
     private void copyBST(TreeNode root, int[] array) {
         if (root == null) {
@@ -31,10 +34,6 @@ public class ValidateBST {
         }
         return true;
     }
-
-    // as noticeable, the primary check here is to compare an element with the element added previous
-    // to it in array so we could modify the existing solution to reduce the space consumed as
-    private Integer lastPrinted = null;
 
     private boolean checkBSTOptimised(TreeNode root) {
         if (root == null) {
