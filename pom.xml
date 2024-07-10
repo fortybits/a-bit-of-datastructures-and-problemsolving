@@ -72,7 +72,6 @@
                 <version>3.3.0</version>
                 <configuration>
                     <argLine>
-                        --enable-preview
                         --add-opens
                         a.bit.of.data.structures.and.problem.solving/edu.bit.datastructures.array=ALL-UNNAMED
                         --add-opens
