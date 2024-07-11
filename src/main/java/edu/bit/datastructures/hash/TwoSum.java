@@ -1,4 +1,4 @@
-package edu.bit.datastructures.array;
+package edu.bit.datastructures.hash;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +11,11 @@ import java.util.Map;
  * and you may not use the same element twice.
  * <p>
  * You can return the answer in any order.
+ * <p>
+ * 2 <= nums.length <= 104
+ * -109 <= nums[i] <= 109
+ * -109 <= target <= 109
+ * Only one valid answer exists.
  */
 public class TwoSum {
 

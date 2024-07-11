@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.TreeSet;
 
 public class MyCalendarI {
-    TreeSet<int[]> sortedBooks = new TreeSet<>(Comparator.comparingInt((int[] a) -> a[0]));
     private final List<int[]> books = new ArrayList<>();
+    TreeSet<int[]> sortedBooks = new TreeSet<>(Comparator.comparingInt((int[] a) -> a[0]));
 
     public boolean book(int start, int end) {
         for (int[] b : books) { // iterate through each book

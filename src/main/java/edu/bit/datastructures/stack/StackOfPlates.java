@@ -77,9 +77,9 @@ public class StackOfPlates {
     // stack implementation to keep the track of plates above and below one plate and perform
     // operations accordingly
     class Stack {
+        private final int capacity;
         public int size = 0;
         Node top, bottom;
-        private final int capacity;
 
         Stack(int capacity) {
             this.capacity = capacity;

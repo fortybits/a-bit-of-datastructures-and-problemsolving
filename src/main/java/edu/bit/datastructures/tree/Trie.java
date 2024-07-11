@@ -55,11 +55,10 @@ public class Trie {
 
     static class TrieNode {
         private final Map<Character, TrieNode> children;
+        private final List<Integer> indexes;
         private boolean terminates = false;
-
         // The character stored in this node as data.
         private char character;
-        private final List<Integer> indexes;
 
         public TrieNode() {
             children = new HashMap<>();

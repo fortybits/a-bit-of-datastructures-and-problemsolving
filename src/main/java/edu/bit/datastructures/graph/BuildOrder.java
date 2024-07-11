@@ -72,9 +72,9 @@ public class BuildOrder {
     }
 
     static class Project {
+        private final String name;
         List<Project> children = new ArrayList<>(); // dependent projects for this node
         Map<String, Project> map = new HashMap<>();
-        private final String name;
         private int dependencies = 0; // count of incoming edges to a node
 
         Project(String name) {

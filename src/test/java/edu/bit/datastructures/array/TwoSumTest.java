@@ -1,5 +1,6 @@
 package edu.bit.datastructures.array;
 
+import edu.bit.datastructures.hash.TwoSum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

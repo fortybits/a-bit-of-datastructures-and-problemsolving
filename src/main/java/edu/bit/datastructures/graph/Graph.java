@@ -25,11 +25,11 @@ public class Graph {
     }
 
     static class GraphNode {
+        private final String vertex;
         public int adjacentCount;
         int data;
         State state;
         GraphNode[] adjacent;
-        private final String vertex;
 
         public GraphNode(String vertex, int adjacentLength) {
             this.vertex = vertex;
