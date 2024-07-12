@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class LongestSubstringWithoutRepeatingCharacter {
 
-    // we can keep sliding the window with the the starting point unchanged unless
+    // we can keep sliding the window with the starting point unchanged unless
     // we find the repeating character and at that point in time
     public int lengthOfLongestSubstring(String s) {
         if (s.length() == 0) {

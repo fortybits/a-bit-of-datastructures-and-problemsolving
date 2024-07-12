@@ -1,10 +1,10 @@
 package edu.bit.datastructures.tree;
 
 public class TreeNode {
-    TreeNode left;
-    TreeNode right;
-    TreeNode parent;
-    int val;
+    public TreeNode left;
+    public TreeNode right;
+    public TreeNode parent;
+    public int val;
     private int size = 0;
 
     public TreeNode(int val) {
