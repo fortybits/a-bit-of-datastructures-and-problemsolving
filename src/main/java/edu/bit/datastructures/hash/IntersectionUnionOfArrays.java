@@ -17,7 +17,6 @@ public class IntersectionUnionOfArrays {
             }
         }
         return intersectionElements;
-//        return intersectionElements.stream().mapToInt(i -> i).toArray();
     }
 
     public Set<Integer> union(int[] nums1, int[] nums2) {
