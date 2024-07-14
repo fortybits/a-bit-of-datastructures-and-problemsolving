@@ -3,7 +3,7 @@ package edu.bit.datastructures.tree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class WordDictionaryTest {
+class WordPhonebookTest {
 
     WordDictionary wordDictionary;
 

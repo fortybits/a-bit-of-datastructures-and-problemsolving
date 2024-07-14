@@ -1,4 +1,4 @@
-package edu.bit.problemsolving.competitive.hackerrank.hackinterview.v;
+package edu.bit.problemsolving.competitive.hackerrank.hackinterview;
 
 import java.util.Scanner;
 import java.util.stream.IntStream;
