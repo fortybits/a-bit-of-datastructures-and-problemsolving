@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 /**
- * Implement a function to check if a linked list is a palindrome.
+ * Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
  */
 public class IsPalindrome {
 

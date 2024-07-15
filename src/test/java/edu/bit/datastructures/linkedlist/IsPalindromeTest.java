@@ -29,11 +29,21 @@ class IsPalindromeTest {
     }
 
     @Test
-    void testIsPalindromeForInvalidIput() {
+    void testIsPalindromeForInvalidInput() {
         ListNode listNode = new ListNode(9);
         listNode.next = new ListNode(8);
         listNode.next.next = new ListNode(6);
         listNode.next.next.next = new ListNode(9);
         Assertions.assertFalse(isPalindrome.isPalindrome(listNode));
+    }
+
+
+    @Test
+    void testIsPalindromeForInvalidIputAgain() {
+        ListNode listNode = new ListNode(1);
+        listNode.next = new ListNode(2);
+        listNode.next.next = new ListNode(2);
+        listNode.next.next.next = new ListNode(1);
+        Assertions.assertTrue(isPalindrome.isPalindrome(listNode));
     }
 }
