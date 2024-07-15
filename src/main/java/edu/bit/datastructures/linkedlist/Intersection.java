@@ -4,6 +4,15 @@ package edu.bit.datastructures.linkedlist;
  * Given two linked lists, determine if the two lists intersect. Return the intersecting node.
  * Note that the intersection is defined based on the reference and not the value. That is if the kth
  * node of one list is exact same as jth node of another. They are then intersecting.
+ * <p>
+ * Constraints:
+ * <p>
+ * The number of nodes of listA is in the m.
+ * The number of nodes of listB is in the n.
+ * 1 <= m, n <= 3 * 10^4
+ * 1 <= Node.val <= 10^5
+ * <p>
+ * Follow up: Could you write a solution that runs in O(m + n) time and use only O(1) memory?
  */
 public class Intersection {
 

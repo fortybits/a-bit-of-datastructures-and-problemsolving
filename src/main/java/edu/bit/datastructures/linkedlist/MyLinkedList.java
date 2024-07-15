@@ -18,20 +18,6 @@ package edu.bit.datastructures.linkedlist;
  */
 public class MyLinkedList {
 
-    class ListNode {
-        ListNode next;
-        int val;
-
-        public ListNode() {
-        }
-
-        // Constructor to create a new node
-        ListNode(int d) {
-            val = d;
-            next = null;
-        }
-    }
-
     ListNode head;
     int length;
 
@@ -119,5 +105,27 @@ public class MyLinkedList {
             pre.next = current.next;
             this.length--;
         }
+    }
+
+
+    public static int sizeOfList(ListNode head) {
+        int count = 0;
+        while (head != null) {
+            count++;
+            head = head.next;
+        }
+        return count;
+    }
+
+    public static void printList(ListNode listHead) {
+        if (listHead == null) {
+            return;
+        }
+        System.out.print("LinkedList : ");
+        while (listHead.next != null) {
+            System.out.print(listHead.val + " -> ");
+            listHead = listHead.next;
+        }
+        System.out.println(listHead.val);
     }
 }
