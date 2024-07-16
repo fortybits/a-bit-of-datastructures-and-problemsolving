@@ -2,7 +2,7 @@ package edu.bit.datastructures.linkedlist;
 
 import org.junit.jupiter.api.Test;
 
-class KthFromLastNodeTest {
+class KthFromLastRandomPointerNodeTest {
 
     KthFromLastNode kthFromLastNode = new KthFromLastNode();
 
