@@ -1,7 +1,7 @@
 package edu.bit.datastructures.linkedlist;
 
 /**
- * @link {http://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place}
+ * @link {<a href="http://www.geeksforgeeks.org/rearrange-a-given-linked-list-in-place">...</a>}
  */
 public class RearrangeInPlace {
 
