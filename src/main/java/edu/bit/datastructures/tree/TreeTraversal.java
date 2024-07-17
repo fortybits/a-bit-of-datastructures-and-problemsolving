@@ -60,8 +60,8 @@ public class TreeTraversal {
             return values;
         }
 
-        List<Integer> leftNodes = preorder(root.left);
-        List<Integer> rightNodes = preorder(root.right);
+        List<Integer> leftNodes = postorder(root.left);
+        List<Integer> rightNodes = postorder(root.right);
         int val = root.val;
 
         values.addAll(leftNodes);
