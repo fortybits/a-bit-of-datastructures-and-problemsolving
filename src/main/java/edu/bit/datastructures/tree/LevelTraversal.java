@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  */
 public class LevelTraversal {
 
-    // performs an level order traversal of a tree to print it generally
+    // performs a level order traversal of a tree to print it generally
     public List<List<Integer>> levelOrderBFS(TreeNode root) {
         List<List<Integer>> wrapList = new LinkedList<>();
         if (root == null) {
@@ -22,14 +22,16 @@ public class LevelTraversal {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()) {
-            int levelNum = queue.size();
+            int elementsInLevel = queue.size();
             List<Integer> subList = new LinkedList<>();
-            for (int i = 0; i < levelNum; i++) {
-                if (queue.peek().left != null) {
-                    queue.offer(queue.peek().left);
+            for (int i = 0; i < elementsInLevel; i++) {
+                TreeNode currentNode = queue.peek();
+                // you can traverse right to left by just changing this order
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
                 }
-                if (queue.peek().right != null) {
-                    queue.offer(queue.peek().right);
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
                 }
                 subList.add(queue.poll().val);
             }
@@ -57,7 +59,8 @@ public class LevelTraversal {
     }
 
     public List<Integer> flattenLevelOrder(TreeNode treeNode) {
-        return levelOrderDFS(treeNode).stream()
+        return levelOrderDFS(treeNode)
+                .stream()
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
