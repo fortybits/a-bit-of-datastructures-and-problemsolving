@@ -1,6 +1,8 @@
 package org.one;
 
 class Workout {
+    public int startTime;
+    public int endTime;
     /**
      * This class represents a single workout session for a member.
      * Each object of the Workout class has a
@@ -10,8 +12,6 @@ class Workout {
      */
 
     private int id;
-    public int startTime;
-    public int endTime;
 
     public Workout(int id, int startTime, int endTime) {
         this.id = id;

@@ -26,6 +26,27 @@ public class MyLinkedList {
         this.length = 0;
     }
 
+    public static int sizeOfList(ListNode head) {
+        int count = 0;
+        while (head != null) {
+            count++;
+            head = head.next;
+        }
+        return count;
+    }
+
+    public static void printList(ListNode listHead) {
+        if (listHead == null) {
+            return;
+        }
+        System.out.print("LinkedList : ");
+        while (listHead.next != null) {
+            System.out.print(listHead.val + " -> ");
+            listHead = listHead.next;
+        }
+        System.out.println(listHead.val);
+    }
+
     public int get(int index) {
         if (index < 0 || index >= this.length) {
             return -1;
@@ -105,27 +126,5 @@ public class MyLinkedList {
             pre.next = current.next;
             this.length--;
         }
-    }
-
-
-    public static int sizeOfList(ListNode head) {
-        int count = 0;
-        while (head != null) {
-            count++;
-            head = head.next;
-        }
-        return count;
-    }
-
-    public static void printList(ListNode listHead) {
-        if (listHead == null) {
-            return;
-        }
-        System.out.print("LinkedList : ");
-        while (listHead.next != null) {
-            System.out.print(listHead.val + " -> ");
-            listHead = listHead.next;
-        }
-        System.out.println(listHead.val);
     }
 }

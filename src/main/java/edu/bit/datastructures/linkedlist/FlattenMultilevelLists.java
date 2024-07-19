@@ -17,17 +17,6 @@ package edu.bit.datastructures.linkedlist;
  */
 public class FlattenMultilevelLists {
 
-    public static class MultiLevelNode {
-        public int val;
-        public MultiLevelNode prev;
-        public MultiLevelNode next;
-        public MultiLevelNode child;
-
-        public MultiLevelNode(int val) {
-            this.val = val;
-        }
-    }
-
     // interestingly as the list flattens the level further folds up and hence a single traversal works just fine
     public MultiLevelNode flatten(MultiLevelNode head) {
         if (head == null) return head;
@@ -53,6 +42,17 @@ public class FlattenMultilevelLists {
             pointer.child = null;
         }
         return head;
+    }
+
+    public static class MultiLevelNode {
+        public int val;
+        public MultiLevelNode prev;
+        public MultiLevelNode next;
+        public MultiLevelNode child;
+
+        public MultiLevelNode(int val) {
+            this.val = val;
+        }
     }
 
 }

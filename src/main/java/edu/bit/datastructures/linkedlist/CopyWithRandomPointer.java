@@ -23,18 +23,6 @@ package edu.bit.datastructures.linkedlist;
  */
 public class CopyWithRandomPointer {
 
-    class RandomListNode {
-        int val;
-        RandomListNode next;
-        RandomListNode random;
-
-        public RandomListNode(int val) {
-            this.val = val;
-            this.next = null;
-            this.random = null;
-        }
-    }
-
     public RandomListNode copyRandomList(RandomListNode head) {
         RandomListNode iter = head, next;
 
@@ -80,5 +68,17 @@ public class CopyWithRandomPointer {
 
         return pseudoHead.next;
 
+    }
+
+    class RandomListNode {
+        int val;
+        RandomListNode next;
+        RandomListNode random;
+
+        public RandomListNode(int val) {
+            this.val = val;
+            this.next = null;
+            this.random = null;
+        }
     }
 }
