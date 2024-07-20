@@ -1,4 +1,7 @@
 module a.bit.of.data.structures.and.problem.solving {
+    requires java.net.http;
+    requires json.simple;
+
     exports edu.bit.datastructures.array;
     exports edu.bit.datastructures.bitops;
     exports edu.bit.datastructures.graph;
