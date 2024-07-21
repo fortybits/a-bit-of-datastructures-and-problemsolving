@@ -1,7 +1,4 @@
-package edu.bit.datastructures.tree;
-
-import edu.bit.datastructures.trie.Trie;
-import edu.bit.datastructures.trie.TrieNode;
+package edu.bit.datastructures.trie;
 
 import java.util.*;
 import java.util.stream.Collectors;

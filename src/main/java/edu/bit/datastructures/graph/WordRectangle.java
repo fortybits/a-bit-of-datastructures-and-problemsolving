@@ -1,6 +1,6 @@
 package edu.bit.datastructures.graph;
 
-import edu.bit.datastructures.tree.Trie;
+import edu.bit.datastructures.trie.Trie;
 
 import java.util.ArrayList;
 import java.util.HashMap;
