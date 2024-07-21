@@ -24,13 +24,13 @@ public class APIIntegrationTask {
 
 
     static class Response {
-        Long page;
-        Long perPage;
-        Long total;
-        Long totalPages;
+        Number page;
+        Number perPage;
+        Number total;
+        Number totalPages;
         List<FoodOutlet> foodOutlets;
 
-        public Long getPage() {
+        public Number getPage() {
             return page;
         }
 
@@ -38,7 +38,7 @@ public class APIIntegrationTask {
             this.page = page;
         }
 
-        public Long getPerPage() {
+        public Number getPerPage() {
             return perPage;
         }
 
@@ -46,7 +46,7 @@ public class APIIntegrationTask {
             this.perPage = perPage;
         }
 
-        public Long getTotal() {
+        public Number getTotal() {
             return total;
         }
 
@@ -54,7 +54,7 @@ public class APIIntegrationTask {
             this.total = total;
         }
 
-        public Long getTotalPages() {
+        public Number getTotalPages() {
             return totalPages;
         }
 
@@ -120,18 +120,18 @@ public class APIIntegrationTask {
     }
 
     static class UserRating {
-        Double averageRating;
-        Long votes;
+        Number averageRating;
+        Number votes;
 
-        public Double getAverageRating() {
+        public Number getAverageRating() {
             return averageRating;
         }
 
-        public void setAverageRating(Double averageRating) {
+        public void setAverageRating(Number averageRating) {
             this.averageRating = averageRating;
         }
 
-        public Long getVotes() {
+        public Number getVotes() {
             return votes;
         }
 
@@ -161,8 +161,8 @@ public class APIIntegrationTask {
 
     static List<FoodOutlet> findAllFoodOutletsInPrice(String city) {
         List<FoodOutlet> outletsInCity = new ArrayList<>();
-        Long totalPages = Long.MAX_VALUE;
-        for (long page = 1; page <= totalPages; page++) {
+        Number totalPages = Long.MAX_VALUE;
+        for (long page = 1; page <= totalPages.longValue(); page++) {
             // Create a new HttpClient
             try {
                 HttpClient client = HttpClient.newHttpClient();
@@ -215,11 +215,12 @@ public class APIIntegrationTask {
         outlet.setEstimatedCost((Long) outletJson.get("estimated_cost"));
 
         JSONObject rating = (JSONObject) outletJson.get("user_rating");
-        Object averageRating = rating.get("average_rating");
-        Double outletRating = averageRating instanceof Double ? (Double) averageRating : ((Long) averageRating).doubleValue();
+        // Learning: Number as a parent class is supported to map JSON attribute via the library
+        Number averageRating = (Number) rating.get("average_rating");
+        // Double outletRating = averageRating instanceof Double ? (Double) averageRating : ((Long) averageRating).doubleValue();
         Long votes = (Long) rating.get("votes");
         UserRating userRating = new UserRating();
-        userRating.setAverageRating(outletRating);
+        userRating.setAverageRating(averageRating);
         userRating.setVotes(votes);
         outlet.setUserRating(userRating);
         return outlet;
@@ -228,8 +229,8 @@ public class APIIntegrationTask {
     static class OutletComparator implements Comparator<FoodOutlet> {
         @Override
         public int compare(FoodOutlet o1, FoodOutlet o2) {
-            int ratingComparison = Double.compare(o2.getUserRating().getAverageRating(),
-                    o1.getUserRating().getAverageRating());
+            int ratingComparison = Double.compare(o2.getUserRating().getAverageRating().doubleValue(),
+                    o1.getUserRating().getAverageRating().doubleValue());
             if (ratingComparison == 0) {
                 return o1.getEstimatedCost().compareTo(o2.getEstimatedCost());
             } else {
