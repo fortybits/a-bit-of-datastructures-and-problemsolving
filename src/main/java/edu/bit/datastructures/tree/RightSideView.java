@@ -40,4 +40,19 @@ public class RightSideView {
             return rightSideViewHelper(root.right, list);
         }
     }
+
+    public void rightView(TreeNode curr, List<Integer> result, int currDepth) {
+        if (curr == null) {
+            return;
+        }
+        if (currDepth == result.size()) {
+            result.add(curr.val);
+        }
+        if (curr.left == null && curr.right == null) {
+            return;
+        }
+
+        rightView(curr.right, result, currDepth + 1);
+        rightView(curr.left, result, currDepth + 1);
+    }
 }
