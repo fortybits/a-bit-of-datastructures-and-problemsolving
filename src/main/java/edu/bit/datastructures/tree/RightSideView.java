@@ -23,25 +23,13 @@ import java.util.List;
 public class RightSideView {
 
     public List<Integer> rightSideView(TreeNode root) {
-        return rightSideViewHelper(root, new ArrayList<>());
+        List<Integer> result = new ArrayList<>();
+        rightSideViewHelper(root, result, 0);
+        return result;
     }
 
-    List<Integer> rightSideViewHelper(TreeNode root, List<Integer> list) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
-        list.add(root.val);
-        if (root.left == null && root.right == null) {
-            return list;
-        }
-        if (root.right == null) {
-            return rightSideViewHelper(root.left, list);
-        } else {
-            return rightSideViewHelper(root.right, list);
-        }
-    }
 
-    public void rightView(TreeNode curr, List<Integer> result, int currDepth) {
+    public void rightSideViewHelper(TreeNode curr, List<Integer> result, int currDepth) {
         if (curr == null) {
             return;
         }
@@ -52,7 +40,7 @@ public class RightSideView {
             return;
         }
 
-        rightView(curr.right, result, currDepth + 1);
-        rightView(curr.left, result, currDepth + 1);
+        rightSideViewHelper(curr.right, result, currDepth + 1);
+        rightSideViewHelper(curr.left, result, currDepth + 1);
     }
 }
