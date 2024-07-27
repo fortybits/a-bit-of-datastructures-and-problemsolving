@@ -44,15 +44,18 @@ public class OpenTheLock {
             StringBuilder sb = new StringBuilder(current);
             for (int i = 0; i < 4; i++) {
                 char originalChar = current.charAt(i);
+
+                // forward direction
                 sb.setCharAt(i, (char) ((originalChar - '0' + 1) % 10 + '0'));
                 if (endSet.contains(sb.toString())) {
                     return 1;
                 }
                 if (!deadSet.contains(sb.toString())) {
                     newSet.add(sb.toString());
-                    deadSet.add(sb.toString()); // the searched elements are taken as deadend
+                    deadSet.add(sb.toString()); // the searched elements are taken as deadend (not to get into a cycle)
                 }
 
+                // reverse direction
                 sb.setCharAt(i, (char) ((originalChar - '0' + 9) % 10 + '0'));
                 if (endSet.contains(sb.toString())) {
                     return 1;
@@ -65,7 +68,7 @@ public class OpenTheLock {
                 sb.setCharAt(i, originalChar);
             }
         }
-        if (newSet.size() == 0) {
+        if (newSet.isEmpty()) {
             return -1;
         }
         beginSet = newSet;

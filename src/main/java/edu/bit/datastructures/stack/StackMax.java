@@ -153,14 +153,51 @@ public class StackMax<T extends Comparable<T>> {
         }
     }
 
-/**
- * Your MaxStack object will be instantiated and called as such:
- * MaxStack obj = new MaxStack();
- * obj.push(x);
- * int param_2 = obj.pop();
- * int param_3 = obj.top();
- * int param_4 = obj.peekMax();
- * int param_5 = obj.popMax();
- */
+    // without popMin
+    class MinStack {
 
+        List<Node> data;
+
+        public MinStack() {
+            data = new ArrayList<>();
+        }
+
+        public void push(int val) {
+            if (data.isEmpty()) {
+                data.add(new Node(val));
+            } else {
+                int currentMin = data.get(data.size() - 1).min;
+                data.add(new Node(val, Math.min(val, currentMin)));
+            }
+        }
+
+        public void pop() {
+            data.remove(data.size() - 1);
+        }
+
+        public int top() {
+            return data.get(data.size() - 1).val;
+        }
+
+        public int getMin() {
+            // iterate and get the smallest number or change the data type to store both the number itself and min until now
+            return data.get(data.size() - 1).min;
+        }
+
+        private class Node {
+            int val;
+            int min;
+
+            public Node(int val) {
+                this.val = val;
+                this.min = val;
+            }
+
+            private Node(int val, int min) {
+                this.val = val;
+                this.min = min;
+            }
+        }
+
+    }
 }

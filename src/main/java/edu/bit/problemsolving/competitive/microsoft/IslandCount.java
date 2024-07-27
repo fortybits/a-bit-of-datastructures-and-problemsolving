@@ -4,7 +4,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Given a boolean 2D matrix, find the number of islands. A group of connected 1s forms an island.
+ * Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+ * <p>
+ * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+ * You may assume all four edges of the grid are all surrounded by water.
  */
 public class IslandCount {
 
@@ -14,6 +17,27 @@ public class IslandCount {
         // row number is in range, column number is in range
         // and value is 1 and not yet visited
         return (row >= 0) && (row < ROW) && (col >= 0) && (col < COL) && (M[row][col] == 1 && !visited[row][col]);
+    }
+
+
+    // This function returns number islands (connected components) in a graph.
+    // It simply works as BFS for disconnected graph and returns count of BFS calls.
+    static int countIslands(int[][] mat) {
+        // Mark all cells as not visited
+        boolean[][] vis = new boolean[ROW][COL];
+
+        // Call BFS for every unvisited vertex
+        // Whenever we see an unvisited vertex, we increment res (number of islands) also
+        int res = 0;
+        for (int i = 0; i < ROW; i++) {
+            for (int j = 0; j < COL; j++) {
+                if (mat[i][j] == 1 && !vis[i][j]) {
+                    BFS(mat, vis, i, j);
+                    res++;
+                }
+            }
+        }
+        return res;
     }
 
     static void BFS(int[][] mat, boolean[][] vis, int si, int sj) {
@@ -42,24 +66,25 @@ public class IslandCount {
         }
     }
 
-    // This function returns number islands (connected components) in a graph.
-    // It simply works as BFS for disconnected graph and returns count of BFS calls.
-    static int countIslands(int[][] mat) {
-        // Mark all cells as not visited
-        boolean[][] vis = new boolean[ROW][COL];
+    // https://www.geeksforgeeks.org/find-number-of-islands/
+    // The complexity of this approach is O(ROW x COL)
+    public int countIslandsWithDFS(int[][] M) {
+        // Make a bool array to mark visited cells. Initially all cells are unvisited
+        boolean[][] visited = new boolean[ROW][COL];
 
-        // Call BFS for every unvisited vertex
-        // Whenever we see an unvisited vertex, we increment res (number of islands) also
-        int res = 0;
-        for (int i = 0; i < ROW; i++) {
-            for (int j = 0; j < COL; j++) {
-                if (mat[i][j] == 1 && !vis[i][j]) {
-                    BFS(mat, vis, i, j);
-                    res++;
+        // Initialize count as 0 and traverse through the all cells of given matrix
+        int count = 0;
+        for (int i = 0; i < ROW; ++i) {
+            for (int j = 0; j < COL; ++j) {
+                if (M[i][j] == 1 && !visited[i][j]) {
+                    // If a cell with value 1 is not visited yet, then new island found.
+                    // Visit all cells in island and increment island count
+                    DFS(M, i, j, visited);
+                    ++count;
                 }
             }
         }
-        return res;
+        return count;
     }
 
     // A utility function to do DFS for a 2D boolean matrix.
@@ -79,27 +104,6 @@ public class IslandCount {
                 DFS(M, row + rowNbr[k], col + colNbr[k], visited);
             }
         }
-    }
-
-    // https://www.geeksforgeeks.org/find-number-of-islands/
-    // The complexity of this approach is O(ROW x COL)
-    public int countIslandsWithDFS(int[][] M) {
-        // Make a bool array to mark visited cells. Initially all cells are unvisited
-        boolean[][] visited = new boolean[ROW][COL];
-
-        // Initialize count as 0 and traverse through the all cells of given matrix
-        int count = 0;
-        for (int i = 0; i < ROW; ++i) {
-            for (int j = 0; j < COL; ++j) {
-                if (M[i][j] == 1 && !visited[i][j]) {
-                    // If a cell with value 1 is not visited yet, then new island found.
-                    // Visit all cells in this island and increment island count
-                    DFS(M, i, j, visited);
-                    ++count;
-                }
-            }
-        }
-        return count;
     }
 
     // Using BFS approach and also understanding the difference
