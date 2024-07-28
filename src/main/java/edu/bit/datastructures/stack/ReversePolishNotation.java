@@ -1,6 +1,7 @@
 package edu.bit.datastructures.stack;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * You are given an array of strings tokens that represents an arithmetic expression in a Reverse Polish Notation.
@@ -22,7 +23,7 @@ public class ReversePolishNotation {
     // As soon as an operator is found, process the previous two numbers on stack first.
     public int evalRPN(String[] tokens) {
         Integer firstOperand, secondOperand;
-        Stack<Integer> stackOfNumbers = new Stack<>();
+        Deque<Integer> stackOfNumbers = new ArrayDeque<>();
         for (String token : tokens) {
             if (token.equals("+")) {
                 stackOfNumbers.add(stackOfNumbers.pop() + stackOfNumbers.pop());
