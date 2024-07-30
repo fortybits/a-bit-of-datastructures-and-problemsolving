@@ -26,8 +26,7 @@ public class LargestRectangularArea {
 
         int maxiumumArea = 0; // Initialize max area
         int top; // To store top of stack
-        int areaWithTop; // To store area with top bar as
-        // the smallest bar
+        int areaWithTop; // To store area with top bar as the smallest bar
 
         // Run through all bars of given histogram
         int i = 0;
