@@ -113,7 +113,7 @@ public class StackMax<T extends Comparable<T>> {
 
     class MaxStack {
         private final DoubleLinkedList stk = new DoubleLinkedList();
-        private final TreeMap<Integer, List<Node>> tm = new TreeMap<>();
+        private final TreeMap<Integer, List<Node>> tm = new TreeMap<>(); // value as list for the same number pushed more than once
 
         public MaxStack() {
         }

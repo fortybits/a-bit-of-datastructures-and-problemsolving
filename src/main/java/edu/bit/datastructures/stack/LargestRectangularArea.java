@@ -57,7 +57,8 @@ public class LargestRectangularArea {
         // Now pop the remaining bars from stack and calculate area with every popped bar as the smallest bar
         while (!s.empty()) {
             top = s.pop();
-            areaWithTop = hist[top] * (s.empty() ? i : i - s.peek() - 1);
+            int width = s.empty() ? i : i - s.peek() - 1;
+            areaWithTop = hist[top] * width;
 
             if (maxiumumArea < areaWithTop)
                 maxiumumArea = areaWithTop;
