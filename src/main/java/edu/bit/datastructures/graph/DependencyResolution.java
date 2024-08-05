@@ -51,7 +51,7 @@ public class DependencyResolution {
         return true;
     }
 
-    public List<String> getInstallOrderOfaPackage(String[][] dependencies, String initialDependency) {
+    public List<String> getInstallOrderOfAPackage(String[][] dependencies, String initialDependency) {
         if (!dependencyGraph.containsKey(initialDependency)) return Collections.emptyList();
         // leaf node same as itself
         if (dependencyGraph.get(initialDependency).isEmpty()) return List.of(initialDependency);
