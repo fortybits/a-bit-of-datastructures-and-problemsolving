@@ -21,10 +21,10 @@ public class MyCircularQueue {
 
     // a better structure would possibly be circular linked list to implement this
 
-    private int front;
-    private int rear;
     private final int limit;
     private final int[] data;
+    private int front;
+    private int rear;
 
 
     public MyCircularQueue(int k) {

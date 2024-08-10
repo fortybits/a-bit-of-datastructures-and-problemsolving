@@ -27,7 +27,7 @@ public class ReconstructItinerary {
     // If not, we revert the change and try another ticket. We keep trying until we have used all our tickets.
 
     private Map<String, List<String>> adjList = new TreeMap<>();
-    private LinkedList<String> route = new LinkedList<>();
+    private final LinkedList<String> route = new LinkedList<>();
     private int numTickets = 0;
     private int numTicketsUsed = 0;
 

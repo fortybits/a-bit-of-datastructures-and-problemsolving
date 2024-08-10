@@ -11,7 +11,7 @@ class Workout {
      * of minutes spent from the start of the day.
      */
 
-    private int id;
+    private final int id;
 
     public Workout(int id, int startTime, int endTime) {
         this.id = id;

@@ -17,19 +17,19 @@ package edu.bit.datastructures.array;
  */
 public class SortColors {
 
-    int[] sortColors(int input[], int n) {
+    /* Swap values at index i and j. */
+    public static void swap(int[] array, int i, int j) {
+        int t = array[i];
+        array[i] = array[j];
+        array[j] = t;
+    }
+
+    int[] sortColors(int[] input, int n) {
         int second = n - 1, zero = 0;
         for (int i = 0; i <= second; i++) {
             while (input[i] == 2 && i < second) swap(input, i, second--);
             while (input[i] == 0 && i > zero) swap(input, i, zero++);
         }
         return input;
-    }
-
-    /* Swap values at index i and j. */
-    public static void swap(int[] array, int i, int j) {
-        int t = array[i];
-        array[i] = array[j];
-        array[j] = t;
     }
 }

@@ -14,6 +14,7 @@ import java.util.Map;
  */
 public class TargetSum {
     int result = 0; // count of ways
+    private Map<String, Integer> memo;
 
     public int findTargetSumWays(int[] nums, int target) {
         if (nums.length == 0) {
@@ -33,8 +34,6 @@ public class TargetSum {
         dfs(nums, target, index + 1, currSum + nums[index]);
         dfs(nums, target, index + 1, currSum - nums[index]);
     }
-
-    private Map<String, Integer> memo;
 
     public int findTargetSumWaysMemoize(int[] nums, int S) {
         int index = nums.length - 1;
