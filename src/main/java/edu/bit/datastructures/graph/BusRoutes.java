@@ -48,10 +48,7 @@ public class BusRoutes {
         Map<Integer, Set<Integer>> routeMap = new HashMap<>();
         for (int i = 0; i < routes.length; ++i) {
             for (int j : routes[i]) {
-                if (!routeMap.containsKey(j)) {
-                    routeMap.put(j, new HashSet<>());
-                }
-                routeMap.get(j).add(i);
+                routeMap.computeIfAbsent(j, k -> new HashSet<>()).add(i);
             }
         }
         return routeMap;
