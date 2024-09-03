@@ -33,8 +33,9 @@ public class ClimbingStairs {
         if (!memo.containsKey(n)) {
             memo.put(n, climbStairs(n - 1, memo) + climbStairs(n - 2, memo));
         }
-//        return memo.get(n);
-                 return memo.computeIfAbsent(n, curr -> climbStairs(curr - 1, memo) + climbStairs(curr - 2, memo));
+        return memo.get(n);
+        // https://stackoverflow.com/questions/54824656/since-java-9-hashmap-computeifabsent-throws-concurrentmodificationexception-on
+        // return memo.computeIfAbsent(n, curr -> climbStairs(curr - 1, memo) + climbStairs(curr - 2, memo));
         // java.util.ConcurrentModificationException
         //  at line 1229, java.base/java.util.HashMap.computeIfAbsent
         //  at line 11, Solution.climbStairs
