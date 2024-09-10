@@ -13,6 +13,6 @@ package edu.bit.datastructures.graph;
 public class ShortestPathWithObstacles {
 
     public int shortestPath(int[][] grid, int k) {
-
+        return 0;
     }
 }
