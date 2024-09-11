@@ -1,5 +1,8 @@
 package edu.bit.datastructures.linkedlist;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * You are given the heads of two sorted linked lists list1 and list2.
  * <p>
@@ -42,4 +45,31 @@ public class MergeSortedLists {
         return result.next;
     }
 
+
+    /**
+     * You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+     * <p>
+     * Merge all the linked-lists into one sorted linked-list and return it.
+     */
+    public ListNode mergeKLists(List<ListNode> lists) {
+        // if we make use of the identified method above, we can continue to half each iteration
+        if (lists.isEmpty()) return null;
+        if (lists.size() == 1) return lists.getFirst();
+        return mergeTwoLists(mergeKLists(lists.subList(0, lists.size() / 2)),
+                mergeKLists(lists.subList(lists.size() / 2, lists.size())));
+        // the overall complexity of this code is O(logK) for the divide and conquer
+        // and O(N) for each of the merge compute i.e. overall NLogK
+    }
+
+
+    public ListNode mergeKLists(ListNode[] lists) {
+        List<ListNode> input = Arrays.stream(lists).toList();
+        // if we make use of the identified method above, we can continue to half each iteration
+        if (input.isEmpty()) return null;
+        if (input.size() == 1) return input.getFirst();
+        return mergeTwoLists(mergeKLists(input.subList(0, input.size() / 2).toArray(ListNode[]::new)),
+                mergeKLists(input.subList(input.size() / 2, input.size()).toArray(ListNode[]::new)));
+        // the overall complexity of this code is O(logK) for the divide and conquer
+        // and O(N) for each of the merge compute i.e. overall NLogK
+    }
 }
