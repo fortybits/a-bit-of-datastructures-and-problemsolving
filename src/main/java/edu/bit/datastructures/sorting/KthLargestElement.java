@@ -1,4 +1,4 @@
-package edu.bit.datastructures.tree;
+package edu.bit.datastructures.sorting;
 
 import java.util.PriorityQueue;
 import java.util.Random;
