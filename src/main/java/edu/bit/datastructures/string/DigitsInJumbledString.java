@@ -1,4 +1,4 @@
-package edu.bit.datastructures;
+package edu.bit.datastructures.string;
 
 import java.util.Map;
 import java.util.function.Function;

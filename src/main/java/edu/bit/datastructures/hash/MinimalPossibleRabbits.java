@@ -1,4 +1,4 @@
-package edu.bit.datastructures;
+package edu.bit.datastructures.hash;
 
 import java.util.HashMap;
 import java.util.Map;

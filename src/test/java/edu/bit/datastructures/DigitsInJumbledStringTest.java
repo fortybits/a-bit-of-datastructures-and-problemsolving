@@ -1,5 +1,6 @@
 package edu.bit.datastructures;
 
+import edu.bit.datastructures.string.DigitsInJumbledString;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

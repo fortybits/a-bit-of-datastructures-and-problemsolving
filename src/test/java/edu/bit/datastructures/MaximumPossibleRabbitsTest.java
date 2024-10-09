@@ -1,5 +1,6 @@
 package edu.bit.datastructures;
 
+import edu.bit.datastructures.hash.MinimalPossibleRabbits;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
