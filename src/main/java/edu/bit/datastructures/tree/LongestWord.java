@@ -1,4 +1,4 @@
-package edu.bit.datastructures.string;
+package edu.bit.datastructures.tree;
 
 import java.util.*;
 
